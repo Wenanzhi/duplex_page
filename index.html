@@ -7,7 +7,7 @@
 <meta name="description" content="用双轨合成音频、强制对齐和按助手分词调整的 chunk，观察每一次对话交互。">
 <title>Duplex · 双轨交互时间线</title>
 <style>
-@font-face{font-family:"Duplex Demo Sans";src:url("assets/demo-sans.woff?v=20261113") format("woff");font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:"Duplex Demo Sans";src:url("assets/demo-sans.woff?v=per_gate_20261113") format("woff");font-style:normal;font-weight:400;font-display:swap}
 :root{--bg:#f5f6f8;--paper:#fff;--ink:#18232f;--muted:#74808c;--line:#e6e9ee;--blue:#347ddd;--orange:#dd8a35;--green:#16866f;--red:#d25460;--yellow:#ae8820;--shadow:0 4px 18px #18232f04;--mono:ui-monospace,SFMono-Regular,Consolas,"Duplex Demo Sans",monospace}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans CJK SC","Microsoft YaHei","Duplex Demo Sans",sans-serif;font-size:14px;line-height:1.65}button,input,select{font:inherit}button,a,input,select{outline-offset:4px}button{cursor:pointer}button:disabled{cursor:wait;opacity:.45}button{background:#fff;border:1px solid var(--line);border-radius:7px;padding:7px 12px;color:var(--ink);transition:background .15s,border-color .15s}button:hover{background:#f2f5f7;border-color:#c7d0da}button.primary{background:var(--ink);border-color:var(--ink);color:white}button.primary:hover{background:#304253}.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}.muted{color:var(--muted)}.tiny{font-size:11px}.tag{display:inline-flex;align-items:center;gap:6px;padding:3px 8px;border-radius:5px;background:#edf5f2;color:#287962;font-size:11px;white-space:nowrap}.tag.warn{background:#fff4df;color:#957020}.pill{border:1px solid var(--line);background:white;border-radius:30px;padding:4px 10px;font-size:11px;color:var(--muted)}.dot{width:7px;height:7px;background:currentColor;display:inline-block;border-radius:50%}a{color:var(--green);text-decoration:none}a:hover{text-decoration:underline}
 header{height:65px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 34px;background:#ffffffd9}.brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:2px;font-size:15px}.brand svg{color:var(--green)}.brand span{font-size:10px;letter-spacing:1.8px;color:var(--muted);border-left:1px solid var(--line);padding-left:14px;font-weight:500}.header-right{display:flex;align-items:center;gap:15px}main{max-width:1560px;padding:26px 34px 42px;margin:auto}.intro{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:23px}.eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:2px;color:var(--green);margin-bottom:7px}h1{font-size:28px;letter-spacing:-.7px;line-height:1.4;margin:0 0 7px;font-weight:700}.intro p{margin:0;color:var(--muted);font-size:12px}.stats{display:flex;gap:26px}.stat{padding-left:22px;border-left:1px solid var(--line)}.stat b{font-size:22px;font-family:var(--mono);font-weight:500;line-height:1.3}.stat span{display:block;font-size:10px;color:var(--muted);margin-top:2px}.notice{display:flex;align-items:center;gap:10px;background:#fffaf0;border:1px solid #eee3c9;padding:9px 14px;margin-bottom:18px;border-radius:7px;font-size:12px;color:#846b35}.notice strong{font-weight:600}.notice .divider{width:1px;height:12px;background:#e5d7b6}.notice a{margin-left:auto;color:inherit;white-space:nowrap}.panel{background:var(--paper);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow)}.panel-head{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 18px}.panel-head h2{font-size:13px;margin:0;font-weight:650}.panel-head .sub{font-size:10px;color:var(--muted);font-family:var(--mono);margin-left:10px}.overview{margin-bottom:18px;overflow:hidden}.overview .panel-head{padding-bottom:7px}.role-key{display:flex;gap:14px;font-size:11px;align-items:center}.user-color{color:var(--blue)}.assistant-color{color:var(--orange)}.canvas-wrap{position:relative}.canvas-wrap canvas{display:block;width:100%;touch-action:none}.overview canvas{height:132px;cursor:crosshair}.playhead{position:absolute;top:0;bottom:0;width:1px;background:#172936;pointer-events:none;display:none;z-index:3}.playhead:before{content:"";position:absolute;top:0;left:-3px;border-top:6px solid #172936;border-left:3px solid transparent;border-right:3px solid transparent}.transport{border-top:1px solid var(--line);display:flex;align-items:center;gap:12px;padding:12px 18px;flex-wrap:wrap}.play-button{border:0;background:var(--green);color:white;width:38px;height:38px;padding:0;border-radius:50%;font-size:16px;flex-shrink:0}.play-button:hover{background:#0e715d;border:0}.clock{font-family:var(--mono);font-size:12px;min-width:158px}.clock small{color:var(--muted);font-size:10px}.transport .spacer{flex:1}.segments{display:flex;background:#f1f3f5;padding:3px;border-radius:7px;gap:2px}.segments button{border:0;font-size:11px;padding:5px 9px;background:transparent;white-space:nowrap}.segments button[aria-pressed=true]{background:#fff;box-shadow:0 1px 4px #17232f14;color:var(--green)}.icon-button{padding:6px 10px;font-size:12px}.icon-button[aria-pressed=true]{background:#eaf5f1;color:var(--green);border-color:#b8d9cc}.seekbar{width:100%;accent-color:var(--green);height:3px;margin:0;display:block}.audio-status{font-size:10px;color:var(--muted)}
@@ -166,7 +166,13 @@ function renderDetails(){
  $('metrics').innerHTML=html;
  $('markerStrip').innerHTML=ms.map((m,i)=>`<button class="marker-chip" data-marker="${i}" style="color:${m.color}">${esc(m.label)}<span class="time">${seconds(m.sample)} s</span></button>`).join('');
  $('director').innerHTML=[h,g].filter(Boolean).map(u=>`<div class="director-entry"><div class="who ${u.role}-color">${u.role.toUpperCase()} · ${u.id} · 轮 ${u.main_turn_id}</div><div class="director-text">${directorText(data.director.utterances.find(d=>d.id===u.id).text)}</div></div>`).join('');
- $('sentenceContext').innerHTML=['before','after'].map(side=>{let c=clip[side+'_context'];return `<div class="context-line"><b>${side==='before'?'交互前':'交互后'} · ${c.role} / ${c.utterance_id}</b>${esc(c.text)}</div>`;}).join('');
+ $('sentenceContext').innerHTML=['before','after'].map(side=>{
+  const c=clip[side+'_context'],label=side==='before'?'交互前':'交互后';
+  if(!c)return `<div class="context-line"><b>${label} · 对话结束</b>${esc(clip.context_note)}</div>`;
+  return `<div class="context-line"><b>${label} · ${c.role} / ${c.utterance_id}</b>${esc(c.text)}</div>`;
+ }).join('');
+ $('playContext').textContent=clip.context_status==='session_end'?'▶ 试听事件至对话结束':'▶ 试听完整前后文';
+ $('sidePlay').textContent=clip.context_status==='session_end'?'▶ 播放事件至对话结束':'▶ 播放此事件的前后文';
  $('eventChecks').innerHTML=`<details><summary>查看此事件的 ${checks.length} 项时序证据</summary><ul>${checks.map(c=>`<li>${c.satisfied?'✓':'✕'} ${esc(c.code)}</li>`).join('')}</ul></details>`;
  renderTranscripts();
 }
@@ -241,7 +247,7 @@ function parseWave(bytes){const v=new DataView(bytes),str=(at,n)=>String.fromCha
  const blocks=Math.ceil(N/240);peaks=[0,1].map(()=>({min:new Int16Array(blocks),max:new Int16Array(blocks)}));peak=1;for(let i=0;i<N;i++){let bin=Math.floor(i/240);for(let c=0;c<2;c++){const n=pcm[2*i+c];if(n<peaks[c].min[bin])peaks[c].min[bin]=n;if(n>peaks[c].max[bin])peaks[c].max[bin]=n;peak=Math.max(peak,Math.abs(n));}}}
 async function init(){
  try{
-  const response=await fetch('assets/demo.json?v=pages_each_interaction_20261113',{cache:'no-store'});if(!response.ok)throw new Error(`展示数据加载失败（HTTP ${response.status}）。`);data=await response.json();SR=data.meta.sample_rate;CH=data.meta.chunk_samples;N=data.meta.padded_samples;
+  const response=await fetch('assets/demo.json?v=per_gate_20261113',{cache:'no-store'});if(!response.ok)throw new Error(`展示数据加载失败（HTTP ${response.status}）。`);data=await response.json();SR=data.meta.sample_rate;CH=data.meta.chunk_samples;N=data.meta.padded_samples;
   if(!Number.isSafeInteger(SR)||SR<=0||!Number.isSafeInteger(CH)||CH<=0||!Number.isSafeInteger(N)||N<=0||!data.chunks.length)throw new Error('采样率或 chunk 结构不完整。');
   chunkBoundaries=[0];
   for(const [i,c] of data.chunks.entries()){
@@ -251,16 +257,27 @@ async function init(){
   if(chunkBoundaries.at(-1)!==N)throw new Error('chunk 未完整覆盖双轨音频。');
   for(const sample of chunkBoundaries)boundarySamples.add(sample);
   for(const u of data.utterances)U.set(u.id,u);for(const c of data.chunks){C.set(c.chunk_id,c);for(const a of c.actions){if(!A.has(a.utterance_id))A.set(a.utterance_id,[]);A.get(a.utterance_id).push({...a,sample:c.start_sample});}}
-  for(const c of data.clips){if(!c.before_context||!c.after_context||c.before_context.end_sample>c.event_interval_samples[0]||c.after_context.start_sample<c.event_interval_samples[1])throw new Error('事件前后句上下文不完整。');clips.set(c.event_id,c);}if(data.events.some(e=>!clips.has(e.id)))throw new Error('缺少事件时间索引。');
+  for(const c of data.clips){
+   if(!c.before_context||c.before_context.end_sample>c.event_interval_samples[0])throw new Error('事件前句上下文不完整。');
+   if(c.after_context){
+    if(c.after_context.start_sample<c.event_interval_samples[1])throw new Error('事件后句上下文不完整。');
+   }else{
+    const e=data.events.find(e=>e.id===c.event_id),guest=U.get(e?.guest_id);
+    const terminalStop=e?.type==='interrupt'&&e.mode==='stop'&&guest&&!data.utterances.some(u=>u.speech_end_sample>guest.speech_end_sample);
+    if(c.context_status!=='session_end'||!c.context_note||!terminalStop||c.source_interval_samples[1]!==N)throw new Error('缺少事件后句，且不是已标明的对话结束。');
+   }
+   clips.set(c.event_id,c);
+  }
+  if(data.events.some(e=>!clips.has(e.id)))throw new Error('缺少事件时间索引。');
   const user=activeIntervals('user'),assistant=activeIntervals('assistant');let i=0,j=0;while(i<user.length&&j<assistant.length){const a=Math.max(user[i][0],assistant[j][0]),b=Math.min(user[i][1],assistant[j][1]);if(b>a)overlaps.push([a,b]);if(user[i][1]<assistant[j][1])i++;else j++;}
   $('previewNotice').classList.toggle('hidden',!data.meta.preview_only);
   $('topic').textContent=data.meta.topic;$('sampleTag').textContent=data.meta.sample_id.toUpperCase();$('durationStat').textContent=time(N/SR,0);$('eventStat').textContent=String(data.events.length).padStart(2,'0');const durations=data.chunks.map(c=>(c.end_sample-c.start_sample)/SR*1000);$('chunkStat').textContent=`${Math.min(...durations).toFixed(0)}–${Math.max(...durations).toFixed(0)}`;$('checkStat').textContent=data.timing.checks.filter(c=>c.satisfied).length;$('eventCount').textContent=String(data.events.length).padStart(2,'0')+' EVENTS';$('clockEnd').textContent=time(N/SR);$('seekbar').max=N;
   const alignment=data.meta.alignment||{model:data.meta.ctc_model,revision:data.meta.ctc_revision,timestamp_resolution_s:data.meta.ctc_resolution_s};
   $('methodNote').textContent=`${SR/1000} kHz 原始 PCM · 双轨共用幅度刻度 · 对齐分辨率 ${alignment.timestamp_resolution_s*1000} ms · 有效起声检测 ${data.meta.speech_bounds_resolution_ms} ms`;
-  $('sourceNote').textContent=`${data.meta.tts_model||'Qwen3-TTS'} · ${alignment.model} · ${data.meta.generated_date}`;
+  $('sourceNote').textContent=`${data.meta.tts_model}${data.meta.tts_mode?' · '+data.meta.tts_mode:''} · ${alignment.model} · ${data.meta.generated_date}`;
   const audioUrl=data.meta.audio_url+'?v='+data.meta.audio_sha256.slice(0,12);
   document.querySelector('a[href="assets/demo.wav"]').href=audioUrl;
-  document.querySelector('a[href="assets/demo.json"]').href='assets/demo.json?v=pages_each_interaction_20261113';
+  document.querySelector('a[href="assets/demo.json"]').href='assets/demo.json?v=per_gate_20261113';
   $('eventList').innerHTML=data.events.map((e,i)=>`<button class="event-button" data-event="${esc(e.id)}"><span class="event-number">${String(i+1).padStart(2,'0')}</span><span><b>${esc(title(e))}</b><small>${time(core(e)[0]/SR)} · ${esc(e.initiator)}</small></span><span class="chevron">›</span></button>`).join('');
   const legends=[['trigger','◆','语义触发'],['placement','○','音频落点'],['start','▲','开始动作'],['onset','●','有效起声'],['cut','│','[CUT]'],['stop','▲','停止 / 补零边界'],['pause','◇','停顿 / 静默']];$('legend').innerHTML=legends.map(([k,s,t])=>`<label><input type="checkbox" value="${k}" checked><i style="color:${COLORS[k]}">${s}</i>${t}</label>`).join('');
   renderAudit();connectControls();const initial=data.events.find(e=>e.id===location.hash.slice(1))||data.events.find(e=>e.type==='interrupt'&&e.initiator==='user'&&e.mode==='stop')||data.events[0];selectEvent(initial.id);animate();
