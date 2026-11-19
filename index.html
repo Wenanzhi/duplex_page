@@ -7,7 +7,7 @@
 <title>Duplex · 320 ms 音频与文本核对</title>
 <meta name="description" content="按固定 320 ms 音频块核对双轨音频、前置文本与 CUT 停止位置，支持逐块试听。">
 <style>
-@font-face{font-family:DuplexHan;font-style:normal;font-weight:100 900;font-display:swap;src:url('assets/demo-sans.woff?v=20261119-chunk-frontload') format('woff')}
+@font-face{font-family:DuplexHan;font-style:normal;font-weight:100 900;font-display:swap;src:url('assets/demo-sans.woff?v=20261119-balanced-v1') format('woff')}
 
 :root{color-scheme:light;--bg:#f5f7fb;--surface:#fff;--ink:#152238;--muted:#58677d;--line:#d8e1ed;--user:#166788;--assistant:#6b44b7;--active:#eaf0ff;--cut:#b3383f;--shadow:0 8px 28px #182d4c08;font-family:Inter,DuplexHan,"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;font-size:16px}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);line-height:1.55}main{max-width:1460px;margin:0 auto;padding:30px 28px 50px}header{display:flex;gap:20px;justify-content:space-between;align-items:start;margin-bottom:22px}h1{font-size:1.6rem;line-height:1.35;margin:4px 0 8px;font-weight:650}h2{font-size:1.05rem;margin:0 0 10px}p{margin:0}.eyebrow{font-size:.8rem;letter-spacing:.12em;font-weight:600;color:var(--muted)}.sub{font-size:.9rem;color:var(--muted)}.badge{display:inline-block;border:1px solid var(--line);border-radius:6px;padding:3px 9px;font-size:.8rem;white-space:nowrap}.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow);margin-bottom:18px}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.spread{justify-content:space-between}.controls{margin-bottom:14px}.controls label{display:flex;align-items:center;gap:8px;font-size:.9rem}button,select,input{font:inherit}button,select{min-height:38px;border-radius:7px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:6px 12px}button{cursor:pointer}button:hover{background:var(--active)}button:disabled{opacity:.5;cursor:default}button.primary{color:#fff;background:#244a91;border-color:#244a91}button.primary:hover{background:#193b79}button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #668ff0;outline-offset:3px}input[type=range]{width:100%;accent-color:#244a91;margin:12px 0 8px}input[type=number]{width:90px;min-height:38px;border:1px solid var(--line);border-radius:7px;padding:5px 9px;background:var(--surface);color:var(--ink)}select{max-width:100%}.tabular{font-variant-numeric:tabular-nums}.status{min-height:1.5em;color:var(--muted);font-size:.875rem}.error{color:var(--cut)}.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:.85rem;color:var(--muted)}.legend span{display:inline-flex;align-items:center;gap:6px}.swatch{width:14px;height:3px;display:inline-block}.user{color:var(--user)}.assistant{color:var(--assistant)}.legend .user{background:var(--user)}.legend .assistant{background:var(--assistant)}.legend .cut{background:var(--cut)}.legend .raw{height:0;border-top:2px dashed var(--cut)}
@@ -18,13 +18,15 @@
 </head>
 <body>
 <main id="duplex-review">
- <header><div><div class="eyebrow">DUPLEX / CHUNK REVIEW</div><h1>音频按块听，文本按块看</h1><p class="sub" id="demo-summary"></p></div><span class="badge">320 ms · 原始 PCM · 双轨</span></header>
+ <header><div><div class="eyebrow">DUPLEX / CHUNK REVIEW</div><h1>音频按块听，文本按块看</h1><p class="sub" id="demo-summary"></p></div><span class="badge">320 ms · 无损 PCM · 双轨</span></header>
  <section class="card" aria-label="播放与定位">
   <div class="row controls">
    <button type="button" id="play-chunk" class="primary">播放此块</button><button type="button" id="play-page">播放本页</button><button type="button" id="play-rest">从此处连续播放</button><button type="button" id="stop" disabled>停止</button>
+   <label>音频版本<select id="audio-version"><option value="balanced">调整后 · 响度平衡</option><option value="before">调整前 · 原音轨</option></select></label>
    <label>试听轨道<select id="channel"><option value="both">双轨（左 User / 右 Assistant）</option><option value="user">只听 User</option><option value="assistant">只听 Assistant</option></select></label>
   </div>
-  <p id="audio-status" class="status" role="status" aria-live="polite">首次播放会载入两条完整音轨；音量不归一化。</p>
+  <p id="balance-summary" class="small muted" style="margin-bottom:10px"></p>
+  <p id="audio-status" class="status" role="status" aria-live="polite">首次播放加载所选版本；浏览器不额外调整音量。</p>
   <div class="row spread"><label for="position" class="small">定位音频块 <strong id="position-readout" class="tabular"></strong></label><span id="clock" class="tabular small">00:00.000</span></div>
   <input id="position" type="range" min="0" max="1206" value="0" step="1" aria-label="选择音频块">
   <div class="row spread">
@@ -52,7 +54,7 @@
 <script>
 (async () => {
  'use strict';
- const ASSET_VERSION='20261119-first-boundary';
+ const ASSET_VERSION='20261119-balanced-v1';
  for(const id of ['play-chunk','play-page','play-rest'])document.getElementById(id).disabled=true;
  document.getElementById('audio-status').textContent='正在加载分块文本与波形……';
  const response=await fetch('assets/demo.json?v='+ASSET_VERSION);
@@ -62,7 +64,7 @@
  const $=id=>document.getElementById(id);
  $('text-limit').textContent=D.maxTextUnits;
  const roles=['user','assistant'],N=D.frames.length,SR=D.sampleRate,CS=D.chunkSamples;
- const state={selected:0,page:0,columns:8,playing:false,serial:0,sources:[],channel:'both',ctx:null,buffers:null,loading:null,startAt:0,startSample:0,endSample:0};
+ const state={selected:0,page:0,columns:8,playing:false,serial:0,sources:[],channel:'both',ctx:null,variant:'balanced',buffers:{},loading:{},startAt:0,startSample:0,endSample:0};
  const eventNames={interrupt:'打断',backchannel:'短反馈',pause:'用户停顿',pend:'保持等待'};
  const modeNames={wait:'等待',simultaneous:'同时插话',stop:'停止'};
  const time=s=>{const ms=Math.round(s*1000),m=Math.floor(ms/60000);return String(m).padStart(2,'0')+':'+String(Math.floor(ms/1000)%60).padStart(2,'0')+'.'+String(ms%1000).padStart(3,'0')};
@@ -79,7 +81,7 @@
  function wave(role,i){
   const svg=svgEl('svg',{viewBox:'0 0 128 86',preserveAspectRatio:'none',class:'wave','aria-hidden':'true'});
   svg.append(svgEl('line',{x1:0,y1:43,x2:128,y2:43,stroke:'var(--line)','stroke-width':0.6}));
-  const peaks=D.peaks[role][i];let path='';
+  const peaks=D.variants[state.variant].peaks[role][i];let path='';
   for(let j=0;j<peaks.length;j+=2){const x=(j/2+.5)*128/(peaks.length/2);path+='M'+x.toFixed(2)+','+(43-peaks[j]/32768*40).toFixed(2)+'V'+(43-peaks[j+1]/32768*40).toFixed(2);}
   svg.append(svgEl('path',{d:path,fill:'none',stroke:'var(--'+role+')','stroke-width':2.7}));
   const s=i*CS,e=s+CS;
@@ -154,29 +156,33 @@
   state.sources=[];$('stop').disabled=true;$('playhead').style.display='none';
   for(const cell of document.querySelectorAll('.cell.playing'))cell.classList.remove('playing');
  }
- async function getAudio(){
-  if(state.buffers)return state.buffers;
-  if(state.loading)return state.loading;
-  state.loading=(async()=>{
+ async function getAudio(variant=state.variant){
+  if(state.buffers[variant])return state.buffers[variant];
+  if(state.loading[variant])return state.loading[variant];
+  const version=D.variants[variant];
+  state.loading[variant]=(async()=>{
    if(!window.AudioContext&&!window.webkitAudioContext)throw Error('浏览器不支持 Web Audio。');
    if(!window.DecompressionStream)throw Error('浏览器不支持无损音频解压，请使用新版 Chrome / Edge / Safari。');
    const Context=window.AudioContext||window.webkitAudioContext;
    if(!state.ctx)state.ctx=new Context({sampleRate:SR});
    await state.ctx.resume();
-   setStatus('正在载入原始 PCM 音轨……');
+   if(state.variant===variant)setStatus('正在载入'+version.label+'音轨……');
    const buffers={};
    for(const role of roles){
-    const response=await fetch('assets/'+role+'.pcm.deflate?v='+ASSET_VERSION);
+    const response=await fetch(version.files[role]+'?v='+ASSET_VERSION);
     if(!response.ok)throw Error(role+' 音频读取失败：HTTP '+response.status);
     const stream=response.body.pipeThrough(new DecompressionStream('deflate'));
     const raw=await new Response(stream).arrayBuffer();
     if(raw.byteLength!==D.samples*2)throw Error(role+' 音频长度不匹配，停止播放。');
-    const view=new DataView(raw);const b=state.ctx.createBuffer(1,D.samples,SR),v=b.getChannelData(0);for(let i=0;i<v.length;i++)v[i]=view.getInt16(i*2,true)/32768;
+    const view=new DataView(raw),b=state.ctx.createBuffer(1,D.samples,SR),v=b.getChannelData(0);
+    for(let i=0;i<v.length;i++)v[i]=view.getInt16(i*2,true)/32768;
     buffers[role]=b;
    }
-   state.buffers=buffers;setStatus('原始音轨已载入 · '+SR+' Hz · 两轨保持原增益');return buffers;
-  })().catch(e=>{state.loading=null;throw e});
-  return state.loading;
+   state.buffers[variant]=buffers;
+   if(state.variant===variant)setStatus(version.label+'已载入 · '+SR+' Hz · 保留文件增益');
+   return buffers;
+  })().catch(e=>{delete state.loading[variant];throw e});
+  return state.loading[variant];
  }
  async function playRange(start,end){
   stopPlayback();const request=state.serial;$('stop').disabled=false;
@@ -188,7 +194,7 @@
    const playRoles=state.channel==='both'?roles:[state.channel];
    for(const role of playRoles){const s=state.ctx.createBufferSource();s.buffer=buffers[role];if(state.channel==='both'){const pan=state.ctx.createStereoPanner();pan.pan.value=role==='user'?-1:1;s.connect(pan);pan.connect(state.ctx.destination);}else{s.connect(state.ctx.destination);}state.sources.push(s);s.start(at,start/SR,(end-start)/SR);}
    state.sources[state.sources.length-1].onended=()=>{if(request===state.serial){state.playing=false;$('stop').disabled=true;$('playhead').style.display='none';for(const c of document.querySelectorAll('.cell.playing'))c.classList.remove('playing');setStatus('播放完成 · '+time(start/SR)+'–'+time(end/SR));}};
-   setStatus('播放 '+time(start/SR)+'–'+time(end/SR)+' · '+(state.channel==='both'?'左 User / 右 Assistant':state.channel));tick(request);
+   setStatus(D.variants[state.variant].label+' · 播放 '+time(start/SR)+'–'+time(end/SR)+' · '+(state.channel==='both'?'左 User / 右 Assistant':state.channel));tick(request);
   }catch(e){stopPlayback();setStatus('播放失败：'+e.message,true);}
  }
  function tick(serial){
@@ -206,6 +212,7 @@
  $('play-page').onclick=()=>playRange(state.page*CS,Math.min(D.samples,(state.page+state.columns)*CS));
  $('play-rest').onclick=()=>playRange(state.selected*CS,D.samples);
  $('stop').onclick=()=>{stopPlayback();setStatus('已停止 · 可选择任意块重新试听。');};
+ $('audio-version').onchange=()=>{stopPlayback();state.variant=$('audio-version').value;renderTracks();setStatus('已切换为'+D.variants[state.variant].label+'；位置保持不变，可播放此块或本页对比。');};
  $('channel').onchange=()=>{stopPlayback();state.channel=$('channel').value;savePosition();};
  $('position').oninput=()=>selectChunk($('position').value);
  $('chunk-number').onchange=()=>selectChunk($('chunk-number').value);
@@ -214,15 +221,18 @@
  $('event-select').onchange=()=>{const e=D.events.find(e=>e.id===$('event-select').value);if(e)jumpEvent(e);};
  for(const e of D.events){const o=elem('option','',eventLabel(e)+' · '+time(eventStart(e)/SR));o.value=e.id;$('event-select').append(o);}
  $('position').max=N-1;$('chunk-number').max=N-1;
+ $('balance-summary').textContent=D.loudnessSummary;
  $('demo-summary').textContent=D.topic+' · '+D.id+' · '+time(D.samples/SR)+' · '+N+' 音频块 / '+D.records.length+' 训练记录';
  $('provenance').textContent='只读检查 · 数据来自 '+D.sourcePath+' · '+D.sourceSessionSamples+' 有效采样 / 每轨末尾补零 '+(D.samples-D.sourceSessionSamples)+' 采样。试听在浏览器内按采样截取，不写出小 WAV，不改变原音轨。';
  try{const s=JSON.parse(localStorage.getItem('duplex-review:'+D.id)||'null');if(s){state.selected=Math.max(0,Math.min(N-1,s.selected||0));if(['both',...roles].includes(s.channel))state.channel=s.channel;}}catch(_){}
+ const requestedChunk=new URLSearchParams(location.search).get('chunk');
+ if(requestedChunk!==null&&/^\d+$/.test(requestedChunk))state.selected=Math.min(N-1,Number(requestedChunk));
  if(location.hash){const e=D.events.find(e=>e.id===location.hash.slice(1));if(e){state.selected=Math.floor(eventStart(e)/CS);$('event-select').value=e.id;}}
  $('channel').value=state.channel;
  const ro=new ResizeObserver(()=>{const w=$('user-track').clientWidth;const c=Math.max(2,Math.min(12,Math.floor(w/110)));if(c!==state.columns){state.columns=c;state.page=Math.floor(state.selected/c)*c;renderTracks();}});ro.observe($('timeline'));
  state.page=Math.floor(state.selected/state.columns)*state.columns;renderTracks();renderDetails();
  for(const id of ['play-chunk','play-page','play-rest'])$(id).disabled=false;
- setStatus('首次播放会载入两条完整音轨；音量不归一化。');
+ setStatus('首次播放加载所选版本；浏览器不额外调整音量。');
  window.duplexReview={data:D,state,selectChunk,playRange,stopPlayback,getAudio};
 })().catch(error=>{
  const status=document.getElementById('audio-status');status.textContent='页面加载失败：'+error.message;status.classList.add('error');
