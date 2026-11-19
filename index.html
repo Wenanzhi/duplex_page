@@ -107,7 +107,11 @@
    for(const event of report?.events||[]){
     const at=(event.trigger_sample??event.guest_start_sample??0)/report.sample_rate;
     const jump=document.createElement('button');jump.type='button';jump.textContent='试听异常交互 '+event.id+' 附近 · '+at.toFixed(3)+' s';
-    jump.onclick=()=>{audio.currentTime=Math.max(0,at-5);audio.play().catch(e=>{note.textContent='播放失败：'+e.message;});};document.getElementById('failure-audio').append(jump);
+    jump.onclick=async()=>{jump.disabled=true;try{
+     if(!audio.dataset.cached){const response=await fetch(selected.diagnosticAudio);if(!response.ok)throw Error('音频读取失败');audio.src=URL.createObjectURL(await response.blob());audio.dataset.cached='true';}
+     if(audio.readyState<2)await new Promise((resolve,reject)=>{audio.addEventListener('loadeddata',resolve,{once:true});audio.addEventListener('error',()=>reject(Error('音频读取失败')),{once:true});audio.load();});
+     audio.currentTime=Math.max(0,at-5);await audio.play();
+    }catch(e){note.textContent='播放失败：'+e.message;}finally{jump.disabled=false;}};document.getElementById('failure-audio').append(jump);
    }
   }
   document.getElementById('provenance').textContent='保留原始音频和处理诊断；本次未做质量门槛验收；没有替换随机样本。';
