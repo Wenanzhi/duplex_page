@@ -52,7 +52,7 @@
 <script>
 (async () => {
  'use strict';
- const ASSET_VERSION='20261119-chunk-four';
+ const ASSET_VERSION='20261119-first-boundary';
  for(const id of ['play-chunk','play-page','play-rest'])document.getElementById(id).disabled=true;
  document.getElementById('audio-status').textContent='正在加载分块文本与波形……';
  const response=await fetch('assets/demo.json?v='+ASSET_VERSION);
