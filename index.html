@@ -7,7 +7,7 @@
 <title>Duplex · 320 ms 音频与文本核对</title>
 <meta name="description" content="按固定 320 ms 音频块核对双轨音频、前置文本与 CUT 停止位置，支持逐块试听。">
 <style>
-@font-face{font-family:DuplexHan;font-style:normal;font-weight:100 900;font-display:swap;src:url('assets/demo-sans.woff?v=20261119-balanced-v1') format('woff')}
+@font-face{font-family:DuplexHan;font-style:normal;font-weight:100 900;font-display:swap;src:url('assets/demo-sans.woff?v=20261119-final-chunk-v1') format('woff')}
 
 :root{color-scheme:light;--bg:#f5f7fb;--surface:#fff;--ink:#152238;--muted:#58677d;--line:#d8e1ed;--user:#166788;--assistant:#6b44b7;--active:#eaf0ff;--cut:#b3383f;--shadow:0 8px 28px #182d4c08;font-family:Inter,DuplexHan,"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;font-size:16px}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);line-height:1.55}main{max-width:1460px;margin:0 auto;padding:30px 28px 50px}header{display:flex;gap:20px;justify-content:space-between;align-items:start;margin-bottom:22px}h1{font-size:1.6rem;line-height:1.35;margin:4px 0 8px;font-weight:650}h2{font-size:1.05rem;margin:0 0 10px}p{margin:0}.eyebrow{font-size:.8rem;letter-spacing:.12em;font-weight:600;color:var(--muted)}.sub{font-size:.9rem;color:var(--muted)}.badge{display:inline-block;border:1px solid var(--line);border-radius:6px;padding:3px 9px;font-size:.8rem;white-space:nowrap}.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow);margin-bottom:18px}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.spread{justify-content:space-between}.controls{margin-bottom:14px}.controls label{display:flex;align-items:center;gap:8px;font-size:.9rem}button,select,input{font:inherit}button,select{min-height:38px;border-radius:7px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:6px 12px}button{cursor:pointer}button:hover{background:var(--active)}button:disabled{opacity:.5;cursor:default}button.primary{color:#fff;background:#244a91;border-color:#244a91}button.primary:hover{background:#193b79}button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #668ff0;outline-offset:3px}input[type=range]{width:100%;accent-color:#244a91;margin:12px 0 8px}input[type=number]{width:90px;min-height:38px;border:1px solid var(--line);border-radius:7px;padding:5px 9px;background:var(--surface);color:var(--ink)}select{max-width:100%}.tabular{font-variant-numeric:tabular-nums}.status{min-height:1.5em;color:var(--muted);font-size:.875rem}.error{color:var(--cut)}.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:.85rem;color:var(--muted)}.legend span{display:inline-flex;align-items:center;gap:6px}.swatch{width:14px;height:3px;display:inline-block}.user{color:var(--user)}.assistant{color:var(--assistant)}.legend .user{background:var(--user)}.legend .assistant{background:var(--assistant)}.legend .cut{background:var(--cut)}.legend .raw{height:0;border-top:2px dashed var(--cut)}
@@ -54,7 +54,7 @@
 <script>
 (async () => {
  'use strict';
- const ASSET_VERSION='20261119-balanced-v1';
+ const ASSET_VERSION='20261119-final-chunk-v1';
  for(const id of ['play-chunk','play-page','play-rest'])document.getElementById(id).disabled=true;
  document.getElementById('audio-status').textContent='正在加载分块文本与波形……';
  const response=await fetch('assets/demo.json?v='+ASSET_VERSION);
@@ -97,11 +97,11 @@
   return svg;
  }
  function renderTracks(){
-  document.documentElement.style.setProperty('--columns',state.columns);
+  document.documentElement.style.setProperty('--columns',Math.min(state.columns,N-state.page));
   const end=Math.min(N,state.page+state.columns);
   $('window-title').textContent='音频块 '+state.page+'–'+(end-1)+' · '+time(state.page*CS/SR)+'–'+time(end*CS/SR);
   $('chunk-heads').replaceChildren();roles.forEach(r=>$(r+'-track').replaceChildren());
-  for(let i=state.page;i<state.page+state.columns;i++){
+  for(let i=state.page;i<end;i++){
    const h=elem('div','chunk-head');
    if(i<N){h.append(elem('strong','', '#'+i),elem('span','',i*D.chunkMs+'–'+(i+1)*D.chunkMs+' ms'));}
    $('chunk-heads').append(h);
@@ -205,7 +205,7 @@
   $('clock').textContent=time(sample/SR);
   for(const c of document.querySelectorAll('.cell'))c.classList.toggle('playing',Number(c.dataset.chunk)===i);
   const track=$('user-track'),timeline=$('timeline'),rect=track.getBoundingClientRect(),root=timeline.getBoundingClientRect();
-  $('playhead').style.display='block';$('playhead').style.left=(rect.left-root.left+(sample/CS-state.page)/state.columns*rect.width)+'px';
+  $('playhead').style.display='block';$('playhead').style.left=(rect.left-root.left+(sample/CS-state.page)/Math.min(state.columns,N-state.page)*rect.width)+'px';
   requestAnimationFrame(()=>tick(serial));
  }
  $('play-chunk').onclick=()=>playRange(state.selected*CS,Math.min(D.samples,(state.selected+1)*CS));
@@ -223,7 +223,7 @@
  $('position').max=N-1;$('chunk-number').max=N-1;
  $('balance-summary').textContent=D.loudnessSummary;
  $('demo-summary').textContent=D.topic+' · '+D.id+' · '+time(D.samples/SR)+' · '+N+' 音频块 / '+D.records.length+' 训练记录';
- $('provenance').textContent='只读检查 · 数据来自 '+D.sourcePath+' · '+D.sourceSessionSamples+' 有效采样 / 每轨末尾补零 '+(D.samples-D.sourceSessionSamples)+' 采样。试听在浏览器内按采样截取，不写出小 WAV，不改变原音轨。';
+ $('provenance').textContent=(D.tailSummary?D.tailSummary+' ':'')+'只读检查 · 数据来自 '+D.sourcePath+' · '+D.sourceSessionSamples+' 有效采样 / 每轨末尾补零 '+(D.samples-D.sourceSessionSamples)+' 采样。试听在浏览器内按采样截取，不写出小 WAV，不改变原音轨。';
  try{const s=JSON.parse(localStorage.getItem('duplex-review:'+D.id)||'null');if(s){state.selected=Math.max(0,Math.min(N-1,s.selected||0));if(['both',...roles].includes(s.channel))state.channel=s.channel;}}catch(_){}
  const requestedChunk=new URLSearchParams(location.search).get('chunk');
  if(requestedChunk!==null&&/^\d+$/.test(requestedChunk))state.selected=Math.min(N-1,Number(requestedChunk));
