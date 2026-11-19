@@ -37,7 +37,7 @@
   <p class="small muted">上方是 JSON 中分配给该块的前置文本；下方是同一时段的音频。空文本可以有延续语音。</p>
   <div class="timeline" id="timeline"><div class="track-row"><div class="role">音频块</div><div id="chunk-heads" class="chunk-heads"></div></div><div class="track-row"><div class="role user">User</div><div id="user-track" class="track-grid"></div></div><div class="track-row"><div class="role assistant">Assistant</div><div id="assistant-track" class="track-grid"></div></div><div id="playhead" class="playhead"></div></div>
   <div id="event-bar" class="event-bar"></div>
-  <p class="notice">每角色每块最多 5 个单位：汉字、英文单词各计 1；标点不计数。波形两轨共用同一幅度刻度，不做逐块放大。</p>
+  <p class="notice">每角色每块最多 <span id="text-limit">4</span> 个单位：汉字、英文单词各计 1；标点不计数。波形两轨共用同一幅度刻度，不做逐块放大。</p>
  </section>
  <section class="card" aria-label="所选音频块的核对信息">
   <h2 id="selection-title" class="selection-title"></h2>
@@ -52,7 +52,7 @@
 <script>
 (async () => {
  'use strict';
- const ASSET_VERSION='20261119-chunk-frontload';
+ const ASSET_VERSION='20261119-chunk-four';
  for(const id of ['play-chunk','play-page','play-rest'])document.getElementById(id).disabled=true;
  document.getElementById('audio-status').textContent='正在加载分块文本与波形……';
  const response=await fetch('assets/demo.json?v='+ASSET_VERSION);
@@ -60,6 +60,7 @@
  const D=await response.json();
  if(D.viewerVersion!==ASSET_VERSION)throw Error('页面与展示数据版本不一致，请刷新后重试。');
  const $=id=>document.getElementById(id);
+ $('text-limit').textContent=D.maxTextUnits;
  const roles=['user','assistant'],N=D.frames.length,SR=D.sampleRate,CS=D.chunkSamples;
  const state={selected:0,page:0,columns:8,playing:false,serial:0,sources:[],channel:'both',ctx:null,buffers:null,loading:null,startAt:0,startSample:0,endSample:0};
  const eventNames={interrupt:'打断',backchannel:'短反馈',pause:'用户停顿',pend:'保持等待'};
@@ -129,7 +130,7 @@
   for(const role of roles){
    $('selected-'+role).textContent=f[role+'_text']||'（无新文本）';
    const refs=f.text_spans.filter(s=>s.role===role).map(s=>s.utterance_id+': ['+s.text_start+', '+s.text_end+')');
-   $(role+'-meta').textContent=f.counts[role]+' / 5 单位'+(refs.length?' · '+refs.join('；'):'')+(f.valid_samples<CS?' · 有效 '+f.valid_samples+' / '+CS+' 采样':'');
+   $(role+'-meta').textContent=f.counts[role]+' / '+D.maxTextUnits+' 单位'+(refs.length?' · '+refs.join('；'):'')+(f.valid_samples<CS?' · 有效 '+f.valid_samples+' / '+CS+' 采样':'');
    $(role+'-words').replaceChildren();
    for(const w of relevantWords(role,i)){const t=w.text+' '+(w.start_sample/SR).toFixed(3)+'–'+(w.end_sample/SR).toFixed(3)+' s'+(w.clipped?' · CUT 残片':'');$(role+'-words').append(elem('span','chip'+(w.clipped?' partial':''),t));}
    if(!$(role+'-words').childNodes.length)$(role+'-words').append(elem('span','muted small','本块无对齐文字；以波形和试听核对静音或延续音频。'));
