@@ -14,6 +14,7 @@
 .timeline{position:relative;isolation:isolate;margin-top:18px}.track-row{display:grid;grid-template-columns:78px minmax(0,1fr);align-items:stretch}.role{font-size:.9rem;display:flex;align-items:center;font-weight:600}.chunk-heads,.track-grid{display:grid;grid-template-columns:repeat(var(--columns),minmax(0,1fr))}.chunk-head{font-size:.76rem;color:var(--muted);padding:6px 5px;border-left:1px solid var(--line);font-variant-numeric:tabular-nums}.chunk-head strong{font-weight:500;color:var(--ink);font-size:.84rem}.chunk-head span{display:block}.track-grid{border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:14px}.cell{position:relative;min-width:0;border-left:1px solid var(--line);background:transparent}.cell:nth-child(even){background:color-mix(in srgb,var(--ink) 2%,transparent)}.cell.selected{background:var(--active)}.cell.playing{background:color-mix(in srgb,var(--assistant) 12%,var(--surface))}.cell-button{display:block;width:100%;height:100%;padding:0;border:0;border-radius:0;text-align:left;background:transparent;overflow:hidden}.cell-button:hover{background:color-mix(in srgb,var(--ink) 4%,transparent)}.cell-text{padding:9px 6px 2px;min-height:69px;font-size:1rem;line-height:1.5;overflow-wrap:anywhere;display:block}.cell-text.empty{color:var(--muted);font-size:.8rem}.cell-meta{display:block;padding:0 6px 3px;font-size:.73rem;color:var(--muted);min-height:24px}.wave{width:100%;height:86px;display:block;overflow:visible}.playhead{position:absolute;top:0;bottom:14px;width:2px;background:var(--ink);pointer-events:none;z-index:6;display:none}.event-bar{padding:3px 0 0 78px;display:flex;gap:6px;flex-wrap:wrap;min-height:32px}.event-tag{font-size:.78rem;min-height:30px;padding:3px 8px}.event-tag.cut{color:var(--cut);border-color:color-mix(in srgb,var(--cut) 40%,var(--line))}.selection-title{margin-bottom:12px;font-size:1rem}.details-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.detail-block{min-width:0}.detail-block h3{font-size:.95rem;margin:0 0 6px;font-weight:600}.detail-block .assigned{font-size:1.12rem;min-height:34px;overflow-wrap:anywhere}.muted{color:var(--muted)}.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}.small{font-size:.85rem}.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.chip{font-size:.82rem;border:1px solid var(--line);border-radius:5px;padding:2px 7px}.chip.partial{border-color:var(--cut);color:var(--cut)}details{margin-top:16px;border-top:1px solid var(--line);padding-top:12px}summary{cursor:pointer;font-size:.9rem}pre{font-size:.8rem;white-space:pre-wrap;overflow-wrap:anywhere;max-height:480px;overflow:auto;background:var(--bg);padding:14px;border-radius:8px}.notice{font-size:.875rem;color:var(--muted);margin-top:12px}.event-summary{margin-top:12px;font-size:.875rem;line-height:1.8}.footer{font-size:.8rem;color:var(--muted);overflow-wrap:anywhere}.padding{color:var(--cut)}[hidden]{display:none!important}
 #batch-panel label{display:flex;align-items:center;gap:8px;min-width:0;flex:1 1 400px}#demo-select{flex:1;min-width:0;width:0}#batch-results p{margin:10px 0}#batch-results a{color:var(--user)}.diagnostic-audio{width:100%;max-width:680px;margin:10px 0}
 .overview{display:block;width:100%;height:130px;cursor:crosshair;touch-action:manipulation}.turn-list{max-height:600px;overflow:auto}.turn-item{padding:14px 0;border-bottom:1px solid var(--line)}.turn-item p{margin:7px 0;overflow-wrap:anywhere}.turn-item button{font-size:.9rem}.turn-item.active{background:var(--active)}.turn-search{width:100%;padding:9px 12px;border:1px solid var(--line);border-radius:7px;background:var(--surface);color:var(--ink);margin:12px 0}.cut-text{color:var(--cut)}a{color:var(--user)}
+.control-grid{display:grid;grid-template-columns:repeat(var(--columns),minmax(0,1fr));border-block:1px solid var(--line);margin-bottom:12px}.control-choice{display:block;width:100%;height:100%;border:0;border-radius:0;background:transparent;padding:10px 4px;text-align:center}.control-token{display:block;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.875rem;font-weight:650;overflow-wrap:anywhere;color:var(--assistant)}.control-source{display:block;font-size:.8rem;color:var(--muted);margin-top:4px}.control-token.empty{color:var(--muted)}
 @media(prefers-color-scheme:dark){:root{color-scheme:dark;--bg:#101620;--surface:#182231;--ink:#e4eaf4;--muted:#a9b6ca;--line:#33445b;--user:#65bbd4;--assistant:#b69bea;--active:#263b5a;--cut:#ff9a9f;--shadow:none}}
 @media(max-width:700px){main{padding:18px 12px 30px}.card{padding:13px}header{display:block}header .badge{margin-top:10px}h1{font-size:1.35rem}.track-row{grid-template-columns:72px minmax(0,1fr)}.role{font-size:.78rem}.event-bar{padding-left:72px}.details-grid{grid-template-columns:1fr;gap:16px}.controls{gap:8px}.controls button{min-height:42px}.controls label{flex-wrap:wrap}.cell-text{font-size:1rem}.chunk-head{font-size:.72rem;padding-left:4px}.legend{gap:12px}}
 </style>
@@ -57,13 +58,14 @@
  </section>
  <section class="card" aria-label="分块文本和双轨波形">
   <div class="row spread"><h2 id="window-title"></h2><div class="legend"><span><i class="swatch user"></i>User</span><span><i class="swatch assistant"></i>Assistant</span><span><i class="swatch raw"></i>原始 CUT</span><span><i class="swatch cut"></i>实际停止</span></div></div>
-  <p class="small muted">上方是 JSON 中分配给该块的前置文本；下方是同一时段的音频。空文本可以有延续语音。</p>
-  <div class="timeline" id="timeline"><div class="track-row"><div class="role">音频块</div><div id="chunk-heads" class="chunk-heads"></div></div><div class="track-row"><div class="role user">User</div><div id="user-track" class="track-grid"></div></div><div class="track-row"><div class="role assistant">Assistant</div><div id="assistant-track" class="track-grid"></div></div><div id="playhead" class="playhead"></div></div>
+  <p class="small muted">Control 行显示对应助手目标块的原始 control_token。严格下一块监督下，它来自上一输入块；助手开场首条输入为空。上方文本取自 JSON，空文本也可以有延续语音。</p>
+  <div class="timeline" id="timeline"><div class="track-row"><div class="role">音频块</div><div id="chunk-heads" class="chunk-heads"></div></div><div class="track-row"><div class="role">Control</div><div id="control-track" class="control-grid"></div></div><div class="track-row"><div class="role user">User</div><div id="user-track" class="track-grid"></div></div><div class="track-row"><div class="role assistant">Assistant</div><div id="assistant-track" class="track-grid"></div></div><div id="playhead" class="playhead"></div></div>
   <div id="event-bar" class="event-bar"></div>
   <p class="notice">每角色每块最多 <span id="text-limit">4</span> 个单位：汉字、英文单词各计 1；标点不计数。波形两轨共用同一幅度刻度，不做逐块放大。</p>
  </section>
  <section class="card" aria-label="所选音频块的核对信息">
   <h2 id="selection-title" class="selection-title"></h2>
+  <p id="selected-control" class="small mono" style="margin-bottom:12px"></p>
   <div class="details-grid"><div class="detail-block"><h3 class="user">User · 本块前置文本</h3><div id="selected-user" class="assigned"></div><div id="user-meta" class="small muted"></div><div id="user-words" class="chips" aria-label="User 实际对齐片段"></div></div><div class="detail-block"><h3 class="assistant">Assistant · 本块前置文本</h3><div id="selected-assistant" class="assigned"></div><div id="assistant-meta" class="small muted"></div><div id="assistant-words" class="chips" aria-label="Assistant 实际对齐片段"></div></div></div>
   <div id="event-summary" class="event-summary"></div>
   <p class="notice">小标签显示与该块重叠的真实对齐片段及全局时间；它们不等于上方已前置输出的文本。CUT 裁到一部分的片段单独标注。</p>
@@ -187,11 +189,16 @@
   document.documentElement.style.setProperty('--columns',Math.min(state.columns,N-state.page));
   const end=Math.min(N,state.page+state.columns);
   $('window-title').textContent='音频块 '+state.page+'–'+(end-1)+' · '+time(state.page*CS/SR)+'–'+time(end*CS/SR);
-  $('chunk-heads').replaceChildren();roles.forEach(r=>$(r+'-track').replaceChildren());
+  $('chunk-heads').replaceChildren();$('control-track').replaceChildren();roles.forEach(r=>$(r+'-track').replaceChildren());
   for(let i=state.page;i<end;i++){
    const h=elem('div','chunk-head');
    if(i<N){h.append(elem('strong','', '#'+i),elem('span','',i*D.chunkMs+'–'+(i+1)*D.chunkMs+' ms'));}
    $('chunk-heads').append(h);
+   const record=targetRecords.get(i),token=record?.target.control_token;
+   const control=elem('div','cell control-cell'+(i===state.selected?' selected':''));control.dataset.chunk=String(i);control.dataset.role='control';
+   const choice=elem('button','control-choice');choice.type='button';choice.setAttribute('aria-pressed',String(i===state.selected));choice.setAttribute('aria-label','块 '+i+'，control token '+(token||'无对应目标记录')+'，点击选中');
+   choice.append(elem('span','control-token'+(token?'':' empty'),token||'—'),elem('span','control-source',record?'记录 #'+record.chunk_index:'无目标记录'));
+   choice.onclick=()=>selectChunk(i);control.append(choice);$('control-track').append(control);
    for(const role of roles){
     const cell=elem('div','cell'+(i===state.selected?' selected':''));cell.dataset.chunk=String(i);cell.dataset.role=role;
     if(i<N){
@@ -199,8 +206,7 @@
      const b=elem('button','cell-button');b.type='button';b.setAttribute('aria-label',role+' 块 '+i+'，'+(text||'无新文本')+'，点击选中');b.setAttribute('aria-pressed',String(i===state.selected));
      b.append(elem('span','cell-text'+(text?'':' empty'),text||'无新文本'));
      const ids=[...new Set(f.text_spans.filter(s=>s.role===role).map(s=>s.utterance_id))];
-     const token=role==='assistant'?targetRecords.get(i)?.target.control_token:null;
-     b.append(elem('span','cell-meta',(count?count+' 单位':'0 单位')+(ids.length?' · '+ids.join(', '):'')+(token?' · '+token:'')),wave(role,i));
+     b.append(elem('span','cell-meta',(count?count+' 单位':'0 单位')+(ids.length?' · '+ids.join(', '):'')),wave(role,i));
      b.addEventListener('click',()=>selectChunk(i));cell.append(b);
     }
     $(role+'-track').append(cell);
@@ -228,6 +234,7 @@
   $('event-summary').replaceChildren();
   for(const e of D.events.filter(e=>eventIn(e,i*CS,(i+1)*CS))){let t=eventLabel(e)+' · 触发 '+(eventStart(e)/SR*1000).toFixed(1)+' ms';if(e.stop_sample!==undefined)t+=' · CUT '+(e.planned_cut_sample/SR*1000).toFixed(1)+' → '+(e.stop_sample/SR*1000).toFixed(1)+' ms';if(e.partial_cut_units?.length)t+=' · 存在 '+e.partial_cut_units.length+' 个部分播放的对齐片段';$('event-summary').append(elem('p','',t));}
   const ur=inputRecords.get(i),ar=targetRecords.get(i);
+  $('selected-control').textContent=ar?'Control token：'+ar.target.control_token+' · 训练记录 #'+ar.chunk_index+' · '+(ar.input.content.length?'上一输入块 → 当前助手目标块':'空输入 → 助手开场目标块'):'Control token：—（该物理块没有对应的助手目标记录，不推断标签）';
   $('supervision-summary').textContent=i===0&&D.initialSpeaker==='assistant'?'助手开场：训练记录 #0 的 input.content=[]，target 为 0–320 ms。下方另外列出以本块 User 为输入的记录。':'音频块编号按同一真实时段展示。训练记录中 User 输入与 Assistant 目标属于相邻块，不能按记录编号直接把两轨放在一起。';
   $('record-json').textContent=JSON.stringify({physical_chunk_index:i,span_ms:[i*D.chunkMs,(i+1)*D.chunkMs],valid_samples:f.valid_samples,frontloaded_text_spans:f.text_spans,user_input_record:ur??null,assistant_target_record:ar??null},null,2);
   drawOverview();
