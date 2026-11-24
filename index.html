@@ -13,6 +13,7 @@
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);line-height:1.55}main{max-width:1460px;margin:0 auto;padding:30px 28px 50px}header{display:flex;gap:20px;justify-content:space-between;align-items:start;margin-bottom:22px}h1{font-size:1.6rem;line-height:1.35;margin:4px 0 8px;font-weight:650}h2{font-size:1.05rem;margin:0 0 10px}p{margin:0}.eyebrow{font-size:.8rem;letter-spacing:.12em;font-weight:600;color:var(--muted)}.sub{font-size:.9rem;color:var(--muted)}.badge{display:inline-block;border:1px solid var(--line);border-radius:6px;padding:3px 9px;font-size:.8rem;white-space:nowrap}.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow);margin-bottom:18px}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.spread{justify-content:space-between}.controls{margin-bottom:14px}.controls label{display:flex;align-items:center;gap:8px;font-size:.9rem}button,select,input{font:inherit}button,select{min-height:38px;border-radius:7px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:6px 12px}button{cursor:pointer}button:hover{background:var(--active)}button:disabled{opacity:.5;cursor:default}button.primary{color:#fff;background:#244a91;border-color:#244a91}button.primary:hover{background:#193b79}button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #668ff0;outline-offset:3px}input[type=range]{width:100%;accent-color:#244a91;margin:12px 0 8px}input[type=number]{width:90px;min-height:38px;border:1px solid var(--line);border-radius:7px;padding:5px 9px;background:var(--surface);color:var(--ink)}select{max-width:100%}.tabular{font-variant-numeric:tabular-nums}.status{min-height:1.5em;color:var(--muted);font-size:.875rem}.error{color:var(--cut)}.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:.85rem;color:var(--muted)}.legend span{display:inline-flex;align-items:center;gap:6px}.swatch{width:14px;height:3px;display:inline-block}.user{color:var(--user)}.assistant{color:var(--assistant)}.legend .user{background:var(--user)}.legend .assistant{background:var(--assistant)}.legend .cut{background:var(--cut)}.legend .raw{height:0;border-top:2px dashed var(--cut)}
 .timeline{position:relative;isolation:isolate;margin-top:18px}.track-row{display:grid;grid-template-columns:78px minmax(0,1fr);align-items:stretch}.role{font-size:.9rem;display:flex;align-items:center;font-weight:600}.chunk-heads,.track-grid{display:grid;grid-template-columns:repeat(var(--columns),minmax(0,1fr))}.chunk-head{font-size:.76rem;color:var(--muted);padding:6px 5px;border-left:1px solid var(--line);font-variant-numeric:tabular-nums}.chunk-head strong{font-weight:500;color:var(--ink);font-size:.84rem}.chunk-head span{display:block}.track-grid{border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:14px}.cell{position:relative;min-width:0;border-left:1px solid var(--line);background:transparent}.cell:nth-child(even){background:color-mix(in srgb,var(--ink) 2%,transparent)}.cell.selected{background:var(--active)}.cell.playing{background:color-mix(in srgb,var(--assistant) 12%,var(--surface))}.cell-button{display:block;width:100%;height:100%;padding:0;border:0;border-radius:0;text-align:left;background:transparent;overflow:hidden}.cell-button:hover{background:color-mix(in srgb,var(--ink) 4%,transparent)}.cell-text{padding:9px 6px 2px;min-height:69px;font-size:1rem;line-height:1.5;overflow-wrap:anywhere;display:block}.cell-text.empty{color:var(--muted);font-size:.8rem}.cell-meta{display:block;padding:0 6px 3px;font-size:.73rem;color:var(--muted);min-height:24px}.wave{width:100%;height:86px;display:block;overflow:visible}.playhead{position:absolute;top:0;bottom:14px;width:2px;background:var(--ink);pointer-events:none;z-index:6;display:none}.event-bar{padding:3px 0 0 78px;display:flex;gap:6px;flex-wrap:wrap;min-height:32px}.event-tag{font-size:.78rem;min-height:30px;padding:3px 8px}.event-tag.cut{color:var(--cut);border-color:color-mix(in srgb,var(--cut) 40%,var(--line))}.selection-title{margin-bottom:12px;font-size:1rem}.details-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.detail-block{min-width:0}.detail-block h3{font-size:.95rem;margin:0 0 6px;font-weight:600}.detail-block .assigned{font-size:1.12rem;min-height:34px;overflow-wrap:anywhere}.muted{color:var(--muted)}.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}.small{font-size:.85rem}.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.chip{font-size:.82rem;border:1px solid var(--line);border-radius:5px;padding:2px 7px}.chip.partial{border-color:var(--cut);color:var(--cut)}details{margin-top:16px;border-top:1px solid var(--line);padding-top:12px}summary{cursor:pointer;font-size:.9rem}pre{font-size:.8rem;white-space:pre-wrap;overflow-wrap:anywhere;max-height:480px;overflow:auto;background:var(--bg);padding:14px;border-radius:8px}.notice{font-size:.875rem;color:var(--muted);margin-top:12px}.event-summary{margin-top:12px;font-size:.875rem;line-height:1.8}.footer{font-size:.8rem;color:var(--muted);overflow-wrap:anywhere}.padding{color:var(--cut)}[hidden]{display:none!important}
 #batch-panel label{display:flex;align-items:center;gap:8px;min-width:0;flex:1 1 400px}#demo-select{flex:1;min-width:0;width:0}#batch-results p{margin:10px 0}#batch-results a{color:var(--user)}.diagnostic-audio{width:100%;max-width:680px;margin:10px 0}
+.overview{display:block;width:100%;height:130px;cursor:crosshair;touch-action:manipulation}.turn-list{max-height:600px;overflow:auto}.turn-item{padding:14px 0;border-bottom:1px solid var(--line)}.turn-item p{margin:7px 0;overflow-wrap:anywhere}.turn-item button{font-size:.9rem}.turn-item.active{background:var(--active)}.turn-search{width:100%;padding:9px 12px;border:1px solid var(--line);border-radius:7px;background:var(--surface);color:var(--ink);margin:12px 0}.cut-text{color:var(--cut)}a{color:var(--user)}
 @media(prefers-color-scheme:dark){:root{color-scheme:dark;--bg:#101620;--surface:#182231;--ink:#e4eaf4;--muted:#a9b6ca;--line:#33445b;--user:#65bbd4;--assistant:#b69bea;--active:#263b5a;--cut:#ff9a9f;--shadow:none}}
 @media(max-width:700px){main{padding:18px 12px 30px}.card{padding:13px}header{display:block}header .badge{margin-top:10px}h1{font-size:1.35rem}.track-row{grid-template-columns:72px minmax(0,1fr)}.role{font-size:.78rem}.event-bar{padding-left:72px}.details-grid{grid-template-columns:1fr;gap:16px}.controls{gap:8px}.controls button{min-height:42px}.controls label{flex-wrap:wrap}.cell-text{font-size:1rem}.chunk-head{font-size:.72rem;padding-left:4px}.legend{gap:12px}}
 </style>
@@ -23,12 +24,19 @@
  <section class="card" id="batch-panel" aria-label="样本选择">
   <div class="row spread"><label for="demo-select">选择样本 <select id="demo-select"></select></label><span class="small muted" id="batch-summary"></span></div>
   <p id="sample-status" class="notice"></p>
-  <details><summary>查看 20 条样本的处理结果和耗时</summary><div id="batch-results"></div></details>
+  <p id="sampling-note" class="notice"></p>
+  <div class="row small" style="margin-top:10px"><a href="?">本次随机 10 条</a><a href="?set=previous">上一批 20 条</a><a id="download-chunks" hidden download>下载原始 chunks.json</a></div>
+  <details><summary id="batch-toggle">查看样本清单</summary><div id="batch-results"></div></details>
   <div id="failure-details" hidden><h2 id="failure-title">处理失败，未完成导出</h2><div id="failure-audio"></div><pre id="failure-json"></pre></div>
+ </section>
+ <section class="card" id="overview-panel" aria-label="整段音频概览">
+  <div class="row spread"><h2>整段音频与交互位置</h2><span class="small muted" id="overview-time"></span></div>
+  <canvas id="overview" class="overview" tabindex="0" role="slider" aria-label="整段时间线，点击跳转；左右键移动一个块" aria-valuemin="0"></canvas>
+  <p class="small muted">上轨 User，下轨 Assistant；橙线为交互触发，红线为实际 CUT。点击定位到对应 320 ms 块。下方文本直接读取原始导出，不重新分配。</p>
  </section>
  <section class="card" aria-label="播放与定位">
   <div class="row controls">
-   <button type="button" id="play-chunk" class="primary">播放此块</button><button type="button" id="play-page">播放本页</button><button type="button" id="play-rest">从此处连续播放</button><button type="button" id="stop" disabled>停止</button>
+   <button type="button" id="play-chunk" class="primary">播放此块</button><button type="button" id="play-page">播放本页</button><button type="button" id="play-rest">从此处连续播放</button><button type="button" id="play-full">播放完整对话</button><button type="button" id="play-event">试听附近交互上下文</button><button type="button" id="stop" disabled>停止</button>
    <label>音频版本<select id="audio-version"><option value="balanced">调整后 · 响度平衡</option><option value="before">调整前 · 原音轨</option></select></label>
    <label>试听轨道<select id="channel"><option value="both">双轨（左 User / 右 Assistant）</option><option value="user">只听 User</option><option value="assistant">只听 Assistant</option></select></label>
   </div>
@@ -40,6 +48,12 @@
    <div class="row"><button type="button" id="prev-page">上一页</button><button type="button" id="next-page">下一页</button><label for="chunk-number" class="small">块编号</label><input id="chunk-number" type="number" min="0" step="1" value="0" aria-label="跳转到块编号"></div>
    <label class="small" for="event-select">交互位置 <select id="event-select"><option value="">选择交互事件</option></select></label>
   </div>
+ </section>
+ <section class="card" id="turn-panel" aria-label="完整话轮与评分记录">
+  <h2>完整话轮 · 台词与 ASR 对照</h2>
+  <p class="small muted">点击话轮定位或试听。PER 取已有评分记录，通常评估 CUT 前的完整合成话轮；不能把 ASR 中包含的未播放尾部直接视作排程错误。未读取到证据时显示缺失。</p>
+  <input id="turn-search" class="turn-search" type="search" placeholder="搜索台词、ASR 或话轮 ID" aria-label="搜索话轮">
+  <div id="turn-list" class="turn-list"></div>
  </section>
  <section class="card" aria-label="分块文本和双轨波形">
   <div class="row spread"><h2 id="window-title"></h2><div class="legend"><span><i class="swatch user"></i>User</span><span><i class="swatch assistant"></i>Assistant</span><span><i class="swatch raw"></i>原始 CUT</span><span><i class="swatch cut"></i>实际停止</span></div></div>
@@ -61,13 +75,18 @@
 <script>
 (async () => {
  'use strict';
- const ASSET_VERSION='20261119-tts20-v1';
- for(const id of ['play-chunk','play-page','play-rest'])document.getElementById(id).disabled=true;
+ const query=new URLSearchParams(location.search),previous=query.get('set')==='previous';
+ for(const id of ['play-chunk','play-page','play-rest','play-full','play-event'])document.getElementById(id).disabled=true;
  document.getElementById('audio-status').textContent='正在加载分块文本与波形……';
- const catalogResponse=await fetch('assets/catalog.json?v='+ASSET_VERSION);
+ const catalogResponse=await fetch((previous?'assets/catalog.json':'assets/catalog.random10.json')+'?v=20261124-random10-v1');
  if(!catalogResponse.ok)throw Error('样本清单读取失败：HTTP '+catalogResponse.status);
- const catalog=await catalogResponse.json();
- const requestedDemo=new URLSearchParams(location.search).get('demo');
+ let catalog=await catalogResponse.json();
+ const requestedDemo=query.get('demo');
+ if(requestedDemo&&!catalog.samples.some(s=>s.id===requestedDemo)&&!previous){
+  const oldResponse=await fetch('assets/catalog.json?v=20261119-tts20-v1');
+  if(oldResponse.ok){const old=await oldResponse.json();if(old.samples.some(s=>s.id===requestedDemo))catalog=old;}
+ }
+ const ASSET_VERSION=catalog.viewerVersion||'20261119-tts20-v1';
  const selected=catalog.samples.find(s=>s.id===requestedDemo)||catalog.samples.find(s=>s.status==='complete')||catalog.samples[0];
  const demoSelect=document.getElementById('demo-select');
  for(const sample of catalog.samples){
@@ -80,6 +99,8 @@
  demoSelect.value=selected.id;
  demoSelect.onchange=()=>{const url=new URL(location.href);url.search='?v='+ASSET_VERSION+'&demo='+encodeURIComponent(demoSelect.value);url.hash='';location.assign(url);};
  document.getElementById('batch-summary').textContent=catalog.summary;
+ document.getElementById('batch-toggle').textContent='查看 '+catalog.samples.length+' 条样本及交互数量';
+ document.getElementById('sampling-note').textContent=catalog.samplingNote||'保留的上一批试听样本；质量状态以各条诊断为准。';
  document.getElementById('sample-status').textContent=selected.statusDetail||selected.statusLabel;
  window.duplexCatalog={catalog,selected};
  if(!selected.data){
@@ -122,6 +143,8 @@
  const D=await response.json();
  if(D.viewerVersion!==ASSET_VERSION)throw Error('页面与展示数据版本不一致，请刷新后重试。');
  const $=id=>document.getElementById(id);
+ if(D.downloads?.chunks){$('download-chunks').href=D.downloads.chunks;$('download-chunks').hidden=false;}
+ if(!D.turns)$('turn-panel').hidden=true;
  $('text-limit').textContent=D.maxTextUnits;
  const roles=['user','assistant'],N=D.frames.length,SR=D.sampleRate,CS=D.chunkSamples;
  const state={selected:0,page:0,columns:8,playing:false,serial:0,sources:[],channel:'both',ctx:null,variant:'balanced',buffers:{},loading:{},startAt:0,startSample:0,endSample:0};
@@ -176,7 +199,8 @@
      const b=elem('button','cell-button');b.type='button';b.setAttribute('aria-label',role+' 块 '+i+'，'+(text||'无新文本')+'，点击选中');b.setAttribute('aria-pressed',String(i===state.selected));
      b.append(elem('span','cell-text'+(text?'':' empty'),text||'无新文本'));
      const ids=[...new Set(f.text_spans.filter(s=>s.role===role).map(s=>s.utterance_id))];
-     b.append(elem('span','cell-meta',(count?count+' 单位':'0 单位')+(ids.length?' · '+ids.join(', '):'')),wave(role,i));
+     const token=role==='assistant'?targetRecords.get(i)?.target.control_token:null;
+     b.append(elem('span','cell-meta',(count?count+' 单位':'0 单位')+(ids.length?' · '+ids.join(', '):'')+(token?' · '+token:'')),wave(role,i));
      b.addEventListener('click',()=>selectChunk(i));cell.append(b);
     }
     $(role+'-track').append(cell);
@@ -206,7 +230,48 @@
   const ur=inputRecords.get(i),ar=targetRecords.get(i);
   $('supervision-summary').textContent=i===0&&D.initialSpeaker==='assistant'?'助手开场：训练记录 #0 的 input.content=[]，target 为 0–320 ms。下方另外列出以本块 User 为输入的记录。':'音频块编号按同一真实时段展示。训练记录中 User 输入与 Assistant 目标属于相邻块，不能按记录编号直接把两轨放在一起。';
   $('record-json').textContent=JSON.stringify({physical_chunk_index:i,span_ms:[i*D.chunkMs,(i+1)*D.chunkMs],valid_samples:f.valid_samples,frontloaded_text_spans:f.text_spans,user_input_record:ur??null,assistant_target_record:ar??null},null,2);
+  drawOverview();
  }
+ function drawOverview(){
+  const canvas=$('overview'),width=canvas.clientWidth,height=130,scale=devicePixelRatio||1;
+  if(!width)return;
+  if(canvas.width!==Math.round(width*scale)||canvas.height!==Math.round(height*scale)){canvas.width=Math.round(width*scale);canvas.height=Math.round(height*scale);}
+  const ctx=canvas.getContext('2d');ctx.setTransform(scale,0,0,scale,0,0);ctx.clearRect(0,0,width,height);
+  const css=getComputedStyle(document.documentElement),ink=css.getPropertyValue('--ink');
+  for(const [r,center] of [['user',34],['assistant',96]]){
+   ctx.strokeStyle=css.getPropertyValue('--'+r);ctx.beginPath();
+   for(let x=0;x<width;x++){
+    const first=Math.floor(x/width*N),last=Math.min(N,Math.max(first+1,Math.ceil((x+1)/width*N)));let lo=0,hi=0;
+    for(let k=first;k<last;k++)for(const peak of D.variants[state.variant].peaks[r][k]){lo=Math.min(lo,peak);hi=Math.max(hi,peak);}
+    ctx.moveTo(x,center-hi/32768*28);ctx.lineTo(x,center-lo/32768*28);
+   }
+   ctx.stroke();
+  }
+  for(const e of D.events){
+   ctx.strokeStyle='#c78728';ctx.beginPath();const x=eventStart(e)/D.samples*width;ctx.moveTo(x,2);ctx.lineTo(x,128);ctx.stroke();
+   if(e.stop_sample!==undefined){ctx.strokeStyle=css.getPropertyValue('--cut');ctx.beginPath();const stop=e.stop_sample/D.samples*width;ctx.moveTo(stop,2);ctx.lineTo(stop,128);ctx.stroke();}
+  }
+  const x=state.selected/N*width;ctx.strokeStyle=ink;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,130);ctx.stroke();ctx.lineWidth=1;
+  $('overview-time').textContent=time(0)+' — '+time(D.samples/SR)+' · '+D.events.length+' 次交互';
+  canvas.setAttribute('aria-valuemax',N-1);canvas.setAttribute('aria-valuenow',state.selected);canvas.setAttribute('aria-valuetext','音频块 '+state.selected+'，'+time(state.selected*CS/SR));
+ }
+ $('overview').onclick=e=>selectChunk(Math.floor((e.clientX-e.currentTarget.getBoundingClientRect().left)/e.currentTarget.clientWidth*N));
+ $('overview').onkeydown=e=>{if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();selectChunk(state.selected+(e.key==='ArrowLeft'?-1:1));}};
+ function renderTurns(){
+  if(!D.turns)return;
+  const q=$('turn-search').value.trim().toLocaleLowerCase();$('turn-list').replaceChildren();
+  for(const t of D.turns){
+   if(q&&![t.id,t.text,t.full_text,t.asr_text].some(s=>(s||'').toLocaleLowerCase().includes(q)))continue;
+   const block=elem('article','turn-item'),top=elem('div','row'),jump=elem('button',t.role,t.id+' · '+t.role+' · '+time(t.start_sample/SR)+'–'+time(t.end_sample/SR)),play=elem('button','','试听此话轮');
+   jump.type=play.type='button';jump.onclick=()=>selectChunk(Math.floor(t.start_sample/CS));play.onclick=()=>playRange(Math.max(0,t.start_sample),Math.min(D.samples,t.end_sample));
+   const score=typeof t.per==='number'?'PER '+t.per.toFixed(4)+(typeof t.threshold==='number'?' / 阈值 '+t.threshold:''):'PER 证据缺失';
+   top.append(jump,play,elem('span','small muted',score+(t.is_backchannel?' · backchannel':'')));block.append(top,elem('p','','播放文本：'+t.text));
+   if(t.full_text!==t.text)block.append(elem('p','small muted','完整合成台词：'+t.full_text));
+   if(t.unspoken_text)block.append(elem('p','small cut-text','CUT 后未播放：'+t.unspoken_text));
+   block.append(elem('p','small muted','ASR：'+(t.asr_text??'未读取到转写记录')));$('turn-list').append(block);
+  }
+ }
+ $('turn-search').oninput=renderTurns;renderTurns();
  function selectChunk(i,{keepPlaying=false}={}){
   if(!keepPlaying){stopPlayback();$('event-select').value='';}
   state.selected=Math.max(0,Math.min(N-1,Math.floor(Number(i)||0)));
@@ -275,6 +340,16 @@
  $('play-chunk').onclick=()=>playRange(state.selected*CS,Math.min(D.samples,(state.selected+1)*CS));
  $('play-page').onclick=()=>playRange(state.page*CS,Math.min(D.samples,(state.page+state.columns)*CS));
  $('play-rest').onclick=()=>playRange(state.selected*CS,D.samples);
+ $('play-full').onclick=()=>playRange(0,D.samples);
+ $('play-event').onclick=()=>{
+  if(!D.events.length)return;
+  const current=state.selected*CS,event=D.events.find(e=>e.id===$('event-select').value)||D.events.reduce((a,b)=>Math.abs(eventStart(a)-current)<Math.abs(eventStart(b)-current)?a:b);
+  const turns=D.turns||[],related=turns.filter(t=>[event.host_id,event.guest_id,event.response_utterance_id,event.restart_user_id].includes(t.id));
+  let start=Math.min(eventStart(event),...related.map(t=>t.start_sample)),end=Math.max(eventEnd(event),...related.map(t=>t.end_sample));
+  const preceding=turns.filter(t=>t.end_sample<=start).sort((a,b)=>b.end_sample-a.end_sample)[0],following=turns.filter(t=>t.start_sample>=end).sort((a,b)=>a.start_sample-b.start_sample)[0];
+  start=Math.max(0,Math.min(start-5*SR,preceding?.start_sample??start));end=Math.min(D.samples,Math.max(end+5*SR,following?.end_sample??end));
+  playRange(start,end);
+ };
  $('stop').onclick=()=>{stopPlayback();setStatus('已停止 · 可选择任意块重新试听。');};
  $('audio-version').onchange=()=>{stopPlayback();state.variant=$('audio-version').value;renderTracks();setStatus('已切换为'+D.variants[state.variant].label+'；位置保持不变，可播放此块或本页对比。');};
  $('channel').onchange=()=>{stopPlayback();state.channel=$('channel').value;savePosition();};
@@ -293,9 +368,10 @@
  if(requestedChunk!==null&&/^\d+$/.test(requestedChunk))state.selected=Math.min(N-1,Number(requestedChunk));
  if(location.hash){const e=D.events.find(e=>e.id===location.hash.slice(1));if(e){state.selected=Math.floor(eventStart(e)/CS);$('event-select').value=e.id;}}
  $('channel').value=state.channel;
- const ro=new ResizeObserver(()=>{const w=$('user-track').clientWidth;const c=Math.max(2,Math.min(12,Math.floor(w/110)));if(c!==state.columns){state.columns=c;state.page=Math.floor(state.selected/c)*c;renderTracks();}});ro.observe($('timeline'));
+ const ro=new ResizeObserver(()=>{const w=$('user-track').clientWidth;const c=Math.max(2,Math.min(12,Math.floor(w/110)));if(c!==state.columns){state.columns=c;state.page=Math.floor(state.selected/c)*c;renderTracks();}drawOverview();});ro.observe($('timeline'));
  state.page=Math.floor(state.selected/state.columns)*state.columns;renderTracks();renderDetails();
- for(const id of ['play-chunk','play-page','play-rest'])$(id).disabled=false;
+ for(const id of ['play-chunk','play-page','play-rest','play-full','play-event'])$(id).disabled=false;
+ $('play-event').disabled=!D.events.length;
  setStatus('首次播放加载所选版本；浏览器不额外调整音量。');
  window.duplexReview={data:D,state,selectChunk,playRange,stopPlayback,getAudio};
 })().catch(error=>{
