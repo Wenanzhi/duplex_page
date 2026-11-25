@@ -57,6 +57,13 @@
           "timestamp_spans_partition_full_tracks": true,
           "training_records": 2292
         }
+      },
+      "controlCounts": {
+        "<|speak|>": 1505,
+        "<|idle|>": 42,
+        "<|listen|>": 735,
+        "<|bc|>": 8,
+        "<|wait|>": 2
       }
     },
     {
@@ -111,6 +118,13 @@
           "timestamp_spans_partition_full_tracks": true,
           "training_records": 1094
         }
+      },
+      "controlCounts": {
+        "<|listen|>": 287,
+        "<|speak|>": 774,
+        "<|bc|>": 10,
+        "<|idle|>": 20,
+        "<|wait|>": 3
       }
     },
     {
@@ -165,6 +179,13 @@
           "timestamp_spans_partition_full_tracks": true,
           "training_records": 3115
         }
+      },
+      "controlCounts": {
+        "<|listen|>": 1112,
+        "<|speak|>": 1921,
+        "<|idle|>": 76,
+        "<|bc|>": 5,
+        "<|wait|>": 1
       }
     },
     {
@@ -219,6 +240,13 @@
           "timestamp_spans_partition_full_tracks": true,
           "training_records": 1559
         }
+      },
+      "controlCounts": {
+        "<|listen|>": 327,
+        "<|speak|>": 1190,
+        "<|idle|>": 34,
+        "<|bc|>": 3,
+        "<|wait|>": 5
       }
     },
     {
@@ -272,6 +300,12 @@
           "timestamp_spans_partition_full_tracks": true,
           "training_records": 1469
         }
+      },
+      "controlCounts": {
+        "<|listen|>": 541,
+        "<|speak|>": 897,
+        "<|idle|>": 28,
+        "<|wait|>": 3
       }
     },
     {
@@ -326,6 +360,13 @@
           "timestamp_spans_partition_full_tracks": true,
           "training_records": 2891
         }
+      },
+      "controlCounts": {
+        "<|speak|>": 1797,
+        "<|idle|>": 76,
+        "<|listen|>": 1009,
+        "<|wait|>": 7,
+        "<|bc|>": 2
       }
     },
     {
@@ -379,6 +420,13 @@
           "timestamp_spans_partition_full_tracks": true,
           "training_records": 5264
         }
+      },
+      "controlCounts": {
+        "<|speak|>": 3738,
+        "<|listen|>": 1414,
+        "<|idle|>": 103,
+        "<|bc|>": 6,
+        "<|wait|>": 3
       }
     },
     {
@@ -432,6 +480,13 @@
           "timestamp_spans_partition_full_tracks": true,
           "training_records": 4241
         }
+      },
+      "controlCounts": {
+        "<|listen|>": 1164,
+        "<|idle|>": 89,
+        "<|speak|>": 2977,
+        "<|bc|>": 5,
+        "<|wait|>": 6
       }
     },
     {
@@ -485,6 +540,13 @@
           "timestamp_spans_partition_full_tracks": true,
           "training_records": 1505
         }
+      },
+      "controlCounts": {
+        "<|listen|>": 550,
+        "<|speak|>": 924,
+        "<|idle|>": 21,
+        "<|bc|>": 5,
+        "<|wait|>": 5
       }
     },
     {
@@ -538,8 +600,25 @@
           "timestamp_spans_partition_full_tracks": true,
           "training_records": 1907
         }
+      },
+      "controlCounts": {
+        "<|listen|>": 700,
+        "<|speak|>": 1147,
+        "<|idle|>": 52,
+        "<|wait|>": 8
       }
     }
   ],
-  "summary": "随机 10 条 · 总计 135.11 分钟 · 176 次交互"
+  "summary": "随机 10 条 · 总计 135.11 分钟 · 176 次交互",
+  "controlSummary": {
+    "countingUnit": "original_training_record_including_terminal_record",
+    "recordCount": 25337,
+    "counts": {
+      "<|speak|>": 16870,
+      "<|idle|>": 541,
+      "<|listen|>": 7839,
+      "<|bc|>": 44,
+      "<|wait|>": 43
+    }
+  }
 }

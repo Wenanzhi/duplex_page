@@ -4,293 +4,171 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="light dark">
-<title>Duplex · 320 ms 音频与文本核对</title>
-<meta name="description" content="按固定 320 ms 音频块核对双轨音频、前置文本与 CUT 停止位置，支持逐块试听。">
+<title>Duplex · Control token 核对</title>
+<meta name="description" content="逐块核对双轨波形、对应文本和 control token；统计各类 token 并按位置跳转试听。">
 <style>
 @font-face{font-family:DuplexHan;font-style:normal;font-weight:100 900;font-display:swap;src:url('assets/demo-sans.woff?v=20261119-tts20-v1') format('woff')}
-
-:root{color-scheme:light;--bg:#f5f7fb;--surface:#fff;--ink:#152238;--muted:#58677d;--line:#d8e1ed;--user:#166788;--assistant:#6b44b7;--active:#eaf0ff;--cut:#b3383f;--shadow:0 8px 28px #182d4c08;font-family:Inter,DuplexHan,"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;font-size:16px}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);line-height:1.55}main{max-width:1460px;margin:0 auto;padding:30px 28px 50px}header{display:flex;gap:20px;justify-content:space-between;align-items:start;margin-bottom:22px}h1{font-size:1.6rem;line-height:1.35;margin:4px 0 8px;font-weight:650}h2{font-size:1.05rem;margin:0 0 10px}p{margin:0}.eyebrow{font-size:.8rem;letter-spacing:.12em;font-weight:600;color:var(--muted)}.sub{font-size:.9rem;color:var(--muted)}.badge{display:inline-block;border:1px solid var(--line);border-radius:6px;padding:3px 9px;font-size:.8rem;white-space:nowrap}.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow);margin-bottom:18px}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.spread{justify-content:space-between}.controls{margin-bottom:14px}.controls label{display:flex;align-items:center;gap:8px;font-size:.9rem}button,select,input{font:inherit}button,select{min-height:38px;border-radius:7px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:6px 12px}button{cursor:pointer}button:hover{background:var(--active)}button:disabled{opacity:.5;cursor:default}button.primary{color:#fff;background:#244a91;border-color:#244a91}button.primary:hover{background:#193b79}button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #668ff0;outline-offset:3px}input[type=range]{width:100%;accent-color:#244a91;margin:12px 0 8px}input[type=number]{width:90px;min-height:38px;border:1px solid var(--line);border-radius:7px;padding:5px 9px;background:var(--surface);color:var(--ink)}select{max-width:100%}.tabular{font-variant-numeric:tabular-nums}.status{min-height:1.5em;color:var(--muted);font-size:.875rem}.error{color:var(--cut)}.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:.85rem;color:var(--muted)}.legend span{display:inline-flex;align-items:center;gap:6px}.swatch{width:14px;height:3px;display:inline-block}.user{color:var(--user)}.assistant{color:var(--assistant)}.legend .user{background:var(--user)}.legend .assistant{background:var(--assistant)}.legend .cut{background:var(--cut)}.legend .raw{height:0;border-top:2px dashed var(--cut)}
-.timeline{position:relative;isolation:isolate;margin-top:18px}.track-row{display:grid;grid-template-columns:78px minmax(0,1fr);align-items:stretch}.role{font-size:.9rem;display:flex;align-items:center;font-weight:600}.chunk-heads,.track-grid{display:grid;grid-template-columns:repeat(var(--columns),minmax(0,1fr))}.chunk-head{font-size:.76rem;color:var(--muted);padding:6px 5px;border-left:1px solid var(--line);font-variant-numeric:tabular-nums}.chunk-head strong{font-weight:500;color:var(--ink);font-size:.84rem}.chunk-head span{display:block}.track-grid{border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:14px}.cell{position:relative;min-width:0;border-left:1px solid var(--line);background:transparent}.cell:nth-child(even){background:color-mix(in srgb,var(--ink) 2%,transparent)}.cell.selected{background:var(--active)}.cell.playing{background:color-mix(in srgb,var(--assistant) 12%,var(--surface))}.cell-button{display:block;width:100%;height:100%;padding:0;border:0;border-radius:0;text-align:left;background:transparent;overflow:hidden}.cell-button:hover{background:color-mix(in srgb,var(--ink) 4%,transparent)}.cell-text{padding:9px 6px 2px;min-height:69px;font-size:1rem;line-height:1.5;overflow-wrap:anywhere;display:block}.cell-text.empty{color:var(--muted);font-size:.8rem}.cell-meta{display:block;padding:0 6px 3px;font-size:.73rem;color:var(--muted);min-height:24px}.wave{width:100%;height:86px;display:block;overflow:visible}.playhead{position:absolute;top:0;bottom:14px;width:2px;background:var(--ink);pointer-events:none;z-index:6;display:none}.event-bar{padding:3px 0 0 78px;display:flex;gap:6px;flex-wrap:wrap;min-height:32px}.event-tag{font-size:.78rem;min-height:30px;padding:3px 8px}.event-tag.cut{color:var(--cut);border-color:color-mix(in srgb,var(--cut) 40%,var(--line))}.selection-title{margin-bottom:12px;font-size:1rem}.details-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.detail-block{min-width:0}.detail-block h3{font-size:.95rem;margin:0 0 6px;font-weight:600}.detail-block .assigned{font-size:1.12rem;min-height:34px;overflow-wrap:anywhere}.muted{color:var(--muted)}.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}.small{font-size:.85rem}.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.chip{font-size:.82rem;border:1px solid var(--line);border-radius:5px;padding:2px 7px}.chip.partial{border-color:var(--cut);color:var(--cut)}details{margin-top:16px;border-top:1px solid var(--line);padding-top:12px}summary{cursor:pointer;font-size:.9rem}pre{font-size:.8rem;white-space:pre-wrap;overflow-wrap:anywhere;max-height:480px;overflow:auto;background:var(--bg);padding:14px;border-radius:8px}.notice{font-size:.875rem;color:var(--muted);margin-top:12px}.event-summary{margin-top:12px;font-size:.875rem;line-height:1.8}.footer{font-size:.8rem;color:var(--muted);overflow-wrap:anywhere}.padding{color:var(--cut)}[hidden]{display:none!important}
-#batch-panel label{display:flex;align-items:center;gap:8px;min-width:0;flex:1 1 400px}#demo-select{flex:1;min-width:0;width:0}#batch-results p{margin:10px 0}#batch-results a{color:var(--user)}.diagnostic-audio{width:100%;max-width:680px;margin:10px 0}
-.overview{display:block;width:100%;height:130px;cursor:crosshair;touch-action:manipulation}.turn-list{max-height:600px;overflow:auto}.turn-item{padding:14px 0;border-bottom:1px solid var(--line)}.turn-item p{margin:7px 0;overflow-wrap:anywhere}.turn-item button{font-size:.9rem}.turn-item.active{background:var(--active)}.turn-search{width:100%;padding:9px 12px;border:1px solid var(--line);border-radius:7px;background:var(--surface);color:var(--ink);margin:12px 0}.cut-text{color:var(--cut)}a{color:var(--user)}
-.control-grid{display:grid;grid-template-columns:repeat(var(--columns),minmax(0,1fr));border-block:1px solid var(--line);margin-bottom:12px}.control-choice{display:block;width:100%;height:100%;border:0;border-radius:0;background:transparent;padding:10px 4px;text-align:center}.control-token{display:block;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.875rem;font-weight:650;overflow-wrap:anywhere;color:var(--assistant)}.control-source{display:block;font-size:.8rem;color:var(--muted);margin-top:4px}.control-token.empty{color:var(--muted)}
-@media(prefers-color-scheme:dark){:root{color-scheme:dark;--bg:#101620;--surface:#182231;--ink:#e4eaf4;--muted:#a9b6ca;--line:#33445b;--user:#65bbd4;--assistant:#b69bea;--active:#263b5a;--cut:#ff9a9f;--shadow:none}}
-@media(max-width:700px){main{padding:18px 12px 30px}.card{padding:13px}header{display:block}header .badge{margin-top:10px}h1{font-size:1.35rem}.track-row{grid-template-columns:72px minmax(0,1fr)}.role{font-size:.78rem}.event-bar{padding-left:72px}.details-grid{grid-template-columns:1fr;gap:16px}.controls{gap:8px}.controls button{min-height:42px}.controls label{flex-wrap:wrap}.cell-text{font-size:1rem}.chunk-head{font-size:.72rem;padding-left:4px}.legend{gap:12px}}
+:root{color-scheme:light;--bg:#f5f7fb;--surface:#fff;--ink:#152238;--muted:#58677d;--line:#d8e1ed;--user:#166788;--assistant:#6b44b7;--active:#eaf0ff;--error:#b3383f;font-family:Inter,DuplexHan,"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;font-size:16px}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);line-height:1.55}main{max-width:1460px;margin:auto;padding:28px}h1{font-size:1.6rem;margin:0 0 6px}h2{font-size:1.05rem;margin:0}p{margin:0}.sub,.muted,.status{color:var(--muted)}.sub{margin-bottom:20px}.small,.status{font-size:.875rem}.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}.card{padding:18px;background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-bottom:18px}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.spread{justify-content:space-between}.stack{display:grid;gap:12px}button,select,input{font:inherit}button,select,input[type=number]{min-height:40px;padding:6px 12px;border:1px solid var(--line);border-radius:7px;background:var(--surface);color:var(--ink)}button{cursor:pointer}button:hover{background:var(--active)}button:disabled{opacity:.45;cursor:default}button.primary{background:#244a91;color:#fff;border-color:#244a91}button[aria-pressed=true]{box-shadow:inset 0 0 0 2px var(--assistant)}button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #668ff0;outline-offset:3px}select{max-width:100%}input[type=number]{width:100px}input[type=range]{width:100%;accent-color:#244a91;margin:8px 0}.sample-label{display:flex;flex:1;min-width:0;gap:10px;align-items:center}#demo-select{flex:1;min-width:0;width:0}.token-stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}.token-stat{text-align:left;padding:12px;min-width:0}.token-name{display:block;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.9rem;font-weight:650;overflow-wrap:anywhere;color:var(--assistant)}.token-number{display:block;font-size:1.5rem;font-weight:650;margin-top:5px;font-variant-numeric:tabular-nums}.token-total{display:block;color:var(--muted);font-size:.875rem}.notice{font-size:.875rem;color:var(--muted);margin-top:10px}.error{color:var(--error)}.tabular{font-variant-numeric:tabular-nums}.timeline{position:relative;isolation:isolate;margin-top:12px}.track-row{display:grid;grid-template-columns:78px minmax(0,1fr)}.role{display:flex;align-items:center;font-size:.875rem;font-weight:600}.user{color:var(--user)}.assistant{color:var(--assistant)}.chunk-heads,.track-grid,.control-grid{display:grid;grid-template-columns:repeat(var(--columns),minmax(0,1fr))}.chunk-head{font-size:.8rem;color:var(--muted);padding:8px 5px;border-left:1px solid var(--line);font-variant-numeric:tabular-nums}.chunk-head strong{display:block;font-size:.875rem;color:var(--ink)}.track-grid,.control-grid{border-block:1px solid var(--line);margin-bottom:12px}.cell{min-width:0;border-left:1px solid var(--line)}.cell:nth-child(even){background:color-mix(in srgb,var(--ink) 2%,transparent)}.cell.selected{background:var(--active)}.cell.playing{background:color-mix(in srgb,var(--assistant) 15%,var(--surface))}.control-choice,.cell-button{display:block;width:100%;height:100%;border:0;border-radius:0;background:transparent}.control-choice{padding:10px 4px}.control-token{display:block;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.875rem;font-weight:650;color:var(--assistant);overflow-wrap:anywhere}.control-source{display:block;color:var(--muted);font-size:.8rem;margin-top:3px}.cell-button{padding:0;text-align:left}.cell-text{display:block;padding:9px 6px;min-height:68px;overflow-wrap:anywhere;font-size:1rem}.empty{color:var(--muted);font-size:.875rem}.wave{display:block;width:100%;height:86px;overflow:visible}.terminal-wave{display:flex;align-items:center;justify-content:center;height:86px;color:var(--muted);font-size:.875rem}.playhead{position:absolute;top:0;bottom:12px;width:2px;background:var(--ink);pointer-events:none;z-index:6;display:none}.legend{display:flex;gap:16px;font-size:.875rem}.selection-info{border-top:1px solid var(--line);margin-top:12px;padding-top:12px}.location-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:12px}.location-button{text-align:left;min-width:0}.location-button span{display:block;overflow-wrap:anywhere}.location-button .mono{color:var(--assistant)}.location-preview{color:var(--muted);font-size:.875rem;margin-top:3px}.location-pages{margin-top:12px}.footer{font-size:.8rem;color:var(--muted)}.footer a{color:var(--muted)}[hidden]{display:none!important}
+@media(prefers-color-scheme:dark){:root{color-scheme:dark;--bg:#101620;--surface:#182231;--ink:#e4eaf4;--muted:#a9b6ca;--line:#33445b;--user:#65bbd4;--assistant:#b69bea;--active:#263b5a;--error:#ff9a9f}}
+@media(max-width:700px){main{padding:18px 12px}.card{padding:13px}h1{font-size:1.35rem}.token-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.track-row{grid-template-columns:64px minmax(0,1fr)}.role{font-size:.875rem}.location-list{grid-template-columns:1fr}.chunk-head{font-size:.75rem}.control-token{font-size:.875rem}.sample-label{flex-basis:100%}}
 </style>
 </head>
 <body>
-<main id="duplex-review">
- <header><div><div class="eyebrow">DUPLEX / CHUNK REVIEW</div><h1>音频按块听，文本按块看</h1><p class="sub" id="demo-summary"></p></div><span class="badge">320 ms · 无损 PCM · 双轨</span></header>
- <section class="card" id="batch-panel" aria-label="样本选择">
-  <div class="row spread"><label for="demo-select">选择样本 <select id="demo-select"></select></label><span class="small muted" id="batch-summary"></span></div>
-  <p id="sample-status" class="notice"></p>
-  <p id="sampling-note" class="notice"></p>
-  <div class="row small" style="margin-top:10px"><a href="?">本次随机 10 条</a><a href="?set=previous">上一批 20 条</a><a id="download-chunks" hidden download>下载原始 chunks.json</a></div>
-  <details><summary id="batch-toggle">查看样本清单</summary><div id="batch-results"></div></details>
-  <div id="failure-details" hidden><h2 id="failure-title">处理失败，未完成导出</h2><div id="failure-audio"></div><pre id="failure-json"></pre></div>
+<main>
+ <h1>Control token 核对</h1>
+ <p class="sub" id="demo-summary">正在加载样本……</p>
+ <section class="card stack" aria-label="样本与 control token 统计">
+  <div class="row spread"><label class="sample-label" for="demo-select">样本 <select id="demo-select"></select></label><span class="small muted" id="sample-count"></span></div>
+  <div id="token-stats" class="token-stats"></div>
+  <p class="small muted" id="count-summary"></p>
+  <p class="small muted">按原始训练记录计数，连续相同 token 逐条计入。点击卡片筛选并定位；末条无目标音频的记录也计入，标为“会话末尾”。</p>
  </section>
- <section class="card" id="overview-panel" aria-label="整段音频概览">
-  <div class="row spread"><h2>整段音频与交互位置</h2><span class="small muted" id="overview-time"></span></div>
-  <canvas id="overview" class="overview" tabindex="0" role="slider" aria-label="整段时间线，点击跳转；左右键移动一个块" aria-valuemin="0"></canvas>
-  <p class="small muted">上轨 User，下轨 Assistant；橙线为交互触发，红线为实际 CUT。点击定位到对应 320 ms 块。下方文本直接读取原始导出，不重新分配。</p>
- </section>
- <section class="card" aria-label="播放与定位">
-  <div class="row controls">
-   <button type="button" id="play-chunk" class="primary">播放此块</button><button type="button" id="play-page">播放本页</button><button type="button" id="play-rest">从此处连续播放</button><button type="button" id="play-full">播放完整对话</button><button type="button" id="play-event">试听附近交互上下文</button><button type="button" id="stop" disabled>停止</button>
-   <label>音频版本<select id="audio-version"><option value="balanced">调整后 · 响度平衡</option><option value="before">调整前 · 原音轨</option></select></label>
-   <label>试听轨道<select id="channel"><option value="both">双轨（左 User / 右 Assistant）</option><option value="user">只听 User</option><option value="assistant">只听 Assistant</option></select></label>
+ <section class="card" aria-label="波形、文本和 control token">
+  <div class="row spread"><h2 id="window-title"></h2><div class="legend"><span class="user">User</span><span class="assistant">Assistant</span></div></div>
+  <div class="row spread"><span class="small muted">按 token 定位</span><label class="small" for="token-filter">类型 <select id="token-filter"><option value="">全部 token</option></select></label></div>
+  <div class="row" style="margin-top:12px"><button type="button" id="prev-token">上一个</button><button type="button" id="next-token">下一个</button><label for="occurrence-number" class="small">第几处</label><input id="occurrence-number" type="number" min="1" value="1"><button type="button" id="jump-token">定位</button><span id="match-status" class="small muted"></span></div>
+  <div class="row" style="margin-top:12px">
+   <button type="button" id="play-chunk" class="primary" disabled>播放此块</button><button type="button" id="play-page" disabled>播放本页</button><button type="button" id="play-rest" disabled>从此处播放</button><button type="button" id="play-full" disabled>播放整条</button><button type="button" id="stop" disabled>停止</button>
+   <label class="small" for="channel">轨道 <select id="channel"><option value="both">双轨（左 User / 右 Assistant）</option><option value="user">User</option><option value="assistant">Assistant</option></select></label>
   </div>
-  <p id="balance-summary" class="small muted" style="margin-bottom:10px"></p>
-  <p id="audio-status" class="status" role="status" aria-live="polite">首次播放加载所选版本；浏览器不额外调整音量。</p>
-  <div class="row spread"><label for="position" class="small">定位音频块 <strong id="position-readout" class="tabular"></strong></label><span id="clock" class="tabular small">00:00.000</span></div>
-  <input id="position" type="range" min="0" max="1206" value="0" step="1" aria-label="选择音频块">
-  <div class="row spread">
-   <div class="row"><button type="button" id="prev-page">上一页</button><button type="button" id="next-page">下一页</button><label for="chunk-number" class="small">块编号</label><input id="chunk-number" type="number" min="0" step="1" value="0" aria-label="跳转到块编号"></div>
-   <label class="small" for="event-select">交互位置 <select id="event-select"><option value="">选择交互事件</option></select></label>
+  <p id="audio-status" class="status" role="status" aria-live="polite" style="margin-top:10px">首次试听时加载音频。</p>
+  <div class="row spread" style="margin-top:12px"><span id="position-readout" class="small tabular"></span><span id="clock" class="small tabular">00:00.000</span></div>
+  <input id="position" type="range" min="0" max="0" value="0" step="1" aria-label="定位音频块或末条记录">
+  <div class="row"><button type="button" id="prev-page">上一页</button><button type="button" id="next-page">下一页</button><label for="chunk-number" class="small">块编号</label><input id="chunk-number" type="number" min="0" step="1" value="0"><button type="button" id="jump-chunk">定位</button></div>
+  <p class="notice">两轨按同一时段展示，Control 对应此时段的助手目标，来自上一输入块；助手开场可为空输入。文本保留导出分块，波形共用幅度刻度。</p>
+  <div id="timeline" class="timeline">
+   <div class="track-row"><div class="role">音频块</div><div id="chunk-heads" class="chunk-heads"></div></div>
+   <div class="track-row"><div class="role">Control</div><div id="control-track" class="control-grid"></div></div>
+   <div class="track-row"><div class="role user">User</div><div id="user-track" class="track-grid"></div></div>
+   <div class="track-row"><div class="role assistant">Assistant</div><div id="assistant-track" class="track-grid"></div></div>
+   <div id="playhead" class="playhead"></div>
   </div>
+  <p id="selection-info" class="selection-info small" aria-live="polite"></p>
  </section>
- <section class="card" id="turn-panel" aria-label="完整话轮与评分记录">
-  <h2>完整话轮 · 台词与 ASR 对照</h2>
-  <p class="small muted">点击话轮定位或试听。PER 取已有评分记录，通常评估 CUT 前的完整合成话轮；不能把 ASR 中包含的未播放尾部直接视作排程错误。未读取到证据时显示缺失。</p>
-  <input id="turn-search" class="turn-search" type="search" placeholder="搜索台词、ASR 或话轮 ID" aria-label="搜索话轮">
-  <div id="turn-list" class="turn-list"></div>
+ <section class="card" aria-label="按 control token 定位">
+  <h2>Token 位置列表</h2>
+  <div id="location-list" class="location-list"></div>
+  <div class="row location-pages"><button type="button" id="locations-prev">上一组位置</button><button type="button" id="locations-next">下一组位置</button><span id="locations-page" class="small muted"></span></div>
  </section>
- <section class="card" aria-label="分块文本和双轨波形">
-  <div class="row spread"><h2 id="window-title"></h2><div class="legend"><span><i class="swatch user"></i>User</span><span><i class="swatch assistant"></i>Assistant</span><span><i class="swatch raw"></i>原始 CUT</span><span><i class="swatch cut"></i>实际停止</span></div></div>
-  <p class="small muted">Control 行显示对应助手目标块的原始 control_token。严格下一块监督下，它来自上一输入块；助手开场首条输入为空。上方文本取自 JSON，空文本也可以有延续语音。</p>
-  <div class="timeline" id="timeline"><div class="track-row"><div class="role">音频块</div><div id="chunk-heads" class="chunk-heads"></div></div><div class="track-row"><div class="role">Control</div><div id="control-track" class="control-grid"></div></div><div class="track-row"><div class="role user">User</div><div id="user-track" class="track-grid"></div></div><div class="track-row"><div class="role assistant">Assistant</div><div id="assistant-track" class="track-grid"></div></div><div id="playhead" class="playhead"></div></div>
-  <div id="event-bar" class="event-bar"></div>
-  <p class="notice">每角色每块最多 <span id="text-limit">4</span> 个单位：汉字、英文单词各计 1；标点不计数。波形两轨共用同一幅度刻度，不做逐块放大。</p>
- </section>
- <section class="card" aria-label="所选音频块的核对信息">
-  <h2 id="selection-title" class="selection-title"></h2>
-  <p id="selected-control" class="small mono" style="margin-bottom:12px"></p>
-  <div class="details-grid"><div class="detail-block"><h3 class="user">User · 本块前置文本</h3><div id="selected-user" class="assigned"></div><div id="user-meta" class="small muted"></div><div id="user-words" class="chips" aria-label="User 实际对齐片段"></div></div><div class="detail-block"><h3 class="assistant">Assistant · 本块前置文本</h3><div id="selected-assistant" class="assigned"></div><div id="assistant-meta" class="small muted"></div><div id="assistant-words" class="chips" aria-label="Assistant 实际对齐片段"></div></div></div>
-  <div id="event-summary" class="event-summary"></div>
-  <p class="notice">小标签显示与该块重叠的真实对齐片段及全局时间；它们不等于上方已前置输出的文本。CUT 裁到一部分的片段单独标注。</p>
-  <details><summary>查看 input → target 与原始 JSON</summary><p id="supervision-summary" class="notice"></p><pre id="record-json"></pre></details>
- </section>
- <p id="provenance" class="footer"></p>
-<p class="footer">字体：Duplex Chunk Sans（Noto Sans CJK 子集），<a href="assets/OFL.txt">SIL OFL 1.1</a>。</p>
+ <p class="footer">字体：Duplex Chunk Sans（Noto Sans CJK），<a href="assets/OFL.txt">SIL OFL 1.1</a>。</p>
 </main>
 <script>
 (async () => {
  'use strict';
- const query=new URLSearchParams(location.search),previous=query.get('set')==='previous';
- for(const id of ['play-chunk','play-page','play-rest','play-full','play-event'])document.getElementById(id).disabled=true;
- document.getElementById('audio-status').textContent='正在加载分块文本与波形……';
- const catalogResponse=await fetch((previous?'assets/catalog.json':'assets/catalog.random10.json')+'?v=20261124-random10-v1');
- if(!catalogResponse.ok)throw Error('样本清单读取失败：HTTP '+catalogResponse.status);
- let catalog=await catalogResponse.json();
+ const UI_VERSION='20261125-control-review-v1';
+ const $=id=>document.getElementById(id),query=new URLSearchParams(location.search);
+ const catalogPath=query.get('set')==='previous'?'assets/catalog.json':'assets/catalog.random10.json';
+ async function readJSON(path){const r=await fetch(path+'?v='+UI_VERSION);if(!r.ok)throw Error('数据读取失败：HTTP '+r.status);return r.json();}
+ let catalog=await readJSON(catalogPath);
  const requestedDemo=query.get('demo');
- if(requestedDemo&&!catalog.samples.some(s=>s.id===requestedDemo)&&!previous){
-  const oldResponse=await fetch('assets/catalog.json?v=20261119-tts20-v1');
-  if(oldResponse.ok){const old=await oldResponse.json();if(old.samples.some(s=>s.id===requestedDemo))catalog=old;}
+ if(requestedDemo&&!catalog.samples.some(s=>s.id===requestedDemo)&&query.get('set')!=='previous'){
+  const old=await readJSON('assets/catalog.json');if(old.samples.some(s=>s.id===requestedDemo))catalog=old;
  }
- const ASSET_VERSION=catalog.viewerVersion||'20261119-tts20-v1';
- const selected=catalog.samples.find(s=>s.id===requestedDemo)||catalog.samples.find(s=>s.status==='complete')||catalog.samples[0];
- const demoSelect=document.getElementById('demo-select');
- for(const sample of catalog.samples){
-  const option=document.createElement('option');option.value=sample.id;option.textContent=sample.label+' · '+sample.statusLabel;demoSelect.append(option);
-  const row=document.createElement('p'),link=document.createElement('a');
-  const url=new URL(location.href);url.search='?v='+ASSET_VERSION+'&demo='+encodeURIComponent(sample.id);url.hash='';
-  link.href=url;link.textContent=sample.label;row.append(link,document.createTextNode(' — '+sample.statusLabel+(sample.stageSummary?' · '+sample.stageSummary:'')));
-  document.getElementById('batch-results').append(row);
- }
- demoSelect.value=selected.id;
- demoSelect.onchange=()=>{const url=new URL(location.href);url.search='?v='+ASSET_VERSION+'&demo='+encodeURIComponent(demoSelect.value);url.hash='';location.assign(url);};
- document.getElementById('batch-summary').textContent=catalog.summary;
- document.getElementById('batch-toggle').textContent='查看 '+catalog.samples.length+' 条样本及交互数量';
- document.getElementById('sampling-note').textContent=catalog.samplingNote||'保留的上一批试听样本；质量状态以各条诊断为准。';
- document.getElementById('sample-status').textContent=selected.statusDetail||selected.statusLabel;
- window.duplexCatalog={catalog,selected};
- if(!selected.data){
-  document.getElementById('demo-summary').textContent=selected.label;
-  for(const section of document.querySelectorAll('main > section'))if(section.id!=='batch-panel')section.hidden=true;
-  document.getElementById('failure-details').hidden=false;
-  document.getElementById('failure-title').textContent=selected.status==='running'?'正在处理，尚未完成导出':'处理失败，未完成导出';
-  document.querySelector('header .badge').textContent='未正式导出 · 诊断试听';
-  document.getElementById('failure-json').textContent=JSON.stringify(selected.diagnostic,null,2);
-  for(const turn of selected.diagnostic?.turns||[]){
-   const block=document.createElement('div'),title=document.createElement('p'),transcript=document.createElement('p'),asr=document.createElement('p'),metric=document.createElement('p');
-   title.textContent=turn.utterance_id+' · '+turn.role+' · 失败话轮原音频（未排程）';title.className='notice';
-   transcript.textContent='目标：'+turn.text;asr.textContent='ASR：'+(turn.asr_text||'无可用转写');
-   const score=turn.trigger==='speaker_similarity'?turn.speaker_similarity:turn.per_final;
-   metric.textContent=(turn.trigger==='speaker_similarity'?'说话人相似度':'PER')+'：'+(typeof score==='number'?score.toFixed(4):'未获得可靠分数')+(typeof turn.threshold==='number'?' · 阈值 '+turn.threshold.toFixed(2):'');metric.className='notice';block.append(title,transcript,asr,metric);
-   if(turn.trigger==='alignment')metric.textContent='强制对齐失败：'+turn.retry_error;
-   if(turn.director_text&&turn.director_text!==turn.text){const marked=document.createElement('p');marked.className='notice';marked.textContent='Director：'+turn.director_text;block.append(marked);}
-   if(turn.audio){const audio=document.createElement('audio');audio.controls=true;audio.preload='none';audio.src=turn.audio;audio.className='diagnostic-audio';block.append(audio);}
-   document.getElementById('failure-audio').append(block);
-  }
-  if(selected.diagnosticAudio){
-   const note=document.createElement('p');note.className='notice';note.textContent='排程诊断双轨（左 User / 右 Assistant）：时序检查失败，未生成正式 chunk JSON。';
-   const audio=document.createElement('audio');audio.controls=true;audio.preload='none';audio.src=selected.diagnosticAudio;audio.className='diagnostic-audio';document.getElementById('failure-audio').append(note,audio);
-   const report=selected.diagnostic?.timing_report;
-   for(const event of report?.events||[]){
-    const at=(event.trigger_sample??event.guest_start_sample??0)/report.sample_rate;
-    const jump=document.createElement('button');jump.type='button';jump.textContent='试听异常交互 '+event.id+' 附近 · '+at.toFixed(3)+' s';
-    jump.onclick=async()=>{jump.disabled=true;try{
-     if(!audio.dataset.cached){const response=await fetch(selected.diagnosticAudio);if(!response.ok)throw Error('音频读取失败');audio.src=URL.createObjectURL(await response.blob());audio.dataset.cached='true';}
-     if(audio.readyState<2)await new Promise((resolve,reject)=>{audio.addEventListener('loadeddata',resolve,{once:true});audio.addEventListener('error',()=>reject(Error('音频读取失败')),{once:true});audio.load();});
-     audio.currentTime=Math.max(0,at-5);await audio.play();
-    }catch(e){note.textContent='播放失败：'+e.message;}finally{jump.disabled=false;}};document.getElementById('failure-audio').append(jump);
-   }
-  }
-  document.getElementById('provenance').textContent='保留原始音频和处理诊断；本次未做质量门槛验收；没有替换随机样本。';
-  return;
- }
- const response=await fetch(selected.data+'?v='+ASSET_VERSION);
- if(!response.ok)throw Error('展示数据读取失败：HTTP '+response.status);
- const D=await response.json();
- if(D.viewerVersion!==ASSET_VERSION)throw Error('页面与展示数据版本不一致，请刷新后重试。');
- const $=id=>document.getElementById(id);
- if(D.downloads?.chunks){$('download-chunks').href=D.downloads.chunks;$('download-chunks').hidden=false;}
- if(!D.turns)$('turn-panel').hidden=true;
- $('text-limit').textContent=D.maxTextUnits;
+ const available=catalog.samples.filter(s=>s.data),selected=available.find(s=>s.id===requestedDemo)||available[0];
+ if(!selected)throw Error('此组暂无带音轨和分块的样本。');
+ for(const sample of available){const o=document.createElement('option');o.value=sample.id;o.textContent=sample.label;$('demo-select').append(o);}
+ $('demo-select').value=selected.id;
+ $('demo-select').onchange=()=>{const u=new URL(location.href);u.searchParams.set('v',UI_VERSION);u.searchParams.set('demo',$('demo-select').value);u.searchParams.delete('chunk');u.searchParams.delete('record');const token=$('token-filter').value;if(token)u.searchParams.set('token',token);else u.searchParams.delete('token');u.hash='';location.assign(u);};
+ const D=await readJSON(selected.data),ASSET_VERSION=catalog.viewerVersion;
+ if(D.viewerVersion!==ASSET_VERSION)throw Error('展示数据版本不一致，请刷新重试。');
  const roles=['user','assistant'],N=D.frames.length,SR=D.sampleRate,CS=D.chunkSamples;
- const state={selected:0,page:0,columns:8,playing:false,serial:0,sources:[],channel:'both',ctx:null,variant:'balanced',buffers:{},loading:{},startAt:0,startSample:0,endSample:0};
- $('audio-version').replaceChildren();
- for(const [key,value] of Object.entries(D.variants)){const option=document.createElement('option');option.value=key;option.textContent=value.label;$('audio-version').append(option);}
- state.variant=D.variants.balanced?'balanced':Object.keys(D.variants)[0];$('audio-version').value=state.variant;
- $('audio-version').disabled=Object.keys(D.variants).length===1;
- const eventNames={interrupt:'打断',backchannel:'短反馈',pause:'用户停顿',pend:'保持等待'};
- const modeNames={wait:'等待',simultaneous:'同时插话',stop:'停止'};
- const time=s=>{const ms=Math.round(s*1000),m=Math.floor(ms/60000);return String(m).padStart(2,'0')+':'+String(Math.floor(ms/1000)%60).padStart(2,'0')+'.'+String(ms%1000).padStart(3,'0')};
- const eventStart=e=>e.trigger_sample??e.guest_start_sample??e.pause_start_sample??e.silence_start_sample??0;
- const eventEnd=e=>Math.max(eventStart(e),e.stop_sample??0,e.pause_end_sample??0,e.silence_end_sample??0);
- const eventLabel=e=>[e.id,eventNames[e.type]||e.type,modeNames[e.mode]||''].filter(Boolean).join(' · ');
- const inputRecords=new Map(),targetRecords=new Map();
- for(const r of D.records){const v=r.input.content.find(x=>x.media_id==='user');if(v)inputRecords.set(Math.round(v.span_ms[0]/D.chunkMs),r);const a=r.target.audio_target;const ti=a?Math.round(a.span_ms[0]/D.chunkMs):v?Math.round(v.span_ms[0]/D.chunkMs)+1:(D.initialSpeaker==='assistant'&&r.chunk_index===0?0:null);if(ti!==null)targetRecords.set(ti,r);}
- const elem=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n};
- function eventIn(e,start,end){return eventStart(e)<end&&eventEnd(e)>=start;}
- function savePosition(){try{localStorage.setItem('duplex-review:'+D.id,JSON.stringify({selected:state.selected,channel:state.channel}));}catch(_){}}
+ const state={selected:0,page:0,columns:8,filter:'',locationPage:0,playing:false,serial:0,sources:[],channel:'both',ctx:null,variant:D.variants.balanced?'balanced':Object.keys(D.variants)[0],buffers:{},loading:{},startAt:0,startSample:0,endSample:0};
+ const entries=[],targetRecords=new Map(),unlocated=[];
+ for(const record of D.records){
+  const input=record.input.content.find(c=>c.media_id==='user'),audio=record.target.audio_target;
+  const target=audio?Math.round(audio.span_ms[0]/D.chunkMs):input?Math.round(input.span_ms[0]/D.chunkMs)+1:(D.initialSpeaker==='assistant'&&record.chunk_index===0?0:null);
+  const entry={record,token:record.target.control_token,target,input};entries.push(entry);
+  if(target===null||target<0||target>N){unlocated.push(entry);continue;}
+  if(targetRecords.has(target))throw Error('同一目标位置存在多条记录，不能覆盖标注：'+target);
+  targetRecords.set(target,entry);
+ }
+ const slots=N+(targetRecords.has(N)?1:0),counts={},tokenOrder=['<|listen|>','<|wait|>','<|bc|>','<|speak|>','<|idle|>'];
+ for(const e of entries)counts[e.token]=(counts[e.token]||0)+1;
+ for(const key of Object.keys(counts))if(!tokenOrder.includes(key))tokenOrder.push(key);
+ const elem=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;};
+ const time=s=>{const ms=Math.round(s*1000);return String(Math.floor(ms/60000)).padStart(2,'0')+':'+String(Math.floor(ms/1000)%60).padStart(2,'0')+'.'+String(ms%1000).padStart(3,'0');};
+ const numeric=n=>n.toLocaleString('en-US');
+ function matches(){return entries.filter(e=>!state.filter||e.token===state.filter);}
+ function currentEntry(){return targetRecords.get(state.selected);}
  function setStatus(text,error=false){$('audio-status').textContent=text;$('audio-status').classList.toggle('error',error);}
+ function savePosition(){try{localStorage.setItem('duplex-control:'+D.id,JSON.stringify({selected:state.selected,channel:state.channel,filter:state.filter}));}catch(_){}}
+ function renderStats(){
+  $('token-stats').replaceChildren();
+  for(const token of tokenOrder){
+   const b=elem('button','token-stat');b.type='button';b.setAttribute('aria-pressed',String(state.filter===token));b.setAttribute('aria-label',token+'，当前样本 '+(counts[token]||0)+' 条，筛选定位');
+   b.append(elem('span','token-name',token),elem('span','token-number',numeric(counts[token]||0)),elem('span','token-total','当前样本'));
+   const all=catalog.controlSummary?.counts[token];if(typeof all==='number')b.append(elem('span','token-total','本组 '+available.length+' 条：'+numeric(all)));
+   b.onclick=()=>setFilter(token,true);$('token-stats').append(b);
+  }
+ }
+ function setFilter(token,jump=false){for(const o of $('demo-select').children){const sample=available.find(s=>s.id===o.value);o.textContent=sample.label+(token&&sample.controlCounts?' · '+token+' '+numeric(sample.controlCounts[token]||0):'');}state.filter=token;state.locationPage=0;$('token-filter').value=token;renderStats();const rows=matches();if(jump&&rows.length)locateEntry(rows[0]);else{renderLocations();savePosition();}}
  function svgEl(tag,attrs){const n=document.createElementNS('http://www.w3.org/2000/svg',tag);for(const [k,v] of Object.entries(attrs))n.setAttribute(k,String(v));return n;}
  function wave(role,i){
   const svg=svgEl('svg',{viewBox:'0 0 128 86',preserveAspectRatio:'none',class:'wave','aria-hidden':'true'});
-  svg.append(svgEl('line',{x1:0,y1:43,x2:128,y2:43,stroke:'var(--line)','stroke-width':0.6}));
+  svg.append(svgEl('line',{x1:0,y1:43,x2:128,y2:43,stroke:'var(--line)','stroke-width':.6}));
   const peaks=D.variants[state.variant].peaks[role][i];let path='';
   for(let j=0;j<peaks.length;j+=2){const x=(j/2+.5)*128/(peaks.length/2);path+='M'+x.toFixed(2)+','+(43-peaks[j]/32768*40).toFixed(2)+'V'+(43-peaks[j+1]/32768*40).toFixed(2);}
-  svg.append(svgEl('path',{d:path,fill:'none',stroke:'var(--'+role+')','stroke-width':2.7}));
-  const s=i*CS,e=s+CS;
-  for(const ev of D.events){
-   const hostRole=D.words.find(w=>w.utterance_id===ev.host_id)?.role;if(hostRole!==role)continue;
-   for(const [key,dash] of [['planned_cut_sample','3 2'],['stop_sample','']]){
-    const pos=ev[key];if(pos===undefined||pos<s||pos>e||(pos===e&&i!==N-1))continue;
-    const x=(pos-s)/CS*128;
-    svg.append(svgEl('line',{x1:x,y1:0,x2:x,y2:86,stroke:'var(--cut)','stroke-width':2,'stroke-dasharray':dash}));
-   }
-  }
-  if(D.frames[i].valid_samples<CS){const x=D.frames[i].valid_samples/CS*128;svg.append(svgEl('rect',{x,y:0,width:128-x,height:86,fill:'var(--muted)',opacity:0.14}));}
-  return svg;
+  svg.append(svgEl('path',{d:path,fill:'none',stroke:'var(--'+role+')','stroke-width':2.7}));return svg;
  }
  function renderTracks(){
-  document.documentElement.style.setProperty('--columns',Math.min(state.columns,N-state.page));
-  const end=Math.min(N,state.page+state.columns);
-  $('window-title').textContent='音频块 '+state.page+'–'+(end-1)+' · '+time(state.page*CS/SR)+'–'+time(end*CS/SR);
+  const end=Math.min(slots,state.page+state.columns);document.documentElement.style.setProperty('--columns',end-state.page);
+  $('window-title').textContent=state.page>=N?'会话末尾记录 · 无对应音频':'音频块 #'+state.page+'–#'+(Math.min(end,N)-1)+(end>N?' · 会话末尾记录':'');
   $('chunk-heads').replaceChildren();$('control-track').replaceChildren();roles.forEach(r=>$(r+'-track').replaceChildren());
   for(let i=state.page;i<end;i++){
-   const h=elem('div','chunk-head');
-   if(i<N){h.append(elem('strong','', '#'+i),elem('span','',i*D.chunkMs+'–'+(i+1)*D.chunkMs+' ms'));}
-   $('chunk-heads').append(h);
-   const record=targetRecords.get(i),token=record?.target.control_token;
-   const control=elem('div','cell control-cell'+(i===state.selected?' selected':''));control.dataset.chunk=String(i);control.dataset.role='control';
-   const choice=elem('button','control-choice');choice.type='button';choice.setAttribute('aria-pressed',String(i===state.selected));choice.setAttribute('aria-label','块 '+i+'，control token '+(token||'无对应目标记录')+'，点击选中');
-   choice.append(elem('span','control-token'+(token?'':' empty'),token||'—'),elem('span','control-source',record?'记录 #'+record.chunk_index:'无目标记录'));
-   choice.onclick=()=>selectChunk(i);control.append(choice);$('control-track').append(control);
+   const terminal=i===N,entry=targetRecords.get(i),head=elem('div','chunk-head');
+   head.append(elem('strong','',terminal?'会话末尾':'#'+i),elem('span','',terminal?'无目标音频':time(i*CS/SR)+'–'+time((i+1)*CS/SR)));$('chunk-heads').append(head);
+   const control=elem('div','cell'+(i===state.selected?' selected':''));control.dataset.chunk=String(i);
+   const choice=elem('button','control-choice');choice.type='button';choice.setAttribute('aria-pressed',String(i===state.selected));choice.setAttribute('aria-label',(terminal?'会话末尾':'块 '+i)+'，'+(entry?.token||'无对应目标记录'));
+   choice.append(elem('span','control-token'+(entry?'':' empty'),entry?.token||'—'),elem('span','control-source',entry?'记录 #'+entry.record.chunk_index:'无目标记录'));choice.onclick=()=>selectChunk(i);control.append(choice);$('control-track').append(control);
    for(const role of roles){
-    const cell=elem('div','cell'+(i===state.selected?' selected':''));cell.dataset.chunk=String(i);cell.dataset.role=role;
-    if(i<N){
-     const f=D.frames[i],text=f[role+'_text'],count=f.counts[role];
-     const b=elem('button','cell-button');b.type='button';b.setAttribute('aria-label',role+' 块 '+i+'，'+(text||'无新文本')+'，点击选中');b.setAttribute('aria-pressed',String(i===state.selected));
-     b.append(elem('span','cell-text'+(text?'':' empty'),text||'无新文本'));
-     const ids=[...new Set(f.text_spans.filter(s=>s.role===role).map(s=>s.utterance_id))];
-     b.append(elem('span','cell-meta',(count?count+' 单位':'0 单位')+(ids.length?' · '+ids.join(', '):'')),wave(role,i));
-     b.addEventListener('click',()=>selectChunk(i));cell.append(b);
-    }
-    $(role+'-track').append(cell);
+    const cell=elem('div','cell'+(i===state.selected?' selected':''));cell.dataset.chunk=String(i);
+    const b=elem('button','cell-button');b.type='button';b.setAttribute('aria-pressed',String(i===state.selected));
+    const text=terminal?'':D.frames[i][role+'_text'];b.setAttribute('aria-label',role+'，'+(terminal?'会话末尾，无音频':'块 '+i+'，'+(text||'无新文本')));
+    b.append(elem('span','cell-text'+(text?'':' empty'),text||(terminal?'—':'无新文本')),terminal?elem('span','terminal-wave','无音频'):wave(role,i));b.onclick=()=>selectChunk(i);cell.append(b);$(role+'-track').append(cell);
    }
   }
-  $('prev-page').disabled=state.page===0;$('next-page').disabled=end>=N;
-  $('event-bar').replaceChildren();
-  for(const e of D.events.filter(e=>eventIn(e,state.page*CS,end*CS))){const b=elem('button','event-tag'+(e.stop_sample!==undefined?' cut':''),eventLabel(e));b.type='button';b.onclick=()=>jumpEvent(e);$('event-bar').append(b);}
+  $('prev-page').disabled=state.page===0;$('next-page').disabled=end>=slots;
+  $('play-chunk').disabled=state.selected>=N;$('play-rest').disabled=state.selected>=N;$('play-page').disabled=state.page>=N;
  }
- function relevantWords(role,i){return D.words.filter(w=>w.role===role&&w.start_sample<(i+1)*CS&&w.end_sample>i*CS);}
- function renderDetails(){
-  const i=state.selected,f=D.frames[i];
-  $('position').value=i;$('chunk-number').value=i;
-  $('position-readout').textContent='#'+i+' / '+(N-1);
-  $('selection-title').textContent='所选块 #'+i+' · '+i*D.chunkMs+'–'+(i+1)*D.chunkMs+' ms';
-  if(!state.playing)$('clock').textContent=time(i*CS/SR);
-  for(const role of roles){
-   $('selected-'+role).textContent=f[role+'_text']||'（无新文本）';
-   const refs=f.text_spans.filter(s=>s.role===role).map(s=>s.utterance_id+': ['+s.text_start+', '+s.text_end+')');
-   $(role+'-meta').textContent=f.counts[role]+' / '+D.maxTextUnits+' 单位'+(refs.length?' · '+refs.join('；'):'')+(f.valid_samples<CS?' · 有效 '+f.valid_samples+' / '+CS+' 采样':'');
-   $(role+'-words').replaceChildren();
-   for(const w of relevantWords(role,i)){const t=w.text+' '+(w.start_sample/SR).toFixed(3)+'–'+(w.end_sample/SR).toFixed(3)+' s'+(w.clipped?' · CUT 残片':'');$(role+'-words').append(elem('span','chip'+(w.clipped?' partial':''),t));}
-   if(!$(role+'-words').childNodes.length)$(role+'-words').append(elem('span','muted small','本块无对齐文字；以波形和试听核对静音或延续音频。'));
-  }
-  $('event-summary').replaceChildren();
-  for(const e of D.events.filter(e=>eventIn(e,i*CS,(i+1)*CS))){let t=eventLabel(e)+' · 触发 '+(eventStart(e)/SR*1000).toFixed(1)+' ms';if(e.stop_sample!==undefined)t+=' · CUT '+(e.planned_cut_sample/SR*1000).toFixed(1)+' → '+(e.stop_sample/SR*1000).toFixed(1)+' ms';if(e.partial_cut_units?.length)t+=' · 存在 '+e.partial_cut_units.length+' 个部分播放的对齐片段';$('event-summary').append(elem('p','',t));}
-  const ur=inputRecords.get(i),ar=targetRecords.get(i);
-  $('selected-control').textContent=ar?'Control token：'+ar.target.control_token+' · 训练记录 #'+ar.chunk_index+' · '+(ar.input.content.length?'上一输入块 → 当前助手目标块':'空输入 → 助手开场目标块'):'Control token：—（该物理块没有对应的助手目标记录，不推断标签）';
-  $('supervision-summary').textContent=i===0&&D.initialSpeaker==='assistant'?'助手开场：训练记录 #0 的 input.content=[]，target 为 0–320 ms。下方另外列出以本块 User 为输入的记录。':'音频块编号按同一真实时段展示。训练记录中 User 输入与 Assistant 目标属于相邻块，不能按记录编号直接把两轨放在一起。';
-  $('record-json').textContent=JSON.stringify({physical_chunk_index:i,span_ms:[i*D.chunkMs,(i+1)*D.chunkMs],valid_samples:f.valid_samples,frontloaded_text_spans:f.text_spans,user_input_record:ur??null,assistant_target_record:ar??null},null,2);
-  drawOverview();
+ function renderSelection(){
+  const i=state.selected,entry=currentEntry();$('position').value=i;$('chunk-number').value=Math.min(i,N-1);
+  $('position-readout').textContent=i===N?'会话末尾 · 无目标音频':'块 #'+i+' / '+(N-1);
+  if(!state.playing)$('clock').textContent=time(Math.min(i,N)*CS/SR);
+  if(!entry){$('selection-info').textContent='本块没有对应的助手目标记录，Control 显示为 —；不推断标签。';return;}
+  const input=entry.input?'User 输入 '+entry.input.span_ms.join('–')+' ms':'空输入';
+  $('selection-info').textContent=entry.token+' · 训练记录 #'+entry.record.chunk_index+' · '+input+' · '+(i===N?'会话末尾无目标音频；仅展示原始 token。':'助手目标时段 '+i*D.chunkMs+'–'+(i+1)*D.chunkMs+' ms'+(entry.record.target.audio_target?'':'（无目标音频）'));
  }
- function drawOverview(){
-  const canvas=$('overview'),width=canvas.clientWidth,height=130,scale=devicePixelRatio||1;
-  if(!width)return;
-  if(canvas.width!==Math.round(width*scale)||canvas.height!==Math.round(height*scale)){canvas.width=Math.round(width*scale);canvas.height=Math.round(height*scale);}
-  const ctx=canvas.getContext('2d');ctx.setTransform(scale,0,0,scale,0,0);ctx.clearRect(0,0,width,height);
-  const css=getComputedStyle(document.documentElement),ink=css.getPropertyValue('--ink');
-  for(const [r,center] of [['user',34],['assistant',96]]){
-   ctx.strokeStyle=css.getPropertyValue('--'+r);ctx.beginPath();
-   for(let x=0;x<width;x++){
-    const first=Math.floor(x/width*N),last=Math.min(N,Math.max(first+1,Math.ceil((x+1)/width*N)));let lo=0,hi=0;
-    for(let k=first;k<last;k++)for(const peak of D.variants[state.variant].peaks[r][k]){lo=Math.min(lo,peak);hi=Math.max(hi,peak);}
-    ctx.moveTo(x,center-hi/32768*28);ctx.lineTo(x,center-lo/32768*28);
-   }
-   ctx.stroke();
+ const LOCATION_SIZE=8;
+ function renderLocations(){
+  const rows=matches(),active=rows.indexOf(currentEntry()),total=rows.length;
+  $('match-status').textContent=(active>=0?'当前第 '+(active+1)+' / ':'共 ')+numeric(total)+' 处';
+  $('occurrence-number').max=Math.max(1,total);$('occurrence-number').value=active>=0?active+1:1;
+  $('prev-token').disabled=!rows.some(e=>e.target!==null&&e.target<state.selected);$('next-token').disabled=!rows.some(e=>e.target!==null&&e.target>state.selected);$('jump-token').disabled=!total;
+  const pages=Math.max(1,Math.ceil(total/LOCATION_SIZE));state.locationPage=Math.max(0,Math.min(pages-1,state.locationPage));
+  $('location-list').replaceChildren();
+  for(let k=state.locationPage*LOCATION_SIZE;k<Math.min(total,(state.locationPage+1)*LOCATION_SIZE);k++){
+   const e=rows[k],b=elem('button','location-button');b.type='button';b.setAttribute('aria-pressed',String(e===currentEntry()));
+   const label=e.target===N?'会话末尾 · 无目标音频':e.target===null||e.target<0||e.target>N?'无法映射到音频位置':'块 #'+e.target+' · '+time(e.target*CS/SR);
+   b.append(elem('span','mono',e.token),elem('span','small','第 '+(k+1)+' 处 · 记录 #'+e.record.chunk_index+' · '+label));
+   if(e.target!==null&&e.target>=0&&e.target<N){const f=D.frames[e.target];b.append(elem('span','location-preview','User：'+(f.user_text||'—')+' / Assistant：'+(f.assistant_text||'—')));}
+   b.disabled=e.target===null||e.target<0||e.target>N;b.onclick=()=>{locateEntry(e);$('window-title').scrollIntoView({block:'start',behavior:'smooth'});};$('location-list').append(b);
   }
-  for(const e of D.events){
-   ctx.strokeStyle='#c78728';ctx.beginPath();const x=eventStart(e)/D.samples*width;ctx.moveTo(x,2);ctx.lineTo(x,128);ctx.stroke();
-   if(e.stop_sample!==undefined){ctx.strokeStyle=css.getPropertyValue('--cut');ctx.beginPath();const stop=e.stop_sample/D.samples*width;ctx.moveTo(stop,2);ctx.lineTo(stop,128);ctx.stroke();}
-  }
-  const x=state.selected/N*width;ctx.strokeStyle=ink;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,130);ctx.stroke();ctx.lineWidth=1;
-  $('overview-time').textContent=time(0)+' — '+time(D.samples/SR)+' · '+D.events.length+' 次交互';
-  canvas.setAttribute('aria-valuemax',N-1);canvas.setAttribute('aria-valuenow',state.selected);canvas.setAttribute('aria-valuetext','音频块 '+state.selected+'，'+time(state.selected*CS/SR));
+  if(!total)$('location-list').append(elem('p','muted small','当前样本没有此类 token；未补写标注。'));
+  $('locations-prev').disabled=state.locationPage===0;$('locations-next').disabled=state.locationPage>=pages-1;$('locations-page').textContent=total?'位置 '+(state.locationPage*LOCATION_SIZE+1)+'–'+Math.min(total,(state.locationPage+1)*LOCATION_SIZE)+' / '+numeric(total):'0 处';
  }
- $('overview').onclick=e=>selectChunk(Math.floor((e.clientX-e.currentTarget.getBoundingClientRect().left)/e.currentTarget.clientWidth*N));
- $('overview').onkeydown=e=>{if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();selectChunk(state.selected+(e.key==='ArrowLeft'?-1:1));}};
- function renderTurns(){
-  if(!D.turns)return;
-  const q=$('turn-search').value.trim().toLocaleLowerCase();$('turn-list').replaceChildren();
-  for(const t of D.turns){
-   if(q&&![t.id,t.text,t.full_text,t.asr_text].some(s=>(s||'').toLocaleLowerCase().includes(q)))continue;
-   const block=elem('article','turn-item'),top=elem('div','row'),jump=elem('button',t.role,t.id+' · '+t.role+' · '+time(t.start_sample/SR)+'–'+time(t.end_sample/SR)),play=elem('button','','试听此话轮');
-   jump.type=play.type='button';jump.onclick=()=>selectChunk(Math.floor(t.start_sample/CS));play.onclick=()=>playRange(Math.max(0,t.start_sample),Math.min(D.samples,t.end_sample));
-   const score=typeof t.per==='number'?'PER '+t.per.toFixed(4)+(typeof t.threshold==='number'?' / 阈值 '+t.threshold:''):'PER 证据缺失';
-   top.append(jump,play,elem('span','small muted',score+(t.is_backchannel?' · backchannel':'')));block.append(top,elem('p','','播放文本：'+t.text));
-   if(t.full_text!==t.text)block.append(elem('p','small muted','完整合成台词：'+t.full_text));
-   if(t.unspoken_text)block.append(elem('p','small cut-text','CUT 后未播放：'+t.unspoken_text));
-   block.append(elem('p','small muted','ASR：'+(t.asr_text??'未读取到转写记录')));$('turn-list').append(block);
-  }
- }
- $('turn-search').oninput=renderTurns;renderTurns();
  function selectChunk(i,{keepPlaying=false}={}){
-  if(!keepPlaying){stopPlayback();$('event-select').value='';}
-  state.selected=Math.max(0,Math.min(N-1,Math.floor(Number(i)||0)));
+  if(!keepPlaying)stopPlayback();state.selected=Math.max(0,Math.min(slots-1,Math.floor(Number(i)||0)));
   if(state.selected<state.page||state.selected>=state.page+state.columns)state.page=Math.floor(state.selected/state.columns)*state.columns;
-  renderTracks();renderDetails();savePosition();
+  const active=matches().indexOf(currentEntry());if(active>=0)state.locationPage=Math.floor(active/LOCATION_SIZE);
+  renderTracks();renderSelection();renderLocations();savePosition();
  }
- function jumpEvent(e){const i=Math.floor(eventStart(e)/CS);selectChunk(i);$('event-select').value=e.id;state.page=Math.max(0,Math.min(N-state.columns,i-2));renderTracks();}
+ function locateEntry(entry){if(entry.target===null||entry.target<0||entry.target>N){setStatus('此记录无法映射到音频位置。',true);return;}selectChunk(entry.target);}
+ function moveToken(direction){const rows=matches().filter(e=>e.target!==null&&(direction<0?e.target<state.selected:e.target>state.selected));const e=direction<0?rows[rows.length-1]:rows[0];if(e)locateEntry(e);}
  function stopPlayback(){
   state.serial++;state.playing=false;
-  for(const s of state.sources){s.onended=null;try{s.stop()}catch(_){}try{s.disconnect()}catch(_){}}
-  state.sources=[];$('stop').disabled=true;$('playhead').style.display='none';
-  for(const cell of document.querySelectorAll('.cell.playing'))cell.classList.remove('playing');
+  for(const s of state.sources){s.onended=null;try{s.stop();}catch(_){}try{s.disconnect();}catch(_){}}
+  state.sources=[];$('stop').disabled=true;$('playhead').style.display='none';for(const c of document.querySelectorAll('.cell.playing'))c.classList.remove('playing');
  }
  async function getAudio(variant=state.variant){
   if(state.buffers[variant])return state.buffers[variant];
@@ -335,56 +213,36 @@
  }
  function tick(serial){
   if(!state.playing||serial!==state.serial)return;
-  const sample=Math.min(state.endSample-1,Math.max(state.startSample,state.startSample+(state.ctx.currentTime-state.startAt)*SR));
-  const i=Math.min(N-1,Math.floor(sample/CS));
-  if(i!==state.selected){state.selected=i;if(i<state.page||i>=state.page+state.columns){state.page=Math.floor(i/state.columns)*state.columns;renderTracks();}for(const c of document.querySelectorAll('.cell')){c.classList.toggle('selected',Number(c.dataset.chunk)===i);const b=c.querySelector('button');if(b)b.setAttribute('aria-pressed',String(Number(c.dataset.chunk)===i));}renderDetails();}
-  $('clock').textContent=time(sample/SR);
+  const sample=Math.min(state.endSample-1,Math.max(state.startSample,state.startSample+(state.ctx.currentTime-state.startAt)*SR)),i=Math.min(N-1,Math.floor(sample/CS));
+  if(i!==state.selected)selectChunk(i,{keepPlaying:true});$('clock').textContent=time(sample/SR);
   for(const c of document.querySelectorAll('.cell'))c.classList.toggle('playing',Number(c.dataset.chunk)===i);
-  const track=$('user-track'),timeline=$('timeline'),rect=track.getBoundingClientRect(),root=timeline.getBoundingClientRect();
-  $('playhead').style.display='block';$('playhead').style.left=(rect.left-root.left+(sample/CS-state.page)/Math.min(state.columns,N-state.page)*rect.width)+'px';
+  const rect=$('user-track').getBoundingClientRect(),root=$('timeline').getBoundingClientRect();$('playhead').style.display='block';$('playhead').style.left=(rect.left-root.left+(sample/CS-state.page)/Math.min(state.columns,slots-state.page)*rect.width)+'px';
   requestAnimationFrame(()=>tick(serial));
  }
  $('play-chunk').onclick=()=>playRange(state.selected*CS,Math.min(D.samples,(state.selected+1)*CS));
  $('play-page').onclick=()=>playRange(state.page*CS,Math.min(D.samples,(state.page+state.columns)*CS));
- $('play-rest').onclick=()=>playRange(state.selected*CS,D.samples);
- $('play-full').onclick=()=>playRange(0,D.samples);
- $('play-event').onclick=()=>{
-  if(!D.events.length)return;
-  const current=state.selected*CS,event=D.events.find(e=>e.id===$('event-select').value)||D.events.reduce((a,b)=>Math.abs(eventStart(a)-current)<Math.abs(eventStart(b)-current)?a:b);
-  const turns=D.turns||[],related=turns.filter(t=>[event.host_id,event.guest_id,event.response_utterance_id,event.restart_user_id].includes(t.id));
-  let start=Math.min(eventStart(event),...related.map(t=>t.start_sample)),end=Math.max(eventEnd(event),...related.map(t=>t.end_sample));
-  const preceding=turns.filter(t=>t.end_sample<=start).sort((a,b)=>b.end_sample-a.end_sample)[0],following=turns.filter(t=>t.start_sample>=end).sort((a,b)=>a.start_sample-b.start_sample)[0];
-  start=Math.max(0,Math.min(start-5*SR,preceding?.start_sample??start));end=Math.min(D.samples,Math.max(end+5*SR,following?.end_sample??end));
-  playRange(start,end);
- };
- $('stop').onclick=()=>{stopPlayback();setStatus('已停止 · 可选择任意块重新试听。');};
- $('audio-version').onchange=()=>{stopPlayback();state.variant=$('audio-version').value;renderTracks();setStatus('已切换为'+D.variants[state.variant].label+'；位置保持不变，可播放此块或本页对比。');};
- $('channel').onchange=()=>{stopPlayback();state.channel=$('channel').value;savePosition();};
- $('position').oninput=()=>selectChunk($('position').value);
- $('chunk-number').onchange=()=>selectChunk($('chunk-number').value);
- $('prev-page').onclick=()=>selectChunk(Math.max(0,state.page-state.columns));
- $('next-page').onclick=()=>selectChunk(Math.min(N-1,state.page+state.columns));
- $('event-select').onchange=()=>{const e=D.events.find(e=>e.id===$('event-select').value);if(e)jumpEvent(e);};
- for(const e of D.events){const o=elem('option','',eventLabel(e)+' · '+time(eventStart(e)/SR));o.value=e.id;$('event-select').append(o);}
- $('position').max=N-1;$('chunk-number').max=N-1;
- $('balance-summary').textContent=D.loudnessSummary;
- $('demo-summary').textContent=D.topic+' · '+D.id+' · '+time(D.samples/SR)+' · '+N+' 音频块 / '+D.records.length+' 训练记录';
- $('provenance').textContent=(D.tailSummary?D.tailSummary+' ':'')+'只读检查 · 数据来自 '+D.sourcePath+' · '+D.sourceSessionSamples+' 有效采样 / 每轨末尾补零 '+(D.samples-D.sourceSessionSamples)+' 采样。试听在浏览器内按采样截取，不写出小 WAV，不改变原音轨。';
- try{const s=JSON.parse(localStorage.getItem('duplex-review:'+D.id)||'null');if(s){state.selected=Math.max(0,Math.min(N-1,s.selected||0));if(['both',...roles].includes(s.channel))state.channel=s.channel;}}catch(_){}
- const requestedChunk=new URLSearchParams(location.search).get('chunk');
- if(requestedChunk!==null&&/^\d+$/.test(requestedChunk))state.selected=Math.min(N-1,Number(requestedChunk));
- if(location.hash){const e=D.events.find(e=>e.id===location.hash.slice(1));if(e){state.selected=Math.floor(eventStart(e)/CS);$('event-select').value=e.id;}}
- $('channel').value=state.channel;
- const ro=new ResizeObserver(()=>{const w=$('user-track').clientWidth;const c=Math.max(2,Math.min(12,Math.floor(w/110)));if(c!==state.columns){state.columns=c;state.page=Math.floor(state.selected/c)*c;renderTracks();}drawOverview();});ro.observe($('timeline'));
- state.page=Math.floor(state.selected/state.columns)*state.columns;renderTracks();renderDetails();
- for(const id of ['play-chunk','play-page','play-rest','play-full','play-event'])$(id).disabled=false;
- $('play-event').disabled=!D.events.length;
- setStatus('首次播放加载所选版本；浏览器不额外调整音量。');
- window.duplexReview={data:D,state,selectChunk,playRange,stopPlayback,getAudio};
-})().catch(error=>{
- const status=document.getElementById('audio-status');status.textContent='页面加载失败：'+error.message;status.classList.add('error');
- for(const button of document.querySelectorAll('button'))button.disabled=true;
-});
+ $('play-rest').onclick=()=>playRange(state.selected*CS,D.samples);$('play-full').onclick=()=>playRange(0,D.samples);
+ $('stop').onclick=()=>{stopPlayback();setStatus('已停止。');};$('channel').onchange=()=>{stopPlayback();state.channel=$('channel').value;savePosition();};
+ $('position').oninput=()=>selectChunk($('position').value);$('chunk-number').onchange=()=>selectChunk($('chunk-number').value);$('jump-chunk').onclick=()=>selectChunk($('chunk-number').value);
+ $('prev-page').onclick=()=>selectChunk(Math.max(0,state.page-state.columns));$('next-page').onclick=()=>selectChunk(Math.min(slots-1,state.page+state.columns));
+ $('token-filter').onchange=()=>setFilter($('token-filter').value,true);$('prev-token').onclick=()=>moveToken(-1);$('next-token').onclick=()=>moveToken(1);
+ $('jump-token').onclick=()=>{const rows=matches(),n=Math.floor(Number($('occurrence-number').value));if(n>=1&&n<=rows.length)locateEntry(rows[n-1]);};
+ $('occurrence-number').onkeydown=e=>{if(e.key==='Enter')$('jump-token').onclick();};
+ $('locations-prev').onclick=()=>{state.locationPage--;renderLocations();};$('locations-next').onclick=()=>{state.locationPage++;renderLocations();};
+ for(const token of tokenOrder){const option=elem('option','',token+' · '+numeric(counts[token]||0));option.value=token;$('token-filter').append(option);}
+ $('position').max=slots-1;$('chunk-number').max=N-1;
+ $('sample-count').textContent=available.length+' 条样本';$('demo-summary').textContent=D.topic+' · '+time(D.samples/SR)+' · '+numeric(N)+' 个音频块';
+ $('count-summary').textContent='当前样本 '+numeric(entries.length)+' 条标注'+(catalog.controlSummary?' · 本组共 '+numeric(catalog.controlSummary.recordCount)+' 条':'')+(unlocated.length?' · '+unlocated.length+' 条无法定位，请检查原始记录':'');
+ try{const s=JSON.parse(localStorage.getItem('duplex-control:'+D.id)||'null');if(s){state.selected=Math.max(0,Math.min(slots-1,s.selected||0));if(['both',...roles].includes(s.channel))state.channel=s.channel;if(tokenOrder.includes(s.filter))state.filter=s.filter;}}catch(_){}
+ if(query.has('chunk'))state.selected=Math.max(0,Math.min(N-1,Number(query.get('chunk'))||0));
+ const requestedRecord=entries.find(e=>String(e.record.chunk_index)===query.get('record'));if(requestedRecord?.target!==null&&requestedRecord?.target!==undefined)state.selected=Math.max(0,Math.min(slots-1,requestedRecord.target));
+ if(tokenOrder.includes(query.get('token')))state.filter=query.get('token');
+ $('channel').value=state.channel;$('token-filter').value=state.filter;
+ const ro=new ResizeObserver(()=>{const c=Math.max(2,Math.min(12,Math.floor($('user-track').clientWidth/120)));if(c!==state.columns){state.columns=c;state.page=Math.floor(state.selected/c)*c;renderTracks();}});ro.observe($('timeline'));
+ renderStats();setFilter(state.filter,false);selectChunk(state.selected);$('play-full').disabled=false;
+ if(query.has('token')&&!requestedRecord&&!query.has('chunk')){const rows=matches();if(rows.length)locateEntry(rows[0]);}
+ setStatus('首次试听时加载原音频，不额外调整音量。');window.duplexReview={data:D,state,entries,targetRecords,counts,matches,setFilter,selectChunk,locateEntry,moveToken,playRange,stopPlayback,getAudio};
+})().catch(error=>{const status=document.getElementById('audio-status');status.textContent='页面加载失败：'+error.message;status.classList.add('error');for(const b of document.querySelectorAll('button'))b.disabled=true;});
 </script>
 </body>
 </html>
