@@ -56,7 +56,7 @@
 <script>
 (async () => {
  'use strict';
- const UI_VERSION='20261125-control-review-v1';
+ const UI_VERSION='20261125-control-review-v2';
  const $=id=>document.getElementById(id),query=new URLSearchParams(location.search);
  const catalogPath=query.get('set')==='previous'?'assets/catalog.json':'assets/catalog.random10.json';
  async function readJSON(path){const r=await fetch(path+'?v='+UI_VERSION);if(!r.ok)throw Error('数据读取失败：HTTP '+r.status);return r.json();}
@@ -72,6 +72,7 @@
  $('demo-select').onchange=()=>{const u=new URL(location.href);u.searchParams.set('v',UI_VERSION);u.searchParams.set('demo',$('demo-select').value);u.searchParams.delete('chunk');u.searchParams.delete('record');const token=$('token-filter').value;if(token)u.searchParams.set('token',token);else u.searchParams.delete('token');u.hash='';location.assign(u);};
  const D=await readJSON(selected.data),ASSET_VERSION=catalog.viewerVersion;
  if(D.viewerVersion!==ASSET_VERSION)throw Error('展示数据版本不一致，请刷新重试。');
+ if(catalog.controlSummary?.policy&&D.controlTokenPolicy!==catalog.controlSummary.policy)throw Error('Control token 数据版本不一致，请刷新重试。');
  const roles=['user','assistant'],N=D.frames.length,SR=D.sampleRate,CS=D.chunkSamples;
  const state={selected:0,page:0,columns:8,filter:'',locationPage:0,playing:false,serial:0,sources:[],channel:'both',ctx:null,variant:D.variants.balanced?'balanced':Object.keys(D.variants)[0],buffers:{},loading:{},startAt:0,startSample:0,endSample:0};
  const entries=[],targetRecords=new Map(),unlocated=[];
@@ -83,8 +84,8 @@
   if(targetRecords.has(target))throw Error('同一目标位置存在多条记录，不能覆盖标注：'+target);
   targetRecords.set(target,entry);
  }
- const slots=N+(targetRecords.has(N)?1:0),counts={},tokenOrder=['<|listen|>','<|wait|>','<|bc|>','<|speak|>','<|idle|>'];
- for(const e of entries)counts[e.token]=(counts[e.token]||0)+1;
+ const slots=N+(targetRecords.has(N)?1:0),counts={},physicalCounts={},terminalCounts={},tokenOrder=['<|listen|>','<|wait|>','<|bc|>','<|speak|>','<|idle|>'];
+ for(const e of entries){counts[e.token]=(counts[e.token]||0)+1;const bucket=e.target===N?terminalCounts:physicalCounts;bucket[e.token]=(bucket[e.token]||0)+1;}
  for(const key of Object.keys(counts))if(!tokenOrder.includes(key))tokenOrder.push(key);
  const elem=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;};
  const time=s=>{const ms=Math.round(s*1000);return String(Math.floor(ms/60000)).padStart(2,'0')+':'+String(Math.floor(ms/1000)%60).padStart(2,'0')+'.'+String(ms%1000).padStart(3,'0');};
@@ -97,8 +98,8 @@
   $('token-stats').replaceChildren();
   for(const token of tokenOrder){
    const b=elem('button','token-stat');b.type='button';b.setAttribute('aria-pressed',String(state.filter===token));b.setAttribute('aria-label',token+'，当前样本 '+(counts[token]||0)+' 条，筛选定位');
-   b.append(elem('span','token-name',token),elem('span','token-number',numeric(counts[token]||0)),elem('span','token-total','当前样本'));
-   const all=catalog.controlSummary?.counts[token];if(typeof all==='number')b.append(elem('span','token-total','本组 '+available.length+' 条：'+numeric(all)));
+   b.append(elem('span','token-name',token),elem('span','token-number',numeric(counts[token]||0)),elem('span','token-total','当前标注'+(selected.controlCountsBefore?'（原 '+numeric(selected.controlCountsBefore[token]||0)+'）':'')),elem('span','token-total','音频块 '+numeric(physicalCounts[token]||0)+' · 末条 '+numeric(terminalCounts[token]||0)));
+   const all=catalog.controlSummary?.counts[token];if(typeof all==='number')b.append(elem('span','token-total','本组 '+available.length+' 条：'+numeric(all)+(catalog.controlSummary.before?'（原 '+numeric(catalog.controlSummary.before[token]||0)+'）':'')));
    b.onclick=()=>setFilter(token,true);$('token-stats').append(b);
   }
  }
@@ -232,7 +233,7 @@
  for(const token of tokenOrder){const option=elem('option','',token+' · '+numeric(counts[token]||0));option.value=token;$('token-filter').append(option);}
  $('position').max=slots-1;$('chunk-number').max=N-1;
  $('sample-count').textContent=available.length+' 条样本';$('demo-summary').textContent=D.topic+' · '+time(D.samples/SR)+' · '+numeric(N)+' 个音频块';
- $('count-summary').textContent='当前样本 '+numeric(entries.length)+' 条标注'+(catalog.controlSummary?' · 本组共 '+numeric(catalog.controlSummary.recordCount)+' 条':'')+(unlocated.length?' · '+unlocated.length+' 条无法定位，请检查原始记录':'');
+ $('count-summary').textContent='当前样本 '+numeric(entries.length)+' 条标注（音频块 '+numeric(entries.length-Object.values(terminalCounts).reduce((a,b)=>a+b,0))+'，末条 '+Object.values(terminalCounts).reduce((a,b)=>a+b,0)+'）'+(catalog.controlSummary?' · 本组共 '+numeric(catalog.controlSummary.recordCount)+' 条'+(catalog.controlSummary.terminalRecordCount?'，其中末条 '+catalog.controlSummary.terminalRecordCount+' 条':''):'')+(unlocated.length?' · '+unlocated.length+' 条无法定位，请检查原始记录':'');
  try{const s=JSON.parse(localStorage.getItem('duplex-control:'+D.id)||'null');if(s){state.selected=Math.max(0,Math.min(slots-1,s.selected||0));if(['both',...roles].includes(s.channel))state.channel=s.channel;if(tokenOrder.includes(s.filter))state.filter=s.filter;}}catch(_){}
  if(query.has('chunk'))state.selected=Math.max(0,Math.min(N-1,Number(query.get('chunk'))||0));
  const requestedRecord=entries.find(e=>String(e.record.chunk_index)===query.get('record'));if(requestedRecord?.target!==null&&requestedRecord?.target!==undefined)state.selected=Math.max(0,Math.min(slots-1,requestedRecord.target));

@@ -60,10 +60,27 @@
       },
       "controlCounts": {
         "<|speak|>": 1505,
+        "<|listen|>": 771,
+        "<|bc|>": 8,
+        "<|wait|>": 4,
+        "<|idle|>": 4
+      },
+      "controlCountsBefore": {
+        "<|speak|>": 1505,
         "<|idle|>": 42,
         "<|listen|>": 735,
         "<|bc|>": 8,
         "<|wait|>": 2
+      },
+      "controlPhysicalCounts": {
+        "<|speak|>": 1505,
+        "<|listen|>": 771,
+        "<|bc|>": 8,
+        "<|wait|>": 4,
+        "<|idle|>": 3
+      },
+      "controlTerminalCounts": {
+        "<|idle|>": 1
       }
     },
     {
@@ -120,11 +137,28 @@
         }
       },
       "controlCounts": {
+        "<|listen|>": 301,
+        "<|speak|>": 774,
+        "<|bc|>": 10,
+        "<|idle|>": 5,
+        "<|wait|>": 4
+      },
+      "controlCountsBefore": {
         "<|listen|>": 287,
         "<|speak|>": 774,
         "<|bc|>": 10,
         "<|idle|>": 20,
         "<|wait|>": 3
+      },
+      "controlPhysicalCounts": {
+        "<|listen|>": 301,
+        "<|speak|>": 774,
+        "<|bc|>": 10,
+        "<|idle|>": 4,
+        "<|wait|>": 4
+      },
+      "controlTerminalCounts": {
+        "<|idle|>": 1
       }
     },
     {
@@ -181,11 +215,28 @@
         }
       },
       "controlCounts": {
+        "<|listen|>": 1182,
+        "<|speak|>": 1921,
+        "<|wait|>": 3,
+        "<|bc|>": 5,
+        "<|idle|>": 4
+      },
+      "controlCountsBefore": {
         "<|listen|>": 1112,
         "<|speak|>": 1921,
         "<|idle|>": 76,
         "<|bc|>": 5,
         "<|wait|>": 1
+      },
+      "controlPhysicalCounts": {
+        "<|listen|>": 1182,
+        "<|speak|>": 1921,
+        "<|wait|>": 3,
+        "<|bc|>": 5,
+        "<|idle|>": 3
+      },
+      "controlTerminalCounts": {
+        "<|idle|>": 1
       }
     },
     {
@@ -242,11 +293,28 @@
         }
       },
       "controlCounts": {
+        "<|listen|>": 354,
+        "<|speak|>": 1190,
+        "<|idle|>": 6,
+        "<|bc|>": 3,
+        "<|wait|>": 6
+      },
+      "controlCountsBefore": {
         "<|listen|>": 327,
         "<|speak|>": 1190,
         "<|idle|>": 34,
         "<|bc|>": 3,
         "<|wait|>": 5
+      },
+      "controlPhysicalCounts": {
+        "<|listen|>": 354,
+        "<|speak|>": 1190,
+        "<|idle|>": 5,
+        "<|bc|>": 3,
+        "<|wait|>": 6
+      },
+      "controlTerminalCounts": {
+        "<|idle|>": 1
       }
     },
     {
@@ -302,10 +370,25 @@
         }
       },
       "controlCounts": {
+        "<|listen|>": 565,
+        "<|speak|>": 897,
+        "<|wait|>": 5,
+        "<|idle|>": 2
+      },
+      "controlCountsBefore": {
         "<|listen|>": 541,
         "<|speak|>": 897,
         "<|idle|>": 28,
         "<|wait|>": 3
+      },
+      "controlPhysicalCounts": {
+        "<|listen|>": 565,
+        "<|speak|>": 897,
+        "<|wait|>": 5,
+        "<|idle|>": 1
+      },
+      "controlTerminalCounts": {
+        "<|idle|>": 1
       }
     },
     {
@@ -363,10 +446,27 @@
       },
       "controlCounts": {
         "<|speak|>": 1797,
+        "<|listen|>": 1084,
+        "<|wait|>": 7,
+        "<|idle|>": 1,
+        "<|bc|>": 2
+      },
+      "controlCountsBefore": {
+        "<|speak|>": 1797,
         "<|idle|>": 76,
         "<|listen|>": 1009,
         "<|wait|>": 7,
         "<|bc|>": 2
+      },
+      "controlPhysicalCounts": {
+        "<|speak|>": 1797,
+        "<|listen|>": 1083,
+        "<|wait|>": 7,
+        "<|idle|>": 1,
+        "<|bc|>": 2
+      },
+      "controlTerminalCounts": {
+        "<|listen|>": 1
       }
     },
     {
@@ -423,10 +523,27 @@
       },
       "controlCounts": {
         "<|speak|>": 3738,
+        "<|listen|>": 1514,
+        "<|bc|>": 6,
+        "<|wait|>": 2,
+        "<|idle|>": 4
+      },
+      "controlCountsBefore": {
+        "<|speak|>": 3738,
         "<|listen|>": 1414,
         "<|idle|>": 103,
         "<|bc|>": 6,
         "<|wait|>": 3
+      },
+      "controlPhysicalCounts": {
+        "<|speak|>": 3738,
+        "<|listen|>": 1514,
+        "<|bc|>": 6,
+        "<|wait|>": 2,
+        "<|idle|>": 3
+      },
+      "controlTerminalCounts": {
+        "<|idle|>": 1
       }
     },
     {
@@ -482,11 +599,28 @@
         }
       },
       "controlCounts": {
+        "<|listen|>": 1249,
+        "<|speak|>": 2977,
+        "<|idle|>": 7,
+        "<|bc|>": 5,
+        "<|wait|>": 3
+      },
+      "controlCountsBefore": {
         "<|listen|>": 1164,
         "<|idle|>": 89,
         "<|speak|>": 2977,
         "<|bc|>": 5,
         "<|wait|>": 6
+      },
+      "controlPhysicalCounts": {
+        "<|listen|>": 1248,
+        "<|speak|>": 2977,
+        "<|idle|>": 7,
+        "<|bc|>": 5,
+        "<|wait|>": 3
+      },
+      "controlTerminalCounts": {
+        "<|listen|>": 1
       }
     },
     {
@@ -542,11 +676,28 @@
         }
       },
       "controlCounts": {
+        "<|listen|>": 572,
+        "<|speak|>": 924,
+        "<|bc|>": 5,
+        "<|wait|>": 3,
+        "<|idle|>": 1
+      },
+      "controlCountsBefore": {
         "<|listen|>": 550,
         "<|speak|>": 924,
         "<|idle|>": 21,
         "<|bc|>": 5,
         "<|wait|>": 5
+      },
+      "controlPhysicalCounts": {
+        "<|listen|>": 571,
+        "<|speak|>": 924,
+        "<|bc|>": 5,
+        "<|wait|>": 3,
+        "<|idle|>": 1
+      },
+      "controlTerminalCounts": {
+        "<|listen|>": 1
       }
     },
     {
@@ -602,23 +753,60 @@
         }
       },
       "controlCounts": {
+        "<|listen|>": 752,
+        "<|speak|>": 1147,
+        "<|wait|>": 7,
+        "<|idle|>": 1
+      },
+      "controlCountsBefore": {
         "<|listen|>": 700,
         "<|speak|>": 1147,
         "<|idle|>": 52,
         "<|wait|>": 8
+      },
+      "controlPhysicalCounts": {
+        "<|listen|>": 751,
+        "<|speak|>": 1147,
+        "<|wait|>": 7,
+        "<|idle|>": 1
+      },
+      "controlTerminalCounts": {
+        "<|listen|>": 1
       }
     }
   ],
   "summary": "随机 10 条 · 总计 135.11 分钟 · 176 次交互",
   "controlSummary": {
-    "countingUnit": "original_training_record_including_terminal_record",
+    "policy": "target_window_dialogue_state_v1",
+    "countingUnit": "training_record",
     "recordCount": 25337,
     "counts": {
+      "<|speak|>": 16870,
+      "<|listen|>": 8344,
+      "<|bc|>": 44,
+      "<|wait|>": 44,
+      "<|idle|>": 35
+    },
+    "before": {
       "<|speak|>": 16870,
       "<|idle|>": 541,
       "<|listen|>": 7839,
       "<|bc|>": 44,
       "<|wait|>": 43
-    }
+    },
+    "physicalCounts": {
+      "<|speak|>": 16870,
+      "<|listen|>": 8340,
+      "<|bc|>": 44,
+      "<|wait|>": 44,
+      "<|idle|>": 29
+    },
+    "terminalCounts": {
+      "<|idle|>": 6,
+      "<|listen|>": 4
+    },
+    "physicalTargetRecordCount": 25327,
+    "terminalRecordCount": 10,
+    "changedRecords": 533
   }
 }
