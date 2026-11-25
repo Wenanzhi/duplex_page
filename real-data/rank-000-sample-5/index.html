@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>双轨音频 · 抽样浏览</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; height: 100dvh; display: flex; flex-direction: column;
+      font: 14px/1.5 system-ui,sans-serif; background: #f5f7fa; color: #243341; }
+    header { padding: 16px 24px 12px; background: white; border-bottom: 1px solid #dbe4eb; }
+    .toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+    h1 { margin: 0 auto 0 0; font-size: 19px; }
+    label { display: flex; align-items: center; gap: 8px; }
+    select, a { font: inherit; }
+    select { border: 1px solid #dbe4eb; border-radius: 7px; padding: 7px; background: white; max-width: 100%; }
+    a { color: #16836b; text-underline-offset: 3px; }
+    #sample-meta { margin: 8px 0 0; color: #66798d; overflow-wrap: anywhere; }
+    #sample-tokens { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+    #sample-tokens span { background: #f0f5f7; padding: 2px 8px; border-radius: 5px; }
+    iframe { display: block; flex: 1; min-height: 0; width: 100%; border: 0; background: #f5f7fa; }
+    @media (max-width: 600px) {
+      header { padding: 10px 12px; }
+      h1 { width: 100%; font-size: 17px; }
+      .toolbar { gap: 8px 12px; }
+      label { flex: 1; min-width: 0; }
+      select { min-width: 0; flex: 1; }
+      #sample-meta { font-size: 12px; }
+      #sample-tokens { font-size: 12px; gap: 5px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="toolbar">
+      <h1 id="collection-title"></h1>
+      <label>样本 <select id="sample-selector" aria-label="选择录音"></select></label>
+      <a id="open-sample" target="_blank" rel="noopener">独立打开</a>
+    </div>
+    <p id="sample-meta"></p>
+    <div id="sample-tokens" aria-label="当前样本的同块标签数量"></div>
+  </header>
+  <iframe id="sample-viewer" title="当前样本的双轨音频与 control token"></iframe>
+  <script id="collection-data" type="application/json">{"title": "rank-000 抽样", "samples": [{"sample_id": "acdfae65-eea0-4827-b7bd-8f166c9dd251", "viewer_url": "acdfae65-eea0-4827-b7bd-8f166c9dd251/viewer/index.html", "duration_ms": 44889.0, "roles": {"assistant_output_slot": 1, "user_output_slot": 0}, "frame_count": 141, "audio_only_turn_count": 0, "token_counts": {"\u003c|listen|>": 52, "\u003c|speak|>": 89}}, {"sample_id": "551079eb-dd21-4813-8421-c1d2bf0b4f6d", "viewer_url": "551079eb-dd21-4813-8421-c1d2bf0b4f6d/viewer/index.html", "duration_ms": 48850.0, "roles": {"assistant_output_slot": 0, "user_output_slot": 1}, "frame_count": 153, "audio_only_turn_count": 0, "token_counts": {"\u003c|speak|>": 101, "\u003c|listen|>": 52}}, {"sample_id": "b6504274-fa9a-4b06-9ccd-81c4f204fcd7", "viewer_url": "b6504274-fa9a-4b06-9ccd-81c4f204fcd7/viewer/index.html", "duration_ms": 168411.0, "roles": {"assistant_output_slot": 1, "user_output_slot": 0}, "frame_count": 527, "audio_only_turn_count": 16, "token_counts": {"\u003c|listen|>": 245, "\u003c|speak|>": 281, "\u003c|idle|>": 1}}, {"sample_id": "048bf1de-0851-4fb3-a78c-18157da8de24", "viewer_url": "048bf1de-0851-4fb3-a78c-18157da8de24/viewer/index.html", "duration_ms": 51690.0, "roles": {"assistant_output_slot": 1, "user_output_slot": 0}, "frame_count": 162, "audio_only_turn_count": 0, "token_counts": {"\u003c|speak|>": 115, "\u003c|idle|>": 1, "\u003c|listen|>": 46}}, {"sample_id": "53e1f28f-2004-44ac-b518-5a7482014bae", "viewer_url": "53e1f28f-2004-44ac-b518-5a7482014bae/viewer/index.html", "duration_ms": 30140.0, "roles": {"assistant_output_slot": 1, "user_output_slot": 0}, "frame_count": 95, "audio_only_turn_count": 0, "token_counts": {"\u003c|speak|>": 62, "\u003c|listen|>": 32, "\u003c|wait|>": 1}}]}</script>
+  <script>
+    const collection = JSON.parse(document.getElementById("collection-data").textContent);
+    const selector = document.getElementById("sample-selector");
+    const frame = document.getElementById("sample-viewer");
+    const tokens = document.getElementById("sample-tokens");
+    document.getElementById("collection-title").textContent = `${collection.title} · ${collection.samples.length} 条录音`;
+    collection.samples.forEach((sample, index) => {
+      const option = document.createElement("option");
+      option.value = String(index);
+      option.textContent = `${index + 1}. ${sample.sample_id.slice(0, 8)} · ${(sample.duration_ms / 1000).toFixed(2)} 秒`;
+      selector.append(option);
+    });
+    function showSample(index) {
+      const sample = collection.samples[index];
+      selector.value = String(index);
+      frame.src = sample.viewer_url;
+      document.getElementById("open-sample").href = sample.viewer_url;
+      document.getElementById("sample-meta").textContent = `${sample.sample_id} · Assistant = 座位 ${sample.roles.assistant_output_slot} · ${sample.frame_count} 个 320 ms 块` +
+        (sample.audio_only_turn_count ? ` · ${sample.audio_only_turn_count} 段语音无对应转写` : "");
+      tokens.replaceChildren();
+      ["speak", "listen", "wait", "idle", "bc"].forEach(name => {
+        const token = `<|${name}|>`;
+        const badge = document.createElement("span");
+        badge.textContent = `${token} ${sample.token_counts[token] || 0}`;
+        tokens.append(badge);
+      });
+      history.replaceState(null, "", `#sample=${index + 1}`);
+    }
+    selector.addEventListener("change", () => showSample(Number(selector.value)));
+    const initial = Number(location.hash.match(/^#sample=(\d+)$/)?.[1] || 1) - 1;
+    showSample(initial >= 0 && initial < collection.samples.length ? initial : 0);
+  </script>
+</body>
+</html>
