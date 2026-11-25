@@ -56,7 +56,7 @@
 <script>
 (async () => {
  'use strict';
- const UI_VERSION='20261125-control-review-v3';
+ const UI_VERSION='20261125-control-review-qualified-v1';
  const $=id=>document.getElementById(id),query=new URLSearchParams(location.search);
  const catalogPath=query.get('set')==='previous'?'assets/catalog.json':'assets/catalog.random10.json';
  async function readJSON(path){const r=await fetch(path+'?v='+UI_VERSION);if(!r.ok)throw Error('数据读取失败：HTTP '+r.status);return r.json();}
@@ -70,6 +70,7 @@
  for(const sample of available){const o=document.createElement('option');o.value=sample.id;o.textContent=sample.label;$('demo-select').append(o);}
  $('demo-select').value=selected.id;
  $('demo-select').onchange=()=>{const u=new URL(location.href);u.searchParams.set('v',UI_VERSION);u.searchParams.set('demo',$('demo-select').value);u.searchParams.delete('chunk');u.searchParams.delete('record');const token=$('token-filter').value;if(token)u.searchParams.set('token',token);else u.searchParams.delete('token');u.hash='';location.assign(u);};
+ if(catalog.samplingScope==='qualified_current_exports'&&available.some(s=>s.status!=='complete'||s.perPassed!==true))throw Error('抽检清单包含未完成或 PER 未通过的样本，停止加载。');
  const D=await readJSON(selected.data),ASSET_VERSION=catalog.viewerVersion;
  if(D.viewerVersion!==ASSET_VERSION)throw Error('展示数据版本不一致，请刷新重试。');
  if(catalog.controlSummary?.policy&&D.controlTokenPolicy!==catalog.controlSummary.policy)throw Error('Control token 数据版本不一致，请刷新重试。');
