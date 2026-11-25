@@ -1,545 +1,231 @@
 {
-  "viewerVersion": "20261124-random10-v1",
-  "seed": 20261124,
-  "pool_size": 13778,
-  "sampling_method": "random.Random(seed).sample without replacement from sorted latest index rows with retained delivery and passed export validation; includes PER-uncertain records; no duration/theme stratification",
-  "samplingNote": "从全部 13,778 条保留完整导出的记录中无放回随机抽取；种子 20261124。候选池包含 PER 不确定记录，本次抽中 10 条均显示 PER 通过。没有按主题、时长或评分重新挑选。",
+  "viewerVersion": "20261125-random10-corrected-v1",
+  "seed": 20261125,
+  "pool_size": 14537,
+  "sampling_method": "random.Random(seed).sample without replacement from sorted indexed retained deliveries whose token migration succeeded; exclude previous 10; no topic/duration/quality stratification",
+  "samplingNote": "从修正后且保留完整导出的数据中排除上一批 10 条，以固定种子无放回随机抽取；未按主题、时长或质量挑选。此次只核对 control token，不改变原质量状态。",
   "samples": [
     {
-      "id": "9cd41494-8ae1-4841-a794-17bf6bf19739",
-      "label": "01 · AI语音助手文章及摘要",
+      "id": "185243b5-6efc-4547-a695-e31457fb36cc",
+      "label": "01 · 音乐生成与创意发散",
       "status": "complete",
-      "statusLabel": "PER 通过",
-      "statusDetail": "BELLE_multiturn_chat_0.8M/part-00006 · 9cd41494-8ae1-4841-a794-17bf6bf19739 · PER 通过；现有音频、文本与排程原样展示。",
-      "data": "assets/random10-20261124/9cd41494-8ae1-4841-a794-17bf6bf19739/demo.json",
-      "duration_s": 733.12,
-      "chunks": 2291,
-      "records": 2292,
-      "turns": 158,
-      "events": 19,
-      "eventCounts": {
-        "backchannel": 10,
-        "interrupt/stop": 1,
-        "interrupt/simultaneous": 1,
-        "interrupt": 2,
-        "interrupt/wait": 3,
-        "pend": 1,
-        "pause": 1
-      },
-      "stageSummary": "12.22 分钟 · 158 话轮 · 19 次交互",
-      "diagnostic": {
-        "index_status": "complete",
-        "per_passed": true,
-        "validation": {
-          "aligned_units_checked": 3753,
-          "audio_files_checked": 2,
-          "chunk_audio_files_written": 0,
-          "chunk_ms": 320,
-          "chunk_samples": 7680,
-          "chunks": 2291,
-          "cross_boundary_units": {
-            "assistant": 640,
-            "user": 583
-          },
-          "final_padding_samples_per_track": 3840,
-          "initial_assistant_target": true,
-          "initial_speaker": "assistant",
-          "last_chunk_valid_samples": 3840,
-          "max_text_units_per_role_per_chunk": 4,
-          "next_window_supervision": true,
-          "padded_samples": 17594880,
-          "pass": true,
-          "sample_rate": 24000,
-          "schema_version": "2.8-candidate",
-          "session_samples": 17591040,
-          "text_complete_without_duplicates": true,
-          "text_distribution": "frontload",
-          "timestamp_spans_partition_full_tracks": true,
-          "training_records": 2292
-        }
-      },
+      "data": "assets/random10-20261125/185243b5-6efc-4547-a695-e31457fb36cc/demo.json",
+      "duration_s": 1282.56,
+      "chunks": 4008,
+      "records": 4008,
+      "sourcePath": "BELLE_multiturn_chat_0.8M/part-00007/185243b5-6efc-4547-a695-e31457fb36cc",
       "controlCounts": {
-        "<|speak|>": 1505,
-        "<|listen|>": 771,
-        "<|bc|>": 8,
-        "<|wait|>": 4,
-        "<|idle|>": 4
+        "<|listen|>": 1034,
+        "<|speak|>": 2968,
+        "<|bc|>": 3,
+        "<|wait|>": 3
       },
-      "controlCountsBefore": {
-        "<|speak|>": 1505,
-        "<|idle|>": 42,
-        "<|listen|>": 735,
-        "<|bc|>": 8,
+      "controlPhysicalCounts": {
+        "<|listen|>": 1033,
+        "<|speak|>": 2968,
+        "<|bc|>": 3,
+        "<|wait|>": 3
+      },
+      "controlTerminalCounts": {
+        "<|listen|>": 1
+      }
+    },
+    {
+      "id": "22a6d7ad-0015-428d-a613-672bb1c4f612",
+      "label": "02 · 减轻压力的建议列表",
+      "status": "complete",
+      "data": "assets/random10-20261125/22a6d7ad-0015-428d-a613-672bb1c4f612/demo.json",
+      "duration_s": 592.32,
+      "chunks": 1851,
+      "records": 1851,
+      "sourcePath": "Alpaca-GPT4/part-00000/22a6d7ad-0015-428d-a613-672bb1c4f612",
+      "controlCounts": {
+        "<|listen|>": 645,
+        "<|speak|>": 1186,
+        "<|bc|>": 13,
+        "<|idle|>": 5,
         "<|wait|>": 2
       },
       "controlPhysicalCounts": {
-        "<|speak|>": 1505,
-        "<|listen|>": 771,
-        "<|bc|>": 8,
-        "<|wait|>": 4,
-        "<|idle|>": 3
-      },
-      "controlTerminalCounts": {
-        "<|idle|>": 1
-      }
-    },
-    {
-      "id": "672c5c38-6518-41b1-beaa-3477a2e78df6",
-      "label": "02 · 讨论《权力的游戏》中女性角色的数量及统计难度",
-      "status": "complete",
-      "statusLabel": "PER 通过",
-      "statusDetail": "Alpaca-GPT4/part-00002 · 672c5c38-6518-41b1-beaa-3477a2e78df6 · PER 通过；现有音频、文本与排程原样展示。 未找到索引所指的中间工作目录；对齐片段和事件取自现有 chunks.json，不填造 ASR/PER 细节。",
-      "data": "assets/random10-20261124/672c5c38-6518-41b1-beaa-3477a2e78df6/demo.json",
-      "duration_s": 350.08,
-      "chunks": 1094,
-      "records": 1094,
-      "turns": 86,
-      "events": 25,
-      "eventCounts": {
-        "backchannel": 5,
-        "pend": 3,
-        "interrupt/simultaneous": 4,
-        "interrupt": 8,
-        "interrupt/wait": 2,
-        "pause": 2,
-        "interrupt/stop": 1
-      },
-      "stageSummary": "5.83 分钟 · 86 话轮 · 25 次交互",
-      "diagnostic": {
-        "index_status": "complete",
-        "per_passed": true,
-        "validation": {
-          "aligned_units_checked": 1721,
-          "audio_files_checked": 2,
-          "chunk_audio_files_written": 0,
-          "chunk_ms": 320,
-          "chunk_samples": 7680,
-          "chunks": 1094,
-          "cross_boundary_units": {
-            "assistant": 346,
-            "user": 213
-          },
-          "final_padding_samples_per_track": 0,
-          "initial_assistant_target": false,
-          "initial_speaker": "user",
-          "last_chunk_valid_samples": 7680,
-          "max_text_units_per_role_per_chunk": 4,
-          "next_window_supervision": true,
-          "padded_samples": 8401920,
-          "pass": true,
-          "sample_rate": 24000,
-          "schema_version": "2.8-candidate",
-          "session_samples": 8401920,
-          "text_complete_without_duplicates": true,
-          "text_distribution": "frontload",
-          "timestamp_spans_partition_full_tracks": true,
-          "training_records": 1094
-        }
-      },
-      "controlCounts": {
-        "<|listen|>": 301,
-        "<|speak|>": 774,
-        "<|bc|>": 10,
-        "<|idle|>": 5,
-        "<|wait|>": 4
-      },
-      "controlCountsBefore": {
-        "<|listen|>": 287,
-        "<|speak|>": 774,
-        "<|bc|>": 10,
-        "<|idle|>": 20,
-        "<|wait|>": 3
-      },
-      "controlPhysicalCounts": {
-        "<|listen|>": 301,
-        "<|speak|>": 774,
-        "<|bc|>": 10,
+        "<|listen|>": 645,
+        "<|speak|>": 1186,
+        "<|bc|>": 13,
         "<|idle|>": 4,
-        "<|wait|>": 4
+        "<|wait|>": 2
       },
       "controlTerminalCounts": {
         "<|idle|>": 1
       }
     },
     {
-      "id": "8c874b6d-1edd-4c91-a08e-eee527ddc6c8",
-      "label": "03 · 海滩描写、幸福感及地理常识",
+      "id": "58070f12-108e-4322-bcee-401e5fda8072",
+      "label": "03 · 家庭度假故事",
       "status": "complete",
-      "statusLabel": "PER 通过",
-      "statusDetail": "BELLE_multiturn_chat_0.8M/part-00003 · 8c874b6d-1edd-4c91-a08e-eee527ddc6c8 · PER 通过；现有音频、文本与排程原样展示。",
-      "data": "assets/random10-20261124/8c874b6d-1edd-4c91-a08e-eee527ddc6c8/demo.json",
-      "duration_s": 996.8,
-      "chunks": 3115,
-      "records": 3115,
-      "turns": 205,
-      "events": 21,
-      "eventCounts": {
-        "interrupt": 1,
-        "interrupt/wait": 6,
-        "interrupt/stop": 1,
-        "backchannel": 8,
-        "pause": 1,
-        "pend": 2,
-        "interrupt/simultaneous": 2
-      },
-      "stageSummary": "16.61 分钟 · 205 话轮 · 21 次交互",
-      "diagnostic": {
-        "index_status": "complete",
-        "per_passed": true,
-        "validation": {
-          "aligned_units_checked": 4698,
-          "audio_files_checked": 2,
-          "chunk_audio_files_written": 0,
-          "chunk_ms": 320,
-          "chunk_samples": 7680,
-          "chunks": 3115,
-          "cross_boundary_units": {
-            "assistant": 840,
-            "user": 665
-          },
-          "final_padding_samples_per_track": 0,
-          "initial_assistant_target": false,
-          "initial_speaker": "user",
-          "last_chunk_valid_samples": 7680,
-          "max_text_units_per_role_per_chunk": 4,
-          "next_window_supervision": true,
-          "padded_samples": 23923200,
-          "pass": true,
-          "sample_rate": 24000,
-          "schema_version": "2.8-candidate",
-          "session_samples": 23923200,
-          "text_complete_without_duplicates": true,
-          "text_distribution": "frontload",
-          "timestamp_spans_partition_full_tracks": true,
-          "training_records": 3115
-        }
-      },
+      "data": "assets/random10-20261125/58070f12-108e-4322-bcee-401e5fda8072/demo.json",
+      "duration_s": 983.36,
+      "chunks": 3073,
+      "records": 3073,
+      "sourcePath": "Alpaca-GPT4/part-00005/58070f12-108e-4322-bcee-401e5fda8072",
       "controlCounts": {
-        "<|listen|>": 1182,
-        "<|speak|>": 1921,
-        "<|wait|>": 3,
-        "<|bc|>": 5,
-        "<|idle|>": 4
-      },
-      "controlCountsBefore": {
-        "<|listen|>": 1112,
-        "<|speak|>": 1921,
-        "<|idle|>": 76,
-        "<|bc|>": 5,
-        "<|wait|>": 1
+        "<|listen|>": 658,
+        "<|speak|>": 2410,
+        "<|wait|>": 5
       },
       "controlPhysicalCounts": {
-        "<|listen|>": 1182,
-        "<|speak|>": 1921,
-        "<|wait|>": 3,
-        "<|bc|>": 5,
-        "<|idle|>": 3
+        "<|listen|>": 657,
+        "<|speak|>": 2410,
+        "<|wait|>": 5
       },
       "controlTerminalCounts": {
-        "<|idle|>": 1
+        "<|listen|>": 1
       }
     },
     {
-      "id": "0e0f19b0-fd13-4bf3-92e1-82822598babd",
-      "label": "04 · 调整语音口音指令",
+      "id": "7726c760-9b87-41eb-a6bc-ae2fbb694acd",
+      "label": "04 · 补全关于人生的句子",
       "status": "complete",
-      "statusLabel": "PER 通过",
-      "statusDetail": "Alpaca-GPT4/part-00000 · 0e0f19b0-fd13-4bf3-92e1-82822598babd · PER 通过；现有音频、文本与排程原样展示。",
-      "data": "assets/random10-20261124/0e0f19b0-fd13-4bf3-92e1-82822598babd/demo.json",
-      "duration_s": 498.88,
-      "chunks": 1559,
-      "records": 1559,
-      "turns": 104,
-      "events": 17,
-      "eventCounts": {
-        "interrupt/simultaneous": 3,
-        "interrupt": 2,
-        "backchannel": 5,
-        "interrupt/wait": 2,
-        "pend": 2,
-        "interrupt/stop": 1,
-        "pause": 2
-      },
-      "stageSummary": "8.31 分钟 · 104 话轮 · 17 次交互",
-      "diagnostic": {
-        "index_status": "complete",
-        "per_passed": true,
-        "validation": {
-          "aligned_units_checked": 2566,
-          "audio_files_checked": 2,
-          "chunk_audio_files_written": 0,
-          "chunk_ms": 320,
-          "chunk_samples": 7680,
-          "chunks": 1559,
-          "cross_boundary_units": {
-            "assistant": 562,
-            "user": 236
-          },
-          "final_padding_samples_per_track": 0,
-          "initial_assistant_target": false,
-          "initial_speaker": "user",
-          "last_chunk_valid_samples": 7680,
-          "max_text_units_per_role_per_chunk": 4,
-          "next_window_supervision": true,
-          "padded_samples": 11973120,
-          "pass": true,
-          "sample_rate": 24000,
-          "schema_version": "2.8-candidate",
-          "session_samples": 11973120,
-          "text_complete_without_duplicates": true,
-          "text_distribution": "frontload",
-          "timestamp_spans_partition_full_tracks": true,
-          "training_records": 1559
-        }
-      },
+      "data": "assets/random10-20261125/7726c760-9b87-41eb-a6bc-ae2fbb694acd/demo.json",
+      "duration_s": 1167.36,
+      "chunks": 3648,
+      "records": 3648,
+      "sourcePath": "Alpaca-GPT4/part-00008/7726c760-9b87-41eb-a6bc-ae2fbb694acd",
       "controlCounts": {
-        "<|listen|>": 354,
-        "<|speak|>": 1190,
+        "<|listen|>": 1463,
+        "<|speak|>": 2171,
+        "<|idle|>": 4,
+        "<|wait|>": 3,
+        "<|bc|>": 7
+      },
+      "controlPhysicalCounts": {
+        "<|listen|>": 1462,
+        "<|speak|>": 2171,
+        "<|idle|>": 4,
+        "<|wait|>": 3,
+        "<|bc|>": 7
+      },
+      "controlTerminalCounts": {
+        "<|listen|>": 1
+      }
+    },
+    {
+      "id": "0c93205a-4994-4b06-aabe-5adec443b408",
+      "label": "05 · 诗词、灵感及历史问答",
+      "status": "incomplete",
+      "data": "assets/random10-20261125/0c93205a-4994-4b06-aabe-5adec443b408/demo.json",
+      "duration_s": 758.4,
+      "chunks": 2370,
+      "records": 2370,
+      "sourcePath": "BELLE_multiturn_chat_0.8M/part-00001/0c93205a-4994-4b06-aabe-5adec443b408",
+      "controlCounts": {
+        "<|listen|>": 960,
+        "<|speak|>": 1406,
+        "<|idle|>": 4
+      },
+      "controlPhysicalCounts": {
+        "<|listen|>": 959,
+        "<|speak|>": 1406,
+        "<|idle|>": 4
+      },
+      "controlTerminalCounts": {
+        "<|listen|>": 1
+      }
+    },
+    {
+      "id": "bf5010b1-b1b1-4692-9169-32900908b356",
+      "label": "06 · 推文情感分类",
+      "status": "complete",
+      "data": "assets/random10-20261125/bf5010b1-b1b1-4692-9169-32900908b356/demo.json",
+      "duration_s": 803.84,
+      "chunks": 2512,
+      "records": 2513,
+      "sourcePath": "Alpaca-GPT4/part-00003/bf5010b1-b1b1-4692-9169-32900908b356",
+      "controlCounts": {
+        "<|speak|>": 1750,
+        "<|listen|>": 761,
+        "<|wait|>": 2
+      },
+      "controlPhysicalCounts": {
+        "<|speak|>": 1750,
+        "<|listen|>": 760,
+        "<|wait|>": 2
+      },
+      "controlTerminalCounts": {
+        "<|listen|>": 1
+      }
+    },
+    {
+      "id": "8cd91e2e-df46-4aa0-b0d3-32ec18d5ec2f",
+      "label": "07 · 否定句转肯定形式",
+      "status": "complete",
+      "data": "assets/random10-20261125/8cd91e2e-df46-4aa0-b0d3-32ec18d5ec2f/demo.json",
+      "duration_s": 317.12,
+      "chunks": 991,
+      "records": 991,
+      "sourcePath": "Alpaca-GPT4/part-00000/8cd91e2e-df46-4aa0-b0d3-32ec18d5ec2f",
+      "controlCounts": {
+        "<|listen|>": 441,
+        "<|speak|>": 532,
         "<|idle|>": 6,
-        "<|bc|>": 3,
-        "<|wait|>": 6
-      },
-      "controlCountsBefore": {
-        "<|listen|>": 327,
-        "<|speak|>": 1190,
-        "<|idle|>": 34,
-        "<|bc|>": 3,
+        "<|bc|>": 7,
         "<|wait|>": 5
       },
       "controlPhysicalCounts": {
-        "<|listen|>": 354,
-        "<|speak|>": 1190,
+        "<|listen|>": 441,
+        "<|speak|>": 532,
         "<|idle|>": 5,
-        "<|bc|>": 3,
-        "<|wait|>": 6
+        "<|bc|>": 7,
+        "<|wait|>": 5
       },
       "controlTerminalCounts": {
         "<|idle|>": 1
       }
     },
     {
-      "id": "a93395ae-59bf-43f1-91ef-d0d3c6e76c75",
-      "label": "05 · 世界经济现状演示大纲",
+      "id": "8766c0f6-e212-4e53-9e2c-b37e382860a6",
+      "label": "08 · 诗歌创作与电影推荐",
       "status": "complete",
-      "statusLabel": "PER 通过",
-      "statusDetail": "Alpaca-GPT4/part-00000 · a93395ae-59bf-43f1-91ef-d0d3c6e76c75 · PER 通过；现有音频、文本与排程原样展示。",
-      "data": "assets/random10-20261124/a93395ae-59bf-43f1-91ef-d0d3c6e76c75/demo.json",
-      "duration_s": 470.08,
-      "chunks": 1469,
-      "records": 1469,
-      "turns": 75,
-      "events": 13,
-      "eventCounts": {
-        "pause": 1,
-        "interrupt/simultaneous": 3,
-        "backchannel": 2,
-        "interrupt/wait": 2,
-        "interrupt": 4,
-        "interrupt/stop": 1
-      },
-      "stageSummary": "7.83 分钟 · 75 话轮 · 13 次交互",
-      "diagnostic": {
-        "index_status": "complete",
-        "per_passed": true,
-        "validation": {
-          "aligned_units_checked": 2279,
-          "audio_files_checked": 2,
-          "chunk_audio_files_written": 0,
-          "chunk_ms": 320,
-          "chunk_samples": 7680,
-          "chunks": 1469,
-          "cross_boundary_units": {
-            "assistant": 457,
-            "user": 314
-          },
-          "final_padding_samples_per_track": 3840,
-          "initial_assistant_target": false,
-          "initial_speaker": "user",
-          "last_chunk_valid_samples": 3840,
-          "max_text_units_per_role_per_chunk": 4,
-          "next_window_supervision": true,
-          "padded_samples": 11281920,
-          "pass": true,
-          "sample_rate": 24000,
-          "schema_version": "2.8-candidate",
-          "session_samples": 11278080,
-          "text_complete_without_duplicates": true,
-          "text_distribution": "frontload",
-          "timestamp_spans_partition_full_tracks": true,
-          "training_records": 1469
-        }
-      },
+      "data": "assets/random10-20261125/8766c0f6-e212-4e53-9e2c-b37e382860a6/demo.json",
+      "duration_s": 227.2,
+      "chunks": 710,
+      "records": 711,
+      "sourcePath": "BELLE_multiturn_chat_0.8M/part-00000/8766c0f6-e212-4e53-9e2c-b37e382860a6",
       "controlCounts": {
-        "<|listen|>": 565,
-        "<|speak|>": 897,
-        "<|wait|>": 5,
-        "<|idle|>": 2
-      },
-      "controlCountsBefore": {
-        "<|listen|>": 541,
-        "<|speak|>": 897,
-        "<|idle|>": 28,
-        "<|wait|>": 3
+        "<|speak|>": 447,
+        "<|listen|>": 257,
+        "<|idle|>": 5,
+        "<|wait|>": 2
       },
       "controlPhysicalCounts": {
-        "<|listen|>": 565,
-        "<|speak|>": 897,
-        "<|wait|>": 5,
-        "<|idle|>": 1
+        "<|speak|>": 447,
+        "<|listen|>": 257,
+        "<|idle|>": 4,
+        "<|wait|>": 2
       },
       "controlTerminalCounts": {
         "<|idle|>": 1
       }
     },
     {
-      "id": "7c7c9c60-0c5d-4396-a05b-5674275e3a2e",
-      "label": "06 · 本地游玩与美食推荐",
+      "id": "2e8789b2-2f88-46eb-986b-41b1cd36a98a",
+      "label": "09 · 撰写网站访问故障客服邮件",
       "status": "complete",
-      "statusLabel": "PER 通过",
-      "statusDetail": "BELLE_multiturn_chat_0.8M/part-00003 · 7c7c9c60-0c5d-4396-a05b-5674275e3a2e · PER 通过；现有音频、文本与排程原样展示。",
-      "data": "assets/random10-20261124/7c7c9c60-0c5d-4396-a05b-5674275e3a2e/demo.json",
-      "duration_s": 924.8,
-      "chunks": 2890,
-      "records": 2891,
-      "turns": 147,
-      "events": 14,
-      "eventCounts": {
-        "interrupt": 1,
-        "pause": 3,
-        "interrupt/stop": 1,
-        "interrupt/simultaneous": 2,
-        "backchannel": 4,
-        "pend": 1,
-        "interrupt/wait": 2
-      },
-      "stageSummary": "15.41 分钟 · 147 话轮 · 14 次交互",
-      "diagnostic": {
-        "index_status": "complete",
-        "per_passed": true,
-        "validation": {
-          "aligned_units_checked": 4491,
-          "audio_files_checked": 2,
-          "chunk_audio_files_written": 0,
-          "chunk_ms": 320,
-          "chunk_samples": 7680,
-          "chunks": 2890,
-          "cross_boundary_units": {
-            "assistant": 807,
-            "user": 693
-          },
-          "final_padding_samples_per_track": 3840,
-          "initial_assistant_target": true,
-          "initial_speaker": "assistant",
-          "last_chunk_valid_samples": 3840,
-          "max_text_units_per_role_per_chunk": 4,
-          "next_window_supervision": true,
-          "padded_samples": 22195200,
-          "pass": true,
-          "sample_rate": 24000,
-          "schema_version": "2.8-candidate",
-          "session_samples": 22191360,
-          "text_complete_without_duplicates": true,
-          "text_distribution": "frontload",
-          "timestamp_spans_partition_full_tracks": true,
-          "training_records": 2891
-        }
-      },
+      "data": "assets/random10-20261125/2e8789b2-2f88-46eb-986b-41b1cd36a98a/demo.json",
+      "duration_s": 1544.0,
+      "chunks": 4825,
+      "records": 4826,
+      "sourcePath": "Alpaca-GPT4/part-00007/2e8789b2-2f88-46eb-986b-41b1cd36a98a",
       "controlCounts": {
-        "<|speak|>": 1797,
-        "<|listen|>": 1084,
-        "<|wait|>": 7,
-        "<|idle|>": 1,
-        "<|bc|>": 2
-      },
-      "controlCountsBefore": {
-        "<|speak|>": 1797,
-        "<|idle|>": 76,
-        "<|listen|>": 1009,
-        "<|wait|>": 7,
-        "<|bc|>": 2
-      },
-      "controlPhysicalCounts": {
-        "<|speak|>": 1797,
-        "<|listen|>": 1083,
-        "<|wait|>": 7,
-        "<|idle|>": 1,
-        "<|bc|>": 2
-      },
-      "controlTerminalCounts": {
-        "<|listen|>": 1
-      }
-    },
-    {
-      "id": "0d8e74f1-ebc1-482d-aad3-d81a32dc70ff",
-      "label": "07 · 讲笑话与旅游灵感",
-      "status": "complete",
-      "statusLabel": "PER 通过",
-      "statusDetail": "BELLE_multiturn_chat_0.8M/part-00006 · 0d8e74f1-ebc1-482d-aad3-d81a32dc70ff · PER 通过；现有音频、文本与排程原样展示。",
-      "data": "assets/random10-20261124/0d8e74f1-ebc1-482d-aad3-d81a32dc70ff/demo.json",
-      "duration_s": 1684.16,
-      "chunks": 5263,
-      "records": 5264,
-      "turns": 288,
-      "events": 18,
-      "eventCounts": {
-        "interrupt/simultaneous": 3,
-        "backchannel": 9,
-        "pause": 1,
-        "pend": 2,
-        "interrupt/wait": 2,
-        "interrupt": 1
-      },
-      "stageSummary": "28.07 分钟 · 288 话轮 · 18 次交互",
-      "diagnostic": {
-        "index_status": "complete",
-        "per_passed": true,
-        "validation": {
-          "aligned_units_checked": 8240,
-          "audio_files_checked": 2,
-          "chunk_audio_files_written": 0,
-          "chunk_ms": 320,
-          "chunk_samples": 7680,
-          "chunks": 5263,
-          "cross_boundary_units": {
-            "assistant": 1457,
-            "user": 814
-          },
-          "final_padding_samples_per_track": 3840,
-          "initial_assistant_target": true,
-          "initial_speaker": "assistant",
-          "last_chunk_valid_samples": 3840,
-          "max_text_units_per_role_per_chunk": 4,
-          "next_window_supervision": true,
-          "padded_samples": 40419840,
-          "pass": true,
-          "sample_rate": 24000,
-          "schema_version": "2.8-candidate",
-          "session_samples": 40416000,
-          "text_complete_without_duplicates": true,
-          "text_distribution": "frontload",
-          "timestamp_spans_partition_full_tracks": true,
-          "training_records": 5264
-        }
-      },
-      "controlCounts": {
-        "<|speak|>": 3738,
-        "<|listen|>": 1514,
+        "<|speak|>": 3019,
+        "<|listen|>": 1794,
         "<|bc|>": 6,
-        "<|wait|>": 2,
+        "<|wait|>": 3,
         "<|idle|>": 4
       },
-      "controlCountsBefore": {
-        "<|speak|>": 3738,
-        "<|listen|>": 1414,
-        "<|idle|>": 103,
-        "<|bc|>": 6,
-        "<|wait|>": 3
-      },
       "controlPhysicalCounts": {
-        "<|speak|>": 3738,
-        "<|listen|>": 1514,
+        "<|speak|>": 3019,
+        "<|listen|>": 1794,
         "<|bc|>": 6,
-        "<|wait|>": 2,
+        "<|wait|>": 3,
         "<|idle|>": 3
       },
       "controlTerminalCounts": {
@@ -547,266 +233,53 @@
       }
     },
     {
-      "id": "e2bfae8f-9182-46e0-9ae3-a38ac182c137",
-      "label": "08 · 诗歌、口语建议与书籍推荐",
+      "id": "81fa6448-9fd9-41a0-b6f7-707d2d0ea0c6",
+      "label": "10 · 远程通信设备示例",
       "status": "complete",
-      "statusLabel": "PER 通过",
-      "statusDetail": "BELLE_multiturn_chat_0.8M/part-00003 · e2bfae8f-9182-46e0-9ae3-a38ac182c137 · PER 通过；现有音频、文本与排程原样展示。",
-      "data": "assets/random10-20261124/e2bfae8f-9182-46e0-9ae3-a38ac182c137/demo.json",
-      "duration_s": 1357.12,
-      "chunks": 4241,
-      "records": 4241,
-      "turns": 207,
-      "events": 21,
-      "eventCounts": {
-        "interrupt/simultaneous": 2,
-        "pend": 5,
-        "interrupt": 2,
-        "backchannel": 6,
-        "pause": 3,
-        "interrupt/wait": 3
-      },
-      "stageSummary": "22.62 分钟 · 207 话轮 · 21 次交互",
-      "diagnostic": {
-        "index_status": "complete",
-        "per_passed": true,
-        "validation": {
-          "aligned_units_checked": 6501,
-          "audio_files_checked": 2,
-          "chunk_audio_files_written": 0,
-          "chunk_ms": 320,
-          "chunk_samples": 7680,
-          "chunks": 4241,
-          "cross_boundary_units": {
-            "assistant": 1521,
-            "user": 673
-          },
-          "final_padding_samples_per_track": 5760,
-          "initial_assistant_target": false,
-          "initial_speaker": "user",
-          "last_chunk_valid_samples": 1920,
-          "max_text_units_per_role_per_chunk": 4,
-          "next_window_supervision": true,
-          "padded_samples": 32570880,
-          "pass": true,
-          "sample_rate": 24000,
-          "schema_version": "2.8-candidate",
-          "session_samples": 32565120,
-          "text_complete_without_duplicates": true,
-          "text_distribution": "frontload",
-          "timestamp_spans_partition_full_tracks": true,
-          "training_records": 4241
-        }
-      },
+      "data": "assets/random10-20261125/81fa6448-9fd9-41a0-b6f7-707d2d0ea0c6/demo.json",
+      "duration_s": 466.24,
+      "chunks": 1457,
+      "records": 1458,
+      "sourcePath": "Alpaca-GPT4/part-00002/81fa6448-9fd9-41a0-b6f7-707d2d0ea0c6",
       "controlCounts": {
-        "<|listen|>": 1249,
-        "<|speak|>": 2977,
-        "<|idle|>": 7,
-        "<|bc|>": 5,
-        "<|wait|>": 3
-      },
-      "controlCountsBefore": {
-        "<|listen|>": 1164,
-        "<|idle|>": 89,
-        "<|speak|>": 2977,
-        "<|bc|>": 5,
-        "<|wait|>": 6
+        "<|speak|>": 815,
+        "<|listen|>": 636,
+        "<|bc|>": 7
       },
       "controlPhysicalCounts": {
-        "<|listen|>": 1248,
-        "<|speak|>": 2977,
-        "<|idle|>": 7,
-        "<|bc|>": 5,
-        "<|wait|>": 3
-      },
-      "controlTerminalCounts": {
-        "<|listen|>": 1
-      }
-    },
-    {
-      "id": "f6c06f0f-36b5-40b4-9c4f-af39d0c481e3",
-      "label": "09 · 远程团队高效工作环境建议",
-      "status": "complete",
-      "statusLabel": "PER 通过",
-      "statusDetail": "Alpaca-GPT4/part-00001 · f6c06f0f-36b5-40b4-9c4f-af39d0c481e3 · PER 通过；现有音频、文本与排程原样展示。",
-      "data": "assets/random10-20261124/f6c06f0f-36b5-40b4-9c4f-af39d0c481e3/demo.json",
-      "duration_s": 481.6,
-      "chunks": 1505,
-      "records": 1505,
-      "turns": 79,
-      "events": 13,
-      "eventCounts": {
-        "interrupt/simultaneous": 3,
-        "backchannel": 4,
-        "interrupt/wait": 2,
-        "pause": 2,
-        "interrupt": 1,
-        "pend": 1
-      },
-      "stageSummary": "8.03 分钟 · 79 话轮 · 13 次交互",
-      "diagnostic": {
-        "index_status": "complete",
-        "per_passed": true,
-        "validation": {
-          "aligned_units_checked": 2382,
-          "audio_files_checked": 2,
-          "chunk_audio_files_written": 0,
-          "chunk_ms": 320,
-          "chunk_samples": 7680,
-          "chunks": 1505,
-          "cross_boundary_units": {
-            "assistant": 450,
-            "user": 249
-          },
-          "final_padding_samples_per_track": 984,
-          "initial_assistant_target": false,
-          "initial_speaker": "user",
-          "last_chunk_valid_samples": 6696,
-          "max_text_units_per_role_per_chunk": 4,
-          "next_window_supervision": true,
-          "padded_samples": 11558400,
-          "pass": true,
-          "sample_rate": 24000,
-          "schema_version": "2.8-candidate",
-          "session_samples": 11557416,
-          "text_complete_without_duplicates": true,
-          "text_distribution": "frontload",
-          "timestamp_spans_partition_full_tracks": true,
-          "training_records": 1505
-        }
-      },
-      "controlCounts": {
-        "<|listen|>": 572,
-        "<|speak|>": 924,
-        "<|bc|>": 5,
-        "<|wait|>": 3,
-        "<|idle|>": 1
-      },
-      "controlCountsBefore": {
-        "<|listen|>": 550,
-        "<|speak|>": 924,
-        "<|idle|>": 21,
-        "<|bc|>": 5,
-        "<|wait|>": 5
-      },
-      "controlPhysicalCounts": {
-        "<|listen|>": 571,
-        "<|speak|>": 924,
-        "<|bc|>": 5,
-        "<|wait|>": 3,
-        "<|idle|>": 1
-      },
-      "controlTerminalCounts": {
-        "<|listen|>": 1
-      }
-    },
-    {
-      "id": "12d78c63-c67a-48f0-9d12-93c07a1aaa07",
-      "label": "10 · 诗歌、笑话及趣味事实交流",
-      "status": "complete",
-      "statusLabel": "PER 通过",
-      "statusDetail": "BELLE_multiturn_chat_0.8M/part-00002 · 12d78c63-c67a-48f0-9d12-93c07a1aaa07 · PER 通过；现有音频、文本与排程原样展示。",
-      "data": "assets/random10-20261124/12d78c63-c67a-48f0-9d12-93c07a1aaa07/demo.json",
-      "duration_s": 610.24,
-      "chunks": 1907,
-      "records": 1907,
-      "turns": 140,
-      "events": 15,
-      "eventCounts": {
-        "interrupt": 5,
-        "pause": 4,
-        "interrupt/simultaneous": 1,
-        "interrupt/stop": 1,
-        "interrupt/wait": 3,
-        "pend": 1
-      },
-      "stageSummary": "10.17 分钟 · 140 话轮 · 15 次交互",
-      "diagnostic": {
-        "index_status": "complete",
-        "per_passed": true,
-        "validation": {
-          "aligned_units_checked": 2724,
-          "audio_files_checked": 2,
-          "chunk_audio_files_written": 0,
-          "chunk_ms": 320,
-          "chunk_samples": 7680,
-          "chunks": 1907,
-          "cross_boundary_units": {
-            "assistant": 529,
-            "user": 386
-          },
-          "final_padding_samples_per_track": 3840,
-          "initial_assistant_target": false,
-          "initial_speaker": "user",
-          "last_chunk_valid_samples": 3840,
-          "max_text_units_per_role_per_chunk": 4,
-          "next_window_supervision": true,
-          "padded_samples": 14645760,
-          "pass": true,
-          "sample_rate": 24000,
-          "schema_version": "2.8-candidate",
-          "session_samples": 14641920,
-          "text_complete_without_duplicates": true,
-          "text_distribution": "frontload",
-          "timestamp_spans_partition_full_tracks": true,
-          "training_records": 1907
-        }
-      },
-      "controlCounts": {
-        "<|listen|>": 752,
-        "<|speak|>": 1147,
-        "<|wait|>": 7,
-        "<|idle|>": 1
-      },
-      "controlCountsBefore": {
-        "<|listen|>": 700,
-        "<|speak|>": 1147,
-        "<|idle|>": 52,
-        "<|wait|>": 8
-      },
-      "controlPhysicalCounts": {
-        "<|listen|>": 751,
-        "<|speak|>": 1147,
-        "<|wait|>": 7,
-        "<|idle|>": 1
+        "<|speak|>": 815,
+        "<|listen|>": 635,
+        "<|bc|>": 7
       },
       "controlTerminalCounts": {
         "<|listen|>": 1
       }
     }
   ],
-  "summary": "随机 10 条 · 总计 135.11 分钟 · 176 次交互",
+  "summary": "新随机 10 条 · 总计 135.71 分钟",
   "controlSummary": {
     "policy": "target_window_dialogue_state_v1",
     "countingUnit": "training_record",
-    "recordCount": 25337,
+    "recordCount": 25449,
     "counts": {
-      "<|speak|>": 16870,
-      "<|listen|>": 8344,
-      "<|bc|>": 44,
-      "<|wait|>": 44,
-      "<|idle|>": 35
-    },
-    "before": {
-      "<|speak|>": 16870,
-      "<|idle|>": 541,
-      "<|listen|>": 7839,
-      "<|bc|>": 44,
-      "<|wait|>": 43
+      "<|listen|>": 8649,
+      "<|speak|>": 16704,
+      "<|bc|>": 43,
+      "<|wait|>": 25,
+      "<|idle|>": 28
     },
     "physicalCounts": {
-      "<|speak|>": 16870,
-      "<|listen|>": 8340,
-      "<|bc|>": 44,
-      "<|wait|>": 44,
-      "<|idle|>": 29
+      "<|listen|>": 8643,
+      "<|speak|>": 16704,
+      "<|bc|>": 43,
+      "<|wait|>": 25,
+      "<|idle|>": 24
     },
     "terminalCounts": {
-      "<|idle|>": 6,
-      "<|listen|>": 4
+      "<|listen|>": 6,
+      "<|idle|>": 4
     },
-    "physicalTargetRecordCount": 25327,
-    "terminalRecordCount": 10,
-    "changedRecords": 533
+    "physicalTargetRecordCount": 25439,
+    "terminalRecordCount": 10
   }
 }

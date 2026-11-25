@@ -56,7 +56,7 @@
 <script>
 (async () => {
  'use strict';
- const UI_VERSION='20261125-control-review-v2';
+ const UI_VERSION='20261125-control-review-v3';
  const $=id=>document.getElementById(id),query=new URLSearchParams(location.search);
  const catalogPath=query.get('set')==='previous'?'assets/catalog.json':'assets/catalog.random10.json';
  async function readJSON(path){const r=await fetch(path+'?v='+UI_VERSION);if(!r.ok)throw Error('数据读取失败：HTTP '+r.status);return r.json();}
