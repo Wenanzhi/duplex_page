@@ -10,6 +10,7 @@
 @font-face{font-family:DuplexHan;font-style:normal;font-weight:100 900;font-display:swap;src:url('assets/demo-sans.woff?v=20261119-tts20-v1') format('woff')}
 :root{color-scheme:light;--bg:#f5f7fb;--surface:#fff;--ink:#152238;--muted:#58677d;--line:#d8e1ed;--user:#166788;--assistant:#6b44b7;--active:#eaf0ff;--error:#b3383f;font-family:Inter,DuplexHan,"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;font-size:16px}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);line-height:1.55}main{max-width:1460px;margin:auto;padding:28px}h1{font-size:1.6rem;margin:0 0 6px}h2{font-size:1.05rem;margin:0}p{margin:0}.sub,.muted,.status{color:var(--muted)}.sub{margin-bottom:20px}.small,.status{font-size:.875rem}.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}.card{padding:18px;background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-bottom:18px}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.spread{justify-content:space-between}.stack{display:grid;gap:12px}button,select,input{font:inherit}button,select,input[type=number]{min-height:40px;padding:6px 12px;border:1px solid var(--line);border-radius:7px;background:var(--surface);color:var(--ink)}button{cursor:pointer}button:hover{background:var(--active)}button:disabled{opacity:.45;cursor:default}button.primary{background:#244a91;color:#fff;border-color:#244a91}button[aria-pressed=true]{box-shadow:inset 0 0 0 2px var(--assistant)}button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #668ff0;outline-offset:3px}select{max-width:100%}input[type=number]{width:100px}input[type=range]{width:100%;accent-color:#244a91;margin:8px 0}.sample-label{display:flex;flex:1;min-width:0;gap:10px;align-items:center}#demo-select{flex:1;min-width:0;width:0}.token-stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}.token-stat{text-align:left;padding:12px;min-width:0}.token-name{display:block;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.9rem;font-weight:650;overflow-wrap:anywhere;color:var(--assistant)}.token-number{display:block;font-size:1.5rem;font-weight:650;margin-top:5px;font-variant-numeric:tabular-nums}.token-total{display:block;color:var(--muted);font-size:.875rem}.notice{font-size:.875rem;color:var(--muted);margin-top:10px}.error{color:var(--error)}.tabular{font-variant-numeric:tabular-nums}.timeline{position:relative;isolation:isolate;margin-top:12px}.track-row{display:grid;grid-template-columns:78px minmax(0,1fr)}.role{display:flex;align-items:center;font-size:.875rem;font-weight:600}.user{color:var(--user)}.assistant{color:var(--assistant)}.chunk-heads,.track-grid,.control-grid{display:grid;grid-template-columns:repeat(var(--columns),minmax(0,1fr))}.chunk-head{font-size:.8rem;color:var(--muted);padding:8px 5px;border-left:1px solid var(--line);font-variant-numeric:tabular-nums}.chunk-head strong{display:block;font-size:.875rem;color:var(--ink)}.track-grid,.control-grid{border-block:1px solid var(--line);margin-bottom:12px}.cell{min-width:0;border-left:1px solid var(--line)}.cell:nth-child(even){background:color-mix(in srgb,var(--ink) 2%,transparent)}.cell.selected{background:var(--active)}.cell.playing{background:color-mix(in srgb,var(--assistant) 15%,var(--surface))}.control-choice,.cell-button{display:block;width:100%;height:100%;border:0;border-radius:0;background:transparent}.control-choice{padding:10px 4px}.control-token{display:block;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.875rem;font-weight:650;color:var(--assistant);overflow-wrap:anywhere}.control-source{display:block;color:var(--muted);font-size:.8rem;margin-top:3px}.cell-button{padding:0;text-align:left}.cell-text{display:block;padding:9px 6px;min-height:68px;overflow-wrap:anywhere;font-size:1rem}.empty{color:var(--muted);font-size:.875rem}.wave{display:block;width:100%;height:86px;overflow:visible}.terminal-wave{display:flex;align-items:center;justify-content:center;height:86px;color:var(--muted);font-size:.875rem}.playhead{position:absolute;top:0;bottom:12px;width:2px;background:var(--ink);pointer-events:none;z-index:6;display:none}.legend{display:flex;gap:16px;font-size:.875rem}.selection-info{border-top:1px solid var(--line);margin-top:12px;padding-top:12px}.location-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:12px}.location-button{text-align:left;min-width:0}.location-button span{display:block;overflow-wrap:anywhere}.location-button .mono{color:var(--assistant)}.location-preview{color:var(--muted);font-size:.875rem;margin-top:3px}.location-pages{margin-top:12px}.footer{font-size:.8rem;color:var(--muted)}.footer a{color:var(--muted)}[hidden]{display:none!important}
+.status{overflow-wrap:anywhere}
 @media(prefers-color-scheme:dark){:root{color-scheme:dark;--bg:#101620;--surface:#182231;--ink:#e4eaf4;--muted:#a9b6ca;--line:#33445b;--user:#65bbd4;--assistant:#b69bea;--active:#263b5a;--error:#ff9a9f}}
 @media(max-width:700px){main{padding:18px 12px}.card{padding:13px}h1{font-size:1.35rem}.token-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.track-row{grid-template-columns:64px minmax(0,1fr)}.role{font-size:.875rem}.location-list{grid-template-columns:1fr}.chunk-head{font-size:.75rem}.control-token{font-size:.875rem}.sample-label{flex-basis:100%}}
 </style>
@@ -56,7 +57,7 @@
 <script>
 (async () => {
  'use strict';
- const UI_VERSION='20261125-control-review-qualified-v1';
+ const UI_VERSION='20261125-control-review-playback-v2';
  const $=id=>document.getElementById(id),query=new URLSearchParams(location.search);
  const catalogPath=query.get('set')==='previous'?'assets/catalog.json':'assets/catalog.random10.json';
  async function readJSON(path){const r=await fetch(path+'?v='+UI_VERSION);if(!r.ok)throw Error('数据读取失败：HTTP '+r.status);return r.json();}
@@ -172,42 +173,90 @@
   for(const s of state.sources){s.onended=null;try{s.stop();}catch(_){}try{s.disconnect();}catch(_){}}
   state.sources=[];$('stop').disabled=true;$('playhead').style.display='none';for(const c of document.querySelectorAll('.cell.playing'))c.classList.remove('playing');
  }
- async function getAudio(variant=state.variant){
-  if(state.buffers[variant])return state.buffers[variant];
-  if(state.loading[variant])return state.loading[variant];
-  const version=D.variants[variant];
-  state.loading[variant]=(async()=>{
-   if(!window.AudioContext&&!window.webkitAudioContext)throw Error('浏览器不支持 Web Audio。');
-   if(!window.DecompressionStream)throw Error('浏览器不支持无损音频解压，请使用新版 Chrome / Edge / Safari。');
-   const Context=window.AudioContext||window.webkitAudioContext;
-   if(!state.ctx)state.ctx=new Context({sampleRate:SR});
-   await state.ctx.resume();
-   if(state.variant===variant)setStatus('正在载入'+version.label+'音轨……');
-   const buffers={};
-   for(const role of roles){
-    const response=await fetch(version.files[role]+'?v='+ASSET_VERSION);
-    if(!response.ok)throw Error(role+' 音频读取失败：HTTP '+response.status);
-    const stream=response.body.pipeThrough(new DecompressionStream('deflate'));
-    const raw=await new Response(stream).arrayBuffer();
-    if(raw.byteLength!==D.samples*2)throw Error(role+' 音频长度不匹配，停止播放。');
-    const view=new DataView(raw),b=state.ctx.createBuffer(1,D.samples,SR),v=b.getChannelData(0);
-    for(let i=0;i<v.length;i++)v[i]=view.getInt16(i*2,true)/32768;
-    buffers[role]=b;
-   }
-   state.buffers[variant]=buffers;
-   if(state.variant===variant)setStatus(version.label+'已载入 · '+SR+' Hz · 保留文件增益');
-   return buffers;
-  })().catch(e=>{delete state.loading[variant];throw e});
-  return state.loading[variant];
+ async function getAudio(variant=state.variant,wantedRoles=roles){
+  if(!window.AudioContext&&!window.webkitAudioContext)throw Error('浏览器不支持 Web Audio。');
+  if(!window.DecompressionStream)throw Error('浏览器不支持无损音频解压，请使用新版 Chrome / Edge / Safari。');
+  const Context=window.AudioContext||window.webkitAudioContext;
+  if(!state.ctx)state.ctx=new Context({sampleRate:SR});
+  await state.ctx.resume();
+  const request=state.serial,version=D.variants[variant],buffers=state.buffers[variant]||={};
+  state.audioDownloads||={};
+  state.loadNotice=()=>{
+   if(request!==state.serial||state.playing||variant!==state.variant)return;
+   const parts=wantedRoles.map(role=>{
+    if(buffers[role])return role+' 已缓存';
+    const p=state.audioDownloads[variant+':'+role];
+    if(!p)return role+' 等待下载';
+    const size=(p.received/1048576).toFixed(1)+(p.total?' / '+(p.total/1048576).toFixed(1):'')+' MB';
+    return role+' '+p.phase+' '+size+(p.attempt>1?'（重试 '+(p.attempt-1)+'/1）':'');
+   });
+   setStatus('正在载入音轨 · '+parts.join(' · '));
+  };
+  await Promise.all(wantedRoles.map(role=>{
+   if(buffers[role])return buffers[role];
+   const key=variant+':'+role;
+   if(!state.loading[key])state.loading[key]=(async()=>{
+    const url=new URL(version.files[role]+'?v='+ASSET_VERSION,location.href).href;
+    const progress=state.audioDownloads[key]={url,phase:'请求中',received:0,total:0,attempt:0};
+    for(let attempt=1;attempt<=2;attempt++){
+     progress.attempt=attempt;progress.phase='请求中';progress.received=0;progress.total=0;delete progress.httpStatus;state.loadNotice?.();
+     let phase='请求音频',response;
+     try{
+      response=await fetch(url,{cache:attempt===1?'default':'reload'});
+      progress.httpStatus=response.status;
+      if(!response.ok)throw Error('HTTP '+response.status);
+      if(!response.body)throw Error('响应中没有音频数据流');
+      phase='下载音频';progress.phase='下载中';progress.total=Number(response.headers.get('Content-Length'))||0;
+      progress.contentType=response.headers.get('Content-Type')||'';
+      progress.contentEncoding=response.headers.get('Content-Encoding')||'';
+      if(progress.contentEncoding&&progress.contentEncoding.toLowerCase()!=='identity')progress.total=0;
+      let lastNotice=0;
+      const meter=new TransformStream({transform(chunk,controller){
+       progress.received+=chunk.byteLength;controller.enqueue(chunk);
+       const now=performance.now();if(now-lastNotice>100){lastNotice=now;state.loadNotice?.();}
+      }});
+      const encoded=await new Response(response.body.pipeThrough(meter)).arrayBuffer();
+      phase='解压音频';progress.phase='解压中';state.loadNotice?.();
+      const header=new Uint8Array(encoded,0,Math.min(2,encoded.byteLength));
+      const zlibHeader=header.length===2&&(header[0]&15)===8&&(header[0]>>4)<=7&&((header[0]<<8)|header[1])%31===0;
+      let raw;
+      if(progress.contentEncoding.toLowerCase().split(',').map(value=>value.trim()).includes('deflate')&&encoded.byteLength===D.samples*2){
+       // Fetch already decodes a declared HTTP Content-Encoding.
+       raw=encoded;progress.decoding='http_deflate_already_decoded';
+      }else if(zlibHeader){
+       raw=await new Response(new Blob([encoded]).stream().pipeThrough(new DecompressionStream('deflate'))).arrayBuffer();
+       progress.decoding='zlib';
+      }else{
+       throw Error('响应不是预期的 zlib 音频；Content-Type='+(progress.contentType||'未声明')+'，Content-Encoding='+(progress.contentEncoding||'未声明')+'，收到 '+encoded.byteLength+' 字节');
+      }
+      phase='校验采样数';progress.phase='解压完成';
+      if(raw.byteLength!==D.samples*2)throw Error('采样数不符：预期 '+D.samples*2+' 字节，收到 '+raw.byteLength+' 字节');
+      phase='建立播放缓冲';
+      const view=new DataView(raw),buffer=state.ctx.createBuffer(1,D.samples,SR),values=buffer.getChannelData(0);
+      for(let i=0;i<values.length;i++)values[i]=view.getInt16(i*2,true)/32768;
+      buffers[role]=buffer;progress.phase='已缓存';delete progress.error;state.loadNotice?.();return buffer;
+     }catch(error){
+      progress.error=error.message;progress.failedPhase=phase;
+      const networkFailure=(phase==='请求音频'&&!response)||(phase==='下载音频'&&/fetch|network|connection|aborted/i.test(error.message));
+      if(networkFailure&&attempt<2){progress.phase='网络中断，准备重试';state.loadNotice?.();await new Promise(resolve=>setTimeout(resolve,500));continue;}
+      progress.phase='失败';
+      throw Error(role+' 音轨'+phase+'失败（尝试 '+attempt+'/2，已读取 '+(progress.received/1048576).toFixed(1)+' MB）：'+error.message+'。文件：'+url);
+     }
+    }
+   })().finally(()=>{delete state.loading[key];});
+   return state.loading[key];
+  }));
+  if(request===state.serial){state.loadNotice=null;setStatus(version.label+'已载入 · '+SR+' Hz · 保留文件增益');}
+  return buffers;
  }
  async function playRange(start,end){
   stopPlayback();const request=state.serial;$('stop').disabled=false;
   try{
-   const buffers=await getAudio();if(request!==state.serial)return;
+   const playRoles=state.channel==='both'?roles:[state.channel];
+   const buffers=await getAudio(state.variant,playRoles);if(request!==state.serial)return;
    await state.ctx.resume();if(request!==state.serial)return;
    const at=state.ctx.currentTime+.04;
    state.startSample=start;state.endSample=end;state.startAt=at;state.playing=true;
-   const playRoles=state.channel==='both'?roles:[state.channel];
    for(const role of playRoles){const s=state.ctx.createBufferSource();s.buffer=buffers[role];if(state.channel==='both'){const pan=state.ctx.createStereoPanner();pan.pan.value=role==='user'?-1:1;s.connect(pan);pan.connect(state.ctx.destination);}else{s.connect(state.ctx.destination);}state.sources.push(s);s.start(at,start/SR,(end-start)/SR);}
    state.sources[state.sources.length-1].onended=()=>{if(request===state.serial){state.playing=false;$('stop').disabled=true;$('playhead').style.display='none';$('clock').textContent=time(end/SR);for(const c of document.querySelectorAll('.cell.playing'))c.classList.remove('playing');setStatus('播放完成 · '+time(start/SR)+'–'+time(end/SR));}};
    setStatus(D.variants[state.variant].label+' · 播放 '+time(start/SR)+'–'+time(end/SR)+' · '+(state.channel==='both'?'左 User / 右 Assistant':state.channel));tick(request);

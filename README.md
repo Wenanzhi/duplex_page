@@ -24,6 +24,8 @@ URL 参数：`?demo=<id>&token=<URL 编码后的 token>` 筛选，`&record=<训�
 
 页面 records 与对应正式 delivery/chunks.json 完全一致；文本直接读取 annotations_json.timeline_chunks，不重分词或重排。音频为正式双轨 PCM16 的无损压缩，保留增益、静音、CUT 和 320 ms 边界；不调用生成、ASR、对齐或排程。波形两轨共用幅度刻度。
 
+播放时双轨并行下载，显示各轨下载进度，每轨独立缓存；选择单轨只下载该轨。下载与解压分开诊断，避免把浏览器解压流的 Failed to fetch 直接归因于网络。HTTP 声明 Content-Encoding=deflate、浏览器已解码且采样数相符时，直接使用解码后的 PCM；普通 zlib 文件仍只解压一次。网络传输失败最多自动重试一次，HTTP 错误、解压错误和采样数错误直接说明失败阶段及文件地址。成功缓存的轨道在另一轨失败后仍保留。网络重试仅属于网页资源加载，不调用 TTS，也不改变生产重试账本。
+
 本批抽样清单和验证报告：duplex_pipeline/output_dataset/test/control_review_qualified10_20261125。此前试听资源保留在本地与 Git 历史；发布目录替换为当前合格数据批次，控制站点体积。更早的分块样本仍可通过 `?set=previous` 打开。
 
 字体为 Duplex Chunk Sans（Noto Sans CJK 子集），许可见 assets/OFL.txt。
