@@ -1,0 +1,650 @@
+{
+  "sample_count": 10,
+  "seed": 2026112601,
+  "population_count": 14985,
+  "code_integrity": {
+    "checked_at": "2026-11-26T06:47:14.103301+00:00",
+    "code_sha256": "f014cfa5d8651034aaad83691150f75da95209d15408b5edcdc7eeb791f095b9",
+    "unchanged": true,
+    "changed_files": [],
+    "input_files_unchanged": true,
+    "changed_input_files": [],
+    "worker_exit_codes": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "source_relation_labels_unchanged": true,
+    "relation_changes": []
+  },
+  "status_counts": {
+    "complete": 9,
+    "needs_review": 1
+  },
+  "unresolved_physical_blocks": 0,
+  "user_energy_policy": "PCM16 任一非零采样即有能量；Assistant 无输出时标 listen，包含换气声。",
+  "training_token_policy": "当前输入预测下一物理块的唯一标签；EOF 没有监督目标。",
+  "samples": [
+    {
+      "number": 1,
+      "sample_id": "2b22a621-cc86-4b5a-8085-28be2209dbf9",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          17920,
+          18240
+        ],
+        [
+          19200,
+          19520
+        ],
+        [
+          19520,
+          19840
+        ],
+        [
+          50560,
+          50880
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "user",
+          "text": "嗯，",
+          "span_ms": [
+            18040.0,
+            18595.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "哦",
+          "span_ms": [
+            28489.0,
+            29114.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯，",
+          "span_ms": [
+            56860.0,
+            57685.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "no",
+          "span_ms": [
+            75961.0,
+            76201.0
+          ]
+        }
+      ],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "2b22a621-cc86-4b5a-8085-28be2209dbf9/viewer/index.html"
+    },
+    {
+      "number": 2,
+      "sample_id": "3737a899-8c41-4f00-8832-54d1b4894ac1",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          12480,
+          12800
+        ],
+        [
+          19520,
+          19840
+        ],
+        [
+          20480,
+          20800
+        ],
+        [
+          25600,
+          25920
+        ],
+        [
+          39360,
+          39680
+        ],
+        [
+          42880,
+          43200
+        ],
+        [
+          43200,
+          43520
+        ],
+        [
+          48000,
+          48320
+        ],
+        [
+          53760,
+          54080
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "user",
+          "text": "嗯，",
+          "span_ms": [
+            12530.0,
+            13025.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "嗯，",
+          "span_ms": [
+            19840.0,
+            20080.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯，",
+          "span_ms": [
+            26100.0,
+            26615.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "嗯，",
+          "span_ms": [
+            43520.0,
+            43995.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "嗯",
+          "span_ms": [
+            48320.0,
+            48785.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "嗯。",
+          "span_ms": [
+            54080.0,
+            54315.0
+          ]
+        }
+      ],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "3737a899-8c41-4f00-8832-54d1b4894ac1/viewer/index.html"
+    },
+    {
+      "number": 3,
+      "sample_id": "e024538b-3bf0-4505-993d-ef3e40c97abb",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          10880,
+          11200
+        ],
+        [
+          19840,
+          20160
+        ]
+      ],
+      "feedback_events": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "e024538b-3bf0-4505-993d-ef3e40c97abb/viewer/index.html"
+    },
+    {
+      "number": 4,
+      "sample_id": "3bb49f09-2916-481d-9c9d-ba74a13f5bb5",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          6400,
+          6720
+        ],
+        [
+          6720,
+          7040
+        ],
+        [
+          11200,
+          11520
+        ],
+        [
+          19840,
+          20160
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "assistant",
+          "text": "对",
+          "span_ms": [
+            7040.0,
+            7515.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "对。",
+          "span_ms": [
+            19640.0,
+            20105.0
+          ]
+        }
+      ],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "3bb49f09-2916-481d-9c9d-ba74a13f5bb5/viewer/index.html"
+    },
+    {
+      "number": 5,
+      "sample_id": "00fb9ea9-91bf-4672-8b54-0a03b7986702",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          5440,
+          5760
+        ],
+        [
+          5760,
+          6080
+        ],
+        [
+          18240,
+          18560
+        ],
+        [
+          18560,
+          18880
+        ],
+        [
+          23360,
+          23680
+        ],
+        [
+          24960,
+          25280
+        ],
+        [
+          25280,
+          25600
+        ],
+        [
+          26880,
+          27200
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "user",
+          "text": "对对，",
+          "span_ms": [
+            12300.0,
+            12780.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "嗯，对，",
+          "span_ms": [
+            23680.0,
+            24160.0
+          ]
+        }
+      ],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "00fb9ea9-91bf-4672-8b54-0a03b7986702/viewer/index.html"
+    },
+    {
+      "number": 6,
+      "sample_id": "043baf20-291c-4fa0-af51-82b1e075be7f",
+      "status": "needs_review",
+      "failed_checks": [
+        "provided_speech_is_covered_by_turns"
+      ],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          1920,
+          2240
+        ],
+        [
+          2880,
+          3200
+        ],
+        [
+          3200,
+          3520
+        ],
+        [
+          5440,
+          5760
+        ],
+        [
+          8000,
+          8320
+        ],
+        [
+          16640,
+          16960
+        ],
+        [
+          17600,
+          17920
+        ],
+        [
+          30080,
+          30400
+        ],
+        [
+          34560,
+          34880
+        ],
+        [
+          34880,
+          35200
+        ],
+        [
+          49280,
+          49600
+        ],
+        [
+          49600,
+          49920
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "assistant",
+          "text": "对吧？",
+          "span_ms": [
+            2240.0,
+            2700.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "嗯嗯，",
+          "span_ms": [
+            3520.0,
+            5305.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "对哎哎这个例子举得非常好。",
+          "span_ms": [
+            8370.0,
+            12890.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "对不对？",
+          "span_ms": [
+            11990.0,
+            12785.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "对不对？",
+          "span_ms": [
+            16960.0,
+            17500.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "对吧？",
+          "span_ms": [
+            30400.0,
+            31065.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯",
+          "span_ms": [
+            35591.0,
+            36275.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯，",
+          "span_ms": [
+            42490.0,
+            42730.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "对对，",
+          "span_ms": [
+            44610.0,
+            45870.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "对。",
+          "span_ms": [
+            49930.0,
+            50170.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "是。",
+          "span_ms": [
+            50290.0,
+            50585.0
+          ]
+        }
+      ],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "043baf20-291c-4fa0-af51-82b1e075be7f/viewer/index.html"
+    },
+    {
+      "number": 7,
+      "sample_id": "2ba492e9-0dbd-4cbb-91c8-73656683e5e3",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          21760,
+          22080
+        ],
+        [
+          28480,
+          28800
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "assistant",
+          "text": "你。",
+          "span_ms": [
+            28800.0,
+            29275.0
+          ]
+        }
+      ],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "2ba492e9-0dbd-4cbb-91c8-73656683e5e3/viewer/index.html"
+    },
+    {
+      "number": 8,
+      "sample_id": "2b917f28-85b8-47ca-8cf4-3f675506ffb5",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          73600,
+          73920
+        ],
+        [
+          76480,
+          76800
+        ],
+        [
+          111680,
+          112000
+        ],
+        [
+          118400,
+          118720
+        ],
+        [
+          118720,
+          119040
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "user",
+          "text": "哦，",
+          "span_ms": [
+            80650.0,
+            81185.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯，",
+          "span_ms": [
+            90330.0,
+            90955.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "啊。",
+          "span_ms": [
+            116170.0,
+            116410.0
+          ]
+        }
+      ],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "2b917f28-85b8-47ca-8cf4-3f675506ffb5/viewer/index.html"
+    },
+    {
+      "number": 9,
+      "sample_id": "5a7bf3b2-f5c1-49a3-8a17-8e253ec488e5",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          49600,
+          49920
+        ],
+        [
+          59840,
+          60160
+        ],
+        [
+          78400,
+          78720
+        ],
+        [
+          103040,
+          103360
+        ]
+      ],
+      "feedback_events": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "5a7bf3b2-f5c1-49a3-8a17-8e253ec488e5/viewer/index.html"
+    },
+    {
+      "number": 10,
+      "sample_id": "71ecf4e8-9be5-428b-8517-9fe0499184fb",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          17280,
+          17600
+        ],
+        [
+          17600,
+          17920
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "user",
+          "text": "嗯，",
+          "span_ms": [
+            25050.0,
+            25290.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "对",
+          "span_ms": [
+            27050.0,
+            27605.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "对",
+          "span_ms": [
+            33810.0,
+            34305.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "对",
+          "span_ms": [
+            36870.0,
+            37355.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "没错对啊对",
+          "span_ms": [
+            42450.0,
+            45590.0
+          ]
+        }
+      ],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "71ecf4e8-9be5-428b-8517-9fe0499184fb/viewer/index.html"
+    }
+  ]
+}
