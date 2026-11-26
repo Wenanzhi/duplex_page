@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>待复核片段 · Duplex</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header class="header"><div><span class="eyebrow">DUPLEX / 人工复核</span><h1>听清楚，再定规则</h1><p id="summary">正在读取待复核片段…</p></div>
+<div class="header-actions"><button id="copy-results">复制复核摘要</button><button id="export-results" class="primary">导出复核结果</button><label class="button" for="import-results">导入已有结果</label><input id="import-results" type="file" accept="application/json,.json" hidden></div></header>
+<div id="fatal-error" class="error" role="alert" hidden></div>
+<div class="layout" id="workspace" hidden>
+<aside class="panel queue"><div class="section-title"><h2>复核清单</h2><strong id="progress"></strong></div>
+<label>问题类型<select id="kind-filter"><option value="all">全部类型</option></select></label>
+<div class="filter-pair"><label>录音<select id="sample-filter"><option value="all">全部录音</option></select></label><label>状态<select id="status-filter"><option value="all">全部状态</option><option value="pending">未完成</option><option value="reviewed">已完成</option><option value="uncertain">仍不确定</option></select></label></div>
+<nav id="review-list" aria-label="复核片段列表"></nav><p id="save-status" class="save-status" role="status"></p></aside>
+<main>
+<section class="panel focus"><div class="section-title"><div><p id="sample-label" class="eyebrow"></p><h2 id="issue-title"></h2><p id="issue-time" class="mono"></p></div><div class="nav-buttons"><button id="previous-item">上一条</button><button id="next-item">下一条</button></div></div>
+<p id="issue-description" class="explanation"></p><p id="precise-gap" class="boundary-note" hidden></p>
+<div class="toolbar"><button id="play-context" class="primary audio-button">听前后文</button><button id="play-selection" class="audio-button">听选中区间</button><button id="play-user" class="audio-button">只听 User</button><button id="play-assistant" class="audio-button">只听 Assistant</button><button id="pause-audio">暂停</button><span id="playback-status" role="status">音频准备中</span></div>
+<div class="options"><label>前后文<select id="context-margin"><option value="4000">前后各 4 秒</option><option value="8000">前后各 8 秒</option></select></label><label>声道<select id="channel"><option value="both">双轨</option><option value="user">User</option><option value="assistant">Assistant</option></select></label><label>速度<select id="speed"><option value="0.75">0.75×</option><option value="1" selected>1×</option><option value="1.25">1.25×</option></select></label><label>波形<select id="gain"><option value="1">原始幅度</option><option value="4">放大 4×</option><option value="16">放大 16×</option></select></label><label>视窗<select id="zoom"><option value="6400">6.4 秒</option><option value="12800" selected>12.8 秒</option><option value="0">整个片段</option></select></label><button id="previous-window">前一屏</button><button id="next-window">后一屏</button></div>
+<canvas id="waveform" aria-label="User 与 Assistant 同一时段波形，点击选中一个 320 毫秒块，按住 Shift 点击扩展选择"></canvas>
+<div class="wave-caption"><span><i class="legend user"></i>User 左声道 <i class="legend assistant"></i>Assistant 右声道</span><span>点击选块 · Shift 点击选多块 · 下排为原标签</span></div>
+<div id="chunk-strip" class="chunk-strip" aria-label="当前视窗内的逐块标签"></div><p id="audio-error" class="error" role="alert" hidden></p>
+</section>
+<section class="panel decisions"><div class="section-title"><h2>你的判断</h2><span id="decision-status" class="muted"></span></div>
+<p class="muted">只判断同一时段的状态。这里的选择单独保存，复核完成后再统一归纳规则。</p>
+<div class="range-controls"><label>起始块<select id="range-start"></select></label><label>结束块（含）<select id="range-end"></select></label><button id="select-issue">选中问题全段</button></div>
+<p id="selection-label" class="selection-label"></p><div class="choices" id="token-buttons" role="group" aria-label="指定所选区间的 token"></div>
+<div class="action-buttons"><button id="keep-selection">保留所选块原标签</button><button id="trim-selection">裁剪所选静音</button><button id="clear-selection" class="text-button">撤销所选块判断</button></div>
+<p id="selection-result" class="selection-result" aria-live="polite"></p>
+<label>这段声音的性质（可选，用于总结规律）<select id="sound-kind"><option value="">尚未判断</option><option value="ordinary_speech">Assistant 普通发言</option><option value="assistant_backchannel">Assistant 短反馈</option><option value="user_backchannel">User 对 Assistant 做短反馈</option><option value="assistant_pause">Assistant 自己的停顿</option><option value="user_holding">User 暂停但仍持有话轮</option><option value="breath_or_noise">呼吸、噪声或微弱波动</option><option value="silence">没有声音</option><option value="boundary_speech">起音或尾音需要保留</option><option value="uncertain">听不清或还不能确定</option></select></label>
+<label id="transcript-label">听到的文字（选填）<textarea id="heard-text" rows="2" placeholder="确认有发言时，可补充你听到的内容。"></textarea></label>
+<label>判断依据 / 规则建议（选填）<textarea id="review-note" rows="2" placeholder="例如：这是 Assistant 自己换气，User 没有接话，建议裁剪这块。"></textarea></label>
+<div class="finish-actions"><button id="finish-item" class="primary">本片段完成，下一条</button><button id="mark-uncertain">仍不确定，下一条</button><button id="reopen-item" class="text-button">重新打开本片段</button></div>
+<details class="guide"><summary>查看 token 含义与操作说明</summary><p><code>&lt;|speak|&gt;</code> Assistant 普通主发言；User 的短反馈不转移其话权。<code>&lt;|bc|&gt;</code> Assistant 自己作短反馈，必须有实际发声。</p><p><code>&lt;|listen|&gt;</code> Assistant 无输出，User 波形非零。<code>&lt;|wait|&gt;</code> User 暂停但仍持话。<code>&lt;|idle|&gt;</code> Assistant 已结束，User 尚未接话。</p><p>长段可以只改其中几块，也可以整段确认。裁剪选项记录你希望删除的时间范围，本页不会改动原音频或训练文件。</p></details>
+</section>
+<section class="panel"><div class="section-title"><h2>原有转写与上下文</h2><a id="full-recording" target="_blank" rel="noopener">完整录音</a></div><p class="muted">原有文字保持不变；缺少转写不等于没有声音。点击一句可单独试听。</p><div id="transcripts"></div></section>
+<details class="panel"><summary>原始判断依据</summary><div id="evidence"></div></details>
+</main></div>
+<dialog id="copy-dialog"><h2>复核摘要</h2><p>可以直接复制下面的文字发给我。</p><textarea id="copy-text" rows="15" readonly></textarea><button id="close-copy">关闭</button></dialog><div id="toast" role="status" hidden></div>
+<script src="player.js"></script><script src="review-model.js"></script><script src="app.js"></script>
+</body></html>
