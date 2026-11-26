@@ -1,0 +1,273 @@
+{
+  "samples": [
+    {
+      "number": 1,
+      "sample_id": "2b22a621-cc86-4b5a-8085-28be2209dbf9",
+      "same_audio_clock": true,
+      "changes": [
+        {
+          "span_ms": [
+            27200,
+            27520
+          ],
+          "before": "<|speak|>",
+          "after": "<|listen|>",
+          "assistant_peak_pcm16": 0
+        },
+        {
+          "span_ms": [
+            27520,
+            27840
+          ],
+          "before": "<|speak|>",
+          "after": "<|listen|>",
+          "assistant_peak_pcm16": 0
+        }
+      ],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 2,
+      "sample_id": "3737a899-8c41-4f00-8832-54d1b4894ac1",
+      "same_audio_clock": true,
+      "changes": [
+        {
+          "span_ms": [
+            27200,
+            27520
+          ],
+          "before": "<|speak|>",
+          "after": "<|wait|>",
+          "assistant_peak_pcm16": 2
+        },
+        {
+          "span_ms": [
+            27520,
+            27840
+          ],
+          "before": "<|speak|>",
+          "after": "<|wait|>",
+          "assistant_peak_pcm16": 2
+        },
+        {
+          "span_ms": [
+            27840,
+            28160
+          ],
+          "before": "<|speak|>",
+          "after": "<|wait|>",
+          "assistant_peak_pcm16": 2
+        },
+        {
+          "span_ms": [
+            28160,
+            28480
+          ],
+          "before": "<|speak|>",
+          "after": "<|wait|>",
+          "assistant_peak_pcm16": 2
+        },
+        {
+          "span_ms": [
+            28480,
+            28800
+          ],
+          "before": "<|speak|>",
+          "after": "<|wait|>",
+          "assistant_peak_pcm16": 2
+        },
+        {
+          "span_ms": [
+            28800,
+            29120
+          ],
+          "before": "<|speak|>",
+          "after": "<|wait|>",
+          "assistant_peak_pcm16": 2
+        },
+        {
+          "span_ms": [
+            29120,
+            29440
+          ],
+          "before": "<|speak|>",
+          "after": "<|wait|>",
+          "assistant_peak_pcm16": 2
+        },
+        {
+          "span_ms": [
+            29440,
+            29760
+          ],
+          "before": "<|speak|>",
+          "after": "<|wait|>",
+          "assistant_peak_pcm16": 2
+        },
+        {
+          "span_ms": [
+            29760,
+            30080
+          ],
+          "before": "<|speak|>",
+          "after": "<|wait|>",
+          "assistant_peak_pcm16": 2
+        },
+        {
+          "span_ms": [
+            30080,
+            30400
+          ],
+          "before": "<|speak|>",
+          "after": "<|wait|>",
+          "assistant_peak_pcm16": 2
+        },
+        {
+          "span_ms": [
+            37760,
+            38080
+          ],
+          "before": "<|speak|>",
+          "after": "<|listen|>",
+          "assistant_peak_pcm16": 0
+        },
+        {
+          "span_ms": [
+            38080,
+            38400
+          ],
+          "before": "<|speak|>",
+          "after": "<|listen|>",
+          "assistant_peak_pcm16": 0
+        },
+        {
+          "span_ms": [
+            38400,
+            38720
+          ],
+          "before": "<|speak|>",
+          "after": "<|listen|>",
+          "assistant_peak_pcm16": 2
+        }
+      ],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 3,
+      "sample_id": "e024538b-3bf0-4505-993d-ef3e40c97abb",
+      "same_audio_clock": true,
+      "changes": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 4,
+      "sample_id": "3bb49f09-2916-481d-9c9d-ba74a13f5bb5",
+      "same_audio_clock": true,
+      "changes": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 5,
+      "sample_id": "00fb9ea9-91bf-4672-8b54-0a03b7986702",
+      "same_audio_clock": true,
+      "changes": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 6,
+      "sample_id": "043baf20-291c-4fa0-af51-82b1e075be7f",
+      "same_audio_clock": true,
+      "changes": [
+        {
+          "span_ms": [
+            20160,
+            20480
+          ],
+          "before": "<|speak|>",
+          "after": "<|listen|>",
+          "assistant_peak_pcm16": 2
+        },
+        {
+          "span_ms": [
+            20480,
+            20800
+          ],
+          "before": "<|speak|>",
+          "after": "<|listen|>",
+          "assistant_peak_pcm16": 0
+        },
+        {
+          "span_ms": [
+            20800,
+            21120
+          ],
+          "before": "<|speak|>",
+          "after": "<|listen|>",
+          "assistant_peak_pcm16": 0
+        },
+        {
+          "span_ms": [
+            21120,
+            21440
+          ],
+          "before": "<|speak|>",
+          "after": "<|listen|>",
+          "assistant_peak_pcm16": 2
+        }
+      ],
+      "before_failed_checks": [
+        "provided_speech_is_covered_by_turns"
+      ],
+      "after_failed_checks": []
+    },
+    {
+      "number": 7,
+      "sample_id": "2ba492e9-0dbd-4cbb-91c8-73656683e5e3",
+      "same_audio_clock": true,
+      "changes": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 8,
+      "sample_id": "2b917f28-85b8-47ca-8cf4-3f675506ffb5",
+      "same_audio_clock": true,
+      "changes": [
+        {
+          "span_ms": [
+            75520,
+            75840
+          ],
+          "before": "<|speak|>",
+          "after": "<|wait|>",
+          "assistant_peak_pcm16": 2
+        }
+      ],
+      "before_failed_checks": [],
+      "after_failed_checks": [
+        "unclaimed_assistant_audio_resolved"
+      ]
+    },
+    {
+      "number": 9,
+      "sample_id": "5a7bf3b2-f5c1-49a3-8a17-8e253ec488e5",
+      "same_audio_clock": true,
+      "changes": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 10,
+      "sample_id": "71ecf4e8-9be5-428b-8517-9fe0499184fb",
+      "same_audio_clock": true,
+      "changes": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    }
+  ],
+  "baseline": "/mnt/tidal-alsh-share3/dataset/wenwen/real_data/outputs/rank-000-handoff-order-10-20261126"
+}
