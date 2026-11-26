@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>双轨音频 · 抽样浏览</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; height: 100dvh; display: flex; flex-direction: column;
+      font: 14px/1.5 system-ui,sans-serif; background: #f5f7fa; color: #243341; }
+    header { padding: 16px 24px 12px; background: white; border-bottom: 1px solid #dbe4eb; }
+    .toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+    h1 { margin: 0 auto 0 0; font-size: 19px; }
+    label { display: flex; align-items: center; gap: 8px; }
+    select, a { font: inherit; }
+    select { border: 1px solid #dbe4eb; border-radius: 7px; padding: 7px; background: white; max-width: 100%; }
+    a { color: #16836b; text-underline-offset: 3px; }
+    #sample-meta { margin: 8px 0 0; color: #66798d; overflow-wrap: anywhere; }
+    #sample-tokens { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+    #sample-tokens span { background: #f0f5f7; padding: 2px 8px; border-radius: 5px; }
+    iframe { display: block; flex: 1; min-height: 0; width: 100%; border: 0; background: #f5f7fa; }
+    @media (max-width: 600px) {
+      header { padding: 10px 12px; }
+      h1 { width: 100%; font-size: 17px; }
+      .toolbar { gap: 8px 12px; }
+      label { flex: 1; min-width: 0; }
+      select { min-width: 0; flex: 1; }
+      #sample-meta { font-size: 12px; }
+      #sample-tokens { font-size: 12px; gap: 5px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="toolbar">
+      <h1 id="collection-title"></h1>
+      <label>样本 <select id="sample-selector" aria-label="选择录音"></select></label>
+      <a id="batch-issues" hidden>打标与问题记录</a>
+      <a id="open-sample" target="_blank" rel="noopener">独立打开</a>
+    </div>
+    <p id="rule-note" hidden></p>
+    <p id="sample-meta"></p>
+    <div id="sample-tokens" aria-label="当前样本的同块标签数量"></div>
+  </header>
+  <iframe id="sample-viewer" title="当前样本的双轨音频与 control token"></iframe>
+  <script id="collection-data" type="application/json">{"title": "短反馈无声间隙修正 · 同 10 条回归", "samples": [{"sample_id": "2b22a621-cc86-4b5a-8085-28be2209dbf9", "viewer_url": "2b22a621-cc86-4b5a-8085-28be2209dbf9/viewer/index.html", "duration_ms": 79871.0, "roles": {"assistant_output_slot": 0, "user_output_slot": 1}, "status": "complete", "frame_count": 250, "energy_policy": true, "audio_only_turn_count": 0, "token_counts": {"\u003c|listen|>": 55, "\u003c|wait|>": 2, "\u003c|speak|>": 187, "\u003c|idle|>": 6}}, {"sample_id": "3737a899-8c41-4f00-8832-54d1b4894ac1", "viewer_url": "3737a899-8c41-4f00-8832-54d1b4894ac1/viewer/index.html", "duration_ms": 54490.0, "roles": {"assistant_output_slot": 0, "user_output_slot": 1}, "status": "complete", "frame_count": 171, "energy_policy": true, "audio_only_turn_count": 0, "token_counts": {"\u003c|speak|>": 101, "\u003c|listen|>": 62, "\u003c|bc|>": 8}}, {"sample_id": "e024538b-3bf0-4505-993d-ef3e40c97abb", "viewer_url": "e024538b-3bf0-4505-993d-ef3e40c97abb/viewer/index.html", "duration_ms": 32481.0, "roles": {"assistant_output_slot": 1, "user_output_slot": 0}, "status": "complete", "frame_count": 102, "energy_policy": true, "audio_only_turn_count": 0, "token_counts": {"\u003c|speak|>": 54, "\u003c|listen|>": 48}}, {"sample_id": "3bb49f09-2916-481d-9c9d-ba74a13f5bb5", "viewer_url": "3bb49f09-2916-481d-9c9d-ba74a13f5bb5/viewer/index.html", "duration_ms": 29700.0, "roles": {"assistant_output_slot": 1, "user_output_slot": 0}, "status": "complete", "frame_count": 93, "energy_policy": true, "audio_only_turn_count": 0, "token_counts": {"\u003c|listen|>": 35, "\u003c|bc|>": 2, "\u003c|speak|>": 56}}, {"sample_id": "00fb9ea9-91bf-4672-8b54-0a03b7986702", "viewer_url": "00fb9ea9-91bf-4672-8b54-0a03b7986702/viewer/index.html", "duration_ms": 28230.0, "roles": {"assistant_output_slot": 1, "user_output_slot": 0}, "status": "complete", "frame_count": 89, "energy_policy": true, "audio_only_turn_count": 0, "token_counts": {"\u003c|listen|>": 44, "\u003c|speak|>": 45}}, {"sample_id": "043baf20-291c-4fa0-af51-82b1e075be7f", "viewer_url": "043baf20-291c-4fa0-af51-82b1e075be7f/viewer/index.html", "duration_ms": 50800.0, "roles": {"assistant_output_slot": 1, "user_output_slot": 0}, "status": "needs_review", "frame_count": 159, "energy_policy": true, "audio_only_turn_count": 0, "token_counts": {"\u003c|speak|>": 89, "\u003c|listen|>": 48, "\u003c|bc|>": 22}}, {"sample_id": "2ba492e9-0dbd-4cbb-91c8-73656683e5e3", "viewer_url": "2ba492e9-0dbd-4cbb-91c8-73656683e5e3/viewer/index.html", "duration_ms": 43310.0, "roles": {"assistant_output_slot": 1, "user_output_slot": 0}, "status": "complete", "frame_count": 136, "energy_policy": true, "audio_only_turn_count": 0, "token_counts": {"\u003c|speak|>": 68, "\u003c|listen|>": 66, "\u003c|bc|>": 2}}, {"sample_id": "2b917f28-85b8-47ca-8cf4-3f675506ffb5", "viewer_url": "2b917f28-85b8-47ca-8cf4-3f675506ffb5/viewer/index.html", "duration_ms": 126440.0, "roles": {"assistant_output_slot": 1, "user_output_slot": 0}, "status": "complete", "frame_count": 396, "energy_policy": true, "audio_only_turn_count": 0, "token_counts": {"\u003c|listen|>": 162, "\u003c|speak|>": 233, "\u003c|idle|>": 1}}, {"sample_id": "5a7bf3b2-f5c1-49a3-8a17-8e253ec488e5", "viewer_url": "5a7bf3b2-f5c1-49a3-8a17-8e253ec488e5/viewer/index.html", "duration_ms": 142610.0, "roles": {"assistant_output_slot": 1, "user_output_slot": 0}, "status": "complete", "frame_count": 446, "energy_policy": true, "audio_only_turn_count": 0, "token_counts": {"\u003c|listen|>": 191, "\u003c|speak|>": 255}}, {"sample_id": "71ecf4e8-9be5-428b-8517-9fe0499184fb", "viewer_url": "71ecf4e8-9be5-428b-8517-9fe0499184fb/viewer/index.html", "duration_ms": 74040.0, "roles": {"assistant_output_slot": 0, "user_output_slot": 1}, "status": "complete", "frame_count": 232, "energy_policy": true, "audio_only_turn_count": 1, "token_counts": {"\u003c|listen|>": 110, "\u003c|speak|>": 122}}], "issues_url": "issues.html", "energy_policy": true}</script>
+  <script>
+    const collection = JSON.parse(document.getElementById("collection-data").textContent);
+    const selector = document.getElementById("sample-selector");
+    const frame = document.getElementById("sample-viewer");
+    const tokens = document.getElementById("sample-tokens");
+    document.getElementById("collection-title").textContent = `${collection.title} · ${collection.samples.length} 条录音`;
+    if(collection.issues_url){const link=document.getElementById("batch-issues");link.href=collection.issues_url;link.hidden=false;}
+    if(collection.energy_policy){const note=document.getElementById("rule-note");note.textContent="Assistant 发言优先标 speak / bc；bc 仅覆盖实际发声的块，短反馈之间的无声块不连续填充 bc。Assistant 无输出时，User 波形非零标 listen（含换气声），全零再判断 wait / idle。无转写依据的轻微波动不单独算助手发言。";note.hidden=false;}
+    collection.samples.forEach((sample, index) => {
+      const option = document.createElement("option");
+      option.value = String(index);
+      option.textContent = `${index + 1}. ${sample.sample_id.slice(0, 8)} · ${sample.status || "complete"} · ${(sample.duration_ms / 1000).toFixed(2)} 秒`;
+      selector.append(option);
+    });
+    function showSample(index) {
+      const sample = collection.samples[index];
+      selector.value = String(index);
+      frame.src = sample.viewer_url;
+      document.getElementById("open-sample").href = sample.viewer_url;
+      document.getElementById("sample-meta").textContent = `${sample.sample_id} · ${sample.status || "complete"} · Assistant = ${sample.roles.assistant_output_slot ?? "未指定"} · ${sample.frame_count} 个 320 ms 块` +
+        (sample.audio_only_turn_count ? ` · ${sample.audio_only_turn_count} 段语音无对应转写` : "");
+      tokens.replaceChildren();
+      ["speak", "listen", "wait", "idle", "bc"].forEach(name => {
+        const token = `<|${name}|>`;
+        const badge = document.createElement("span");
+        badge.textContent = `${token} ${sample.token_counts[token] || 0}`;
+        tokens.append(badge);
+      });
+      if(sample.token_counts.null){const badge=document.createElement("span");badge.textContent=`待复核 ${sample.token_counts.null}`;tokens.append(badge);}
+      history.replaceState(null, "", `#sample=${index + 1}`);
+    }
+    selector.addEventListener("change", () => showSample(Number(selector.value)));
+    const initial = Number(location.hash.match(/^#sample=(\d+)$/)?.[1] || 1) - 1;
+    showSample(initial >= 0 && initial < collection.samples.length ? initial : 0);
+  </script>
+</body>
+</html>
