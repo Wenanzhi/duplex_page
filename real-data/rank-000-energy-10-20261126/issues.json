@@ -1,0 +1,357 @@
+{
+  "sample_count": 10,
+  "seed": 2026112601,
+  "population_count": 14985,
+  "code_integrity": {
+    "checked_at": "2026-11-26T05:08:42.114195+00:00",
+    "code_sha256": "96af409680ec275e969bee3441af4defb1cb0d126a3811aa882cb9c080b72eff",
+    "unchanged": true,
+    "changed_files": [],
+    "input_files_unchanged": true,
+    "changed_input_files": [],
+    "worker_exit_codes": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "status_counts": {
+    "complete": 9,
+    "needs_review": 1
+  },
+  "unresolved_physical_blocks": 2,
+  "user_energy_policy": "PCM16 任一非零采样即有能量；Assistant 无输出时标 listen，包含换气声。",
+  "training_token_policy": "当前输入预测下一物理块的唯一标签；EOF 没有监督目标。",
+  "samples": [
+    {
+      "number": 1,
+      "sample_id": "2b22a621-cc86-4b5a-8085-28be2209dbf9",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          50240,
+          50560
+        ]
+      ],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "2b22a621-cc86-4b5a-8085-28be2209dbf9/viewer/index.html"
+    },
+    {
+      "number": 2,
+      "sample_id": "3737a899-8c41-4f00-8832-54d1b4894ac1",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          12480,
+          12800
+        ],
+        [
+          19520,
+          19840
+        ],
+        [
+          20480,
+          20800
+        ],
+        [
+          25600,
+          25920
+        ],
+        [
+          39360,
+          39680
+        ],
+        [
+          42880,
+          43200
+        ],
+        [
+          43200,
+          43520
+        ],
+        [
+          48000,
+          48320
+        ],
+        [
+          53760,
+          54080
+        ]
+      ],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "3737a899-8c41-4f00-8832-54d1b4894ac1/viewer/index.html"
+    },
+    {
+      "number": 3,
+      "sample_id": "e024538b-3bf0-4505-993d-ef3e40c97abb",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          10880,
+          11200
+        ],
+        [
+          19840,
+          20160
+        ]
+      ],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "e024538b-3bf0-4505-993d-ef3e40c97abb/viewer/index.html"
+    },
+    {
+      "number": 4,
+      "sample_id": "3bb49f09-2916-481d-9c9d-ba74a13f5bb5",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          6400,
+          6720
+        ],
+        [
+          6720,
+          7040
+        ],
+        [
+          11200,
+          11520
+        ],
+        [
+          19840,
+          20160
+        ]
+      ],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "3bb49f09-2916-481d-9c9d-ba74a13f5bb5/viewer/index.html"
+    },
+    {
+      "number": 5,
+      "sample_id": "00fb9ea9-91bf-4672-8b54-0a03b7986702",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          5440,
+          5760
+        ],
+        [
+          5760,
+          6080
+        ],
+        [
+          18240,
+          18560
+        ],
+        [
+          18560,
+          18880
+        ],
+        [
+          23360,
+          23680
+        ],
+        [
+          26560,
+          26880
+        ],
+        [
+          26880,
+          27200
+        ]
+      ],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "00fb9ea9-91bf-4672-8b54-0a03b7986702/viewer/index.html"
+    },
+    {
+      "number": 6,
+      "sample_id": "043baf20-291c-4fa0-af51-82b1e075be7f",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          2560,
+          2880
+        ],
+        [
+          2880,
+          3200
+        ],
+        [
+          5120,
+          5440
+        ],
+        [
+          7680,
+          8000
+        ],
+        [
+          16320,
+          16640
+        ],
+        [
+          33920,
+          34240
+        ],
+        [
+          34240,
+          34560
+        ],
+        [
+          48640,
+          48960
+        ]
+      ],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "043baf20-291c-4fa0-af51-82b1e075be7f/viewer/index.html"
+    },
+    {
+      "number": 7,
+      "sample_id": "2ba492e9-0dbd-4cbb-91c8-73656683e5e3",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          21760,
+          22080
+        ],
+        [
+          28480,
+          28800
+        ]
+      ],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "2ba492e9-0dbd-4cbb-91c8-73656683e5e3/viewer/index.html"
+    },
+    {
+      "number": 8,
+      "sample_id": "2b917f28-85b8-47ca-8cf4-3f675506ffb5",
+      "status": "needs_review",
+      "failed_checks": [
+        "all_control_decisions_resolved"
+      ],
+      "unresolved_blocks": [
+        {
+          "view": "same_time",
+          "chunk_index": 281,
+          "span_ms": [
+            89920,
+            90240
+          ],
+          "floor_owner": "user",
+          "floor_reason": "same_speaker_continuation",
+          "user_turn_state": null
+        },
+        {
+          "view": "same_time",
+          "chunk_index": 282,
+          "span_ms": [
+            90240,
+            90560
+          ],
+          "floor_owner": "user",
+          "floor_reason": "same_speaker_continuation",
+          "user_turn_state": null
+        }
+      ],
+      "assistant_energy_outside_annotation": [
+        [
+          73600,
+          73920
+        ],
+        [
+          76480,
+          76800
+        ],
+        [
+          89920,
+          90240
+        ],
+        [
+          90240,
+          90560
+        ],
+        [
+          112640,
+          112960
+        ],
+        [
+          119360,
+          119680
+        ],
+        [
+          119680,
+          120000
+        ]
+      ],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "2b917f28-85b8-47ca-8cf4-3f675506ffb5/viewer/index.html"
+    },
+    {
+      "number": 9,
+      "sample_id": "5a7bf3b2-f5c1-49a3-8a17-8e253ec488e5",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          49600,
+          49920
+        ],
+        [
+          59840,
+          60160
+        ],
+        [
+          78400,
+          78720
+        ],
+        [
+          103040,
+          103360
+        ]
+      ],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "5a7bf3b2-f5c1-49a3-8a17-8e253ec488e5/viewer/index.html"
+    },
+    {
+      "number": 10,
+      "sample_id": "71ecf4e8-9be5-428b-8517-9fe0499184fb",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          17280,
+          17600
+        ],
+        [
+          17600,
+          17920
+        ]
+      ],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "71ecf4e8-9be5-428b-8517-9fe0499184fb/viewer/index.html"
+    }
+  ]
+}
