@@ -1,0 +1,6868 @@
+{
+  "sample_count": 60,
+  "seed": 2026112702,
+  "population_count": 14865,
+  "code_integrity": {
+    "checked_at": "2026-11-27T09:13:16.177196+00:00",
+    "code_sha256": "4ed3b8081ecdbb773a51e84294950099ded31f5dba2ac0dc5d3cb6cf03c8ca7c",
+    "unchanged": true,
+    "changed_files": [],
+    "input_files_unchanged": true,
+    "changed_input_files": [],
+    "worker_exit_codes": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "wall_seconds": 559.224
+  },
+  "status_counts": {
+    "complete": 47,
+    "quarantined_audio": 5,
+    "skipped_missing_transcript": 6,
+    "validation_failed": 1,
+    "needs_review": 1
+  },
+  "unresolved_physical_blocks": 4,
+  "user_energy_policy": "PCM16 任一非零采样即有能量；Assistant 无输出时标 listen，包含换气声。",
+  "training_token_policy": "当前输入预测下一物理块的唯一标签；末条沿用合成格式：最后主说话人为 User 则 listen，为 Assistant 则 idle，无音频目标。",
+  "samples": [
+    {
+      "number": 1,
+      "sample_id": "4b1995b8-a23b-4d60-90b4-84aca4016bfa",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [],
+      "feedback_events": [],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "4b1995b8-a23b-4d60-90b4-84aca4016bfa/viewer/index.html"
+    },
+    {
+      "number": 2,
+      "sample_id": "b4dee407-0f99-4508-8bdc-c9b8ee297520",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          0,
+          320
+        ],
+        [
+          13120,
+          13440
+        ],
+        [
+          13760,
+          14080
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "user",
+          "text": "嗯对，",
+          "span_ms": [
+            13280.0,
+            13840.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "对对。",
+          "span_ms": [
+            14080.0,
+            15125.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [
+        {
+          "span_ms": [
+            0,
+            320
+          ],
+          "task_id": "audio_presence/0-320",
+          "label": "non_speech",
+          "resolved_by_human": false
+        }
+      ],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "b4dee407-0f99-4508-8bdc-c9b8ee297520/viewer/index.html"
+    },
+    {
+      "number": 3,
+      "sample_id": "46b2da1e-c823-4135-bf45-0940abdd5960",
+      "status": "quarantined_audio",
+      "failed_checks": [
+        "unclaimed_assistant_audio_resolved"
+      ],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          1920,
+          2240
+        ],
+        [
+          2240,
+          2560
+        ],
+        [
+          36480,
+          36800
+        ],
+        [
+          44480,
+          44800
+        ],
+        [
+          46400,
+          46720
+        ],
+        [
+          46720,
+          47040
+        ],
+        [
+          47680,
+          48000
+        ],
+        [
+          51200,
+          51520
+        ],
+        [
+          51520,
+          51840
+        ],
+        [
+          55680,
+          56000
+        ],
+        [
+          56640,
+          56960
+        ],
+        [
+          59520,
+          59840
+        ],
+        [
+          59840,
+          60160
+        ],
+        [
+          60800,
+          61120
+        ],
+        [
+          64320,
+          64640
+        ],
+        [
+          65280,
+          65600
+        ],
+        [
+          67840,
+          68160
+        ],
+        [
+          87040,
+          87360
+        ],
+        [
+          88000,
+          88320
+        ],
+        [
+          96640,
+          96960
+        ],
+        [
+          120960,
+          121280
+        ],
+        [
+          121280,
+          121600
+        ],
+        [
+          122880,
+          123200
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "user",
+          "text": "嗯，",
+          "span_ms": [
+            2870.0,
+            3385.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "哦",
+          "span_ms": [
+            5610.0,
+            6045.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "哦",
+          "span_ms": [
+            9590.0,
+            10125.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "哦",
+          "span_ms": [
+            14730.0,
+            14970.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯",
+          "span_ms": [
+            28870.0,
+            29365.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "对对，",
+          "span_ms": [
+            35250.0,
+            36975.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "且它会变窄。",
+          "span_ms": [
+            35370.0,
+            36230.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯，",
+          "span_ms": [
+            42180.0,
+            42420.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "嗯，",
+          "span_ms": [
+            47040.0,
+            47545.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "是的",
+          "span_ms": [
+            51970.0,
+            52555.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "嗯",
+          "span_ms": [
+            56000.0,
+            56505.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "嗯，",
+          "span_ms": [
+            60160.0,
+            60685.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "嗯",
+          "span_ms": [
+            64640.0,
+            65135.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "是的，",
+          "span_ms": [
+            68170.0,
+            68670.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "嗯，",
+          "span_ms": [
+            87360.0,
+            87865.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯，",
+          "span_ms": [
+            101970.0,
+            102505.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "嗯",
+          "span_ms": [
+            106810.0,
+            107285.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "嗯，",
+          "span_ms": [
+            121630.0,
+            121870.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [
+        {
+          "span_ms": [
+            2240,
+            2560
+          ],
+          "task_id": "audio_presence/2240-2560",
+          "label": "uncertain",
+          "resolved_by_human": false
+        },
+        {
+          "span_ms": [
+            51520,
+            51840
+          ],
+          "task_id": "audio_presence/51520-51840",
+          "label": "non_speech",
+          "resolved_by_human": false
+        },
+        {
+          "span_ms": [
+            59520,
+            59840
+          ],
+          "task_id": "audio_presence/59520-59840",
+          "label": "non_speech",
+          "resolved_by_human": false
+        },
+        {
+          "span_ms": [
+            96640,
+            96960
+          ],
+          "task_id": "audio_presence/96640-96960",
+          "label": "uncertain",
+          "resolved_by_human": false
+        }
+      ],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "46b2da1e-c823-4135-bf45-0940abdd5960/viewer/index.html"
+    },
+    {
+      "number": 4,
+      "sample_id": "a9886896-363e-4d9e-97ea-da5f078dec9c",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          4160,
+          4480
+        ],
+        [
+          4480,
+          4800
+        ],
+        [
+          21440,
+          21760
+        ],
+        [
+          24320,
+          24640
+        ],
+        [
+          58240,
+          58560
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "assistant",
+          "text": "嗯，",
+          "span_ms": [
+            4800.0,
+            5235.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "对啊，",
+          "span_ms": [
+            21760.0,
+            22160.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "哎，",
+          "span_ms": [
+            25820.0,
+            26060.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "对，从社会中退出退出",
+          "span_ms": [
+            36400.0,
+            38255.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "好吧，",
+          "span_ms": [
+            49220.0,
+            49640.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [
+        {
+          "span_ms": [
+            24320,
+            24640
+          ],
+          "task_id": "audio_presence/24320-24640",
+          "label": "non_speech",
+          "resolved_by_human": false
+        }
+      ],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "a9886896-363e-4d9e-97ea-da5f078dec9c/viewer/index.html"
+    },
+    {
+      "number": 5,
+      "sample_id": "f9ad61ce-9215-4ae2-aff7-d460cee56a52",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          18240,
+          18560
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "user",
+          "text": "哦哦",
+          "span_ms": [
+            27030.0,
+            27665.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "f9ad61ce-9215-4ae2-aff7-d460cee56a52/viewer/index.html"
+    },
+    {
+      "number": 6,
+      "sample_id": "142b7a42-627f-43da-92e0-eec3e5bfcbe3",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          26240,
+          26560
+        ]
+      ],
+      "feedback_events": [],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "142b7a42-627f-43da-92e0-eec3e5bfcbe3/viewer/index.html"
+    },
+    {
+      "number": 7,
+      "sample_id": "88b4c987-750b-4144-a20b-4db066fbaa2f",
+      "status": "skipped_missing_transcript",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [],
+      "feedback_events": [
+        {
+          "role": "user",
+          "text": null,
+          "span_ms": [
+            4950.0,
+            7830.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "哦哦",
+          "span_ms": [
+            10330.0,
+            11350.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": null,
+          "span_ms": [
+            10500.0,
+            13620.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": null,
+          "span_ms": [
+            14080.0,
+            15100.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "好",
+          "span_ms": [
+            16650.0,
+            16890.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "好呀好呀好呀好呀好呀好呀，",
+          "span_ms": [
+            19269.0,
+            21869.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": null,
+          "span_ms": [
+            23451.0,
+            24971.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": null,
+          "span_ms": [
+            25610.0,
+            26911.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": null,
+          "span_ms": [
+            27211.0,
+            28730.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "哦，",
+          "span_ms": [
+            41150.0,
+            41390.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": null,
+          "span_ms": [
+            54080.0,
+            60960.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "哎",
+          "span_ms": [
+            60490.0,
+            61005.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯，",
+          "span_ms": [
+            75670.0,
+            76205.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "好了",
+          "span_ms": [
+            105770.0,
+            106170.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "哦，",
+          "span_ms": [
+            108480.0,
+            108955.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": null,
+          "span_ms": [
+            112430.0,
+            119890.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": null,
+          "span_ms": [
+            120189.0,
+            121830.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [
+        {
+          "chunk_index": 40,
+          "span_ms": [
+            12800,
+            13120
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_3"
+          ]
+        },
+        {
+          "chunk_index": 41,
+          "span_ms": [
+            13120,
+            13440
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_3"
+          ]
+        },
+        {
+          "chunk_index": 169,
+          "span_ms": [
+            54080,
+            54400
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_14"
+          ]
+        },
+        {
+          "chunk_index": 170,
+          "span_ms": [
+            54400,
+            54720
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_14"
+          ]
+        },
+        {
+          "chunk_index": 171,
+          "span_ms": [
+            54720,
+            55040
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_14"
+          ]
+        },
+        {
+          "chunk_index": 172,
+          "span_ms": [
+            55040,
+            55360
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_14"
+          ]
+        },
+        {
+          "chunk_index": 173,
+          "span_ms": [
+            55360,
+            55680
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_14"
+          ]
+        },
+        {
+          "chunk_index": 174,
+          "span_ms": [
+            55680,
+            56000
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_14"
+          ]
+        },
+        {
+          "chunk_index": 175,
+          "span_ms": [
+            56000,
+            56320
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_14"
+          ]
+        },
+        {
+          "chunk_index": 176,
+          "span_ms": [
+            56320,
+            56640
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_14"
+          ]
+        },
+        {
+          "chunk_index": 177,
+          "span_ms": [
+            56640,
+            56960
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_14"
+          ]
+        },
+        {
+          "chunk_index": 178,
+          "span_ms": [
+            56960,
+            57280
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_14"
+          ]
+        },
+        {
+          "chunk_index": 179,
+          "span_ms": [
+            57280,
+            57600
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_14"
+          ]
+        },
+        {
+          "chunk_index": 180,
+          "span_ms": [
+            57600,
+            57920
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_14"
+          ]
+        },
+        {
+          "chunk_index": 181,
+          "span_ms": [
+            57920,
+            58240
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_14"
+          ]
+        },
+        {
+          "chunk_index": 182,
+          "span_ms": [
+            58240,
+            58560
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_14"
+          ]
+        },
+        {
+          "chunk_index": 183,
+          "span_ms": [
+            58560,
+            58880
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_14"
+          ]
+        },
+        {
+          "chunk_index": 184,
+          "span_ms": [
+            58880,
+            59200
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_14"
+          ]
+        },
+        {
+          "chunk_index": 185,
+          "span_ms": [
+            59200,
+            59520
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_14"
+          ]
+        },
+        {
+          "chunk_index": 186,
+          "span_ms": [
+            59520,
+            59840
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_14"
+          ]
+        },
+        {
+          "chunk_index": 187,
+          "span_ms": [
+            59840,
+            60160
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_14"
+          ]
+        },
+        {
+          "chunk_index": 188,
+          "span_ms": [
+            60160,
+            60480
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_14"
+          ]
+        },
+        {
+          "chunk_index": 189,
+          "span_ms": [
+            60480,
+            60800
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_14"
+          ]
+        },
+        {
+          "chunk_index": 190,
+          "span_ms": [
+            60800,
+            61120
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_14"
+          ]
+        },
+        {
+          "chunk_index": 191,
+          "span_ms": [
+            61120,
+            61440
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_14"
+          ]
+        },
+        {
+          "chunk_index": 192,
+          "span_ms": [
+            61440,
+            61760
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_15"
+          ]
+        },
+        {
+          "chunk_index": 193,
+          "span_ms": [
+            61760,
+            62080
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_15"
+          ]
+        },
+        {
+          "chunk_index": 194,
+          "span_ms": [
+            62080,
+            62400
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_15"
+          ]
+        },
+        {
+          "chunk_index": 195,
+          "span_ms": [
+            62400,
+            62720
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_15"
+          ]
+        },
+        {
+          "chunk_index": 196,
+          "span_ms": [
+            62720,
+            63040
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_15"
+          ]
+        },
+        {
+          "chunk_index": 197,
+          "span_ms": [
+            63040,
+            63360
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_15"
+          ]
+        },
+        {
+          "chunk_index": 198,
+          "span_ms": [
+            63360,
+            63680
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_15"
+          ]
+        },
+        {
+          "chunk_index": 199,
+          "span_ms": [
+            63680,
+            64000
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_15"
+          ]
+        },
+        {
+          "chunk_index": 200,
+          "span_ms": [
+            64000,
+            64320
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_15"
+          ]
+        },
+        {
+          "chunk_index": 201,
+          "span_ms": [
+            64320,
+            64640
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_15"
+          ]
+        },
+        {
+          "chunk_index": 202,
+          "span_ms": [
+            64640,
+            64960
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_15"
+          ]
+        },
+        {
+          "chunk_index": 203,
+          "span_ms": [
+            64960,
+            65280
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_15"
+          ]
+        },
+        {
+          "chunk_index": 204,
+          "span_ms": [
+            65280,
+            65600
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_15"
+          ]
+        },
+        {
+          "chunk_index": 205,
+          "span_ms": [
+            65600,
+            65920
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_15"
+          ]
+        },
+        {
+          "chunk_index": 206,
+          "span_ms": [
+            65920,
+            66240
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_15"
+          ]
+        },
+        {
+          "chunk_index": 207,
+          "span_ms": [
+            66240,
+            66560
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_15"
+          ]
+        },
+        {
+          "chunk_index": 208,
+          "span_ms": [
+            66560,
+            66880
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_15"
+          ]
+        },
+        {
+          "chunk_index": 209,
+          "span_ms": [
+            66880,
+            67200
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_15"
+          ]
+        },
+        {
+          "chunk_index": 210,
+          "span_ms": [
+            67200,
+            67520
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_15"
+          ]
+        },
+        {
+          "chunk_index": 211,
+          "span_ms": [
+            67520,
+            67840
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_15"
+          ]
+        },
+        {
+          "chunk_index": 213,
+          "span_ms": [
+            68160,
+            68480
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_16"
+          ]
+        },
+        {
+          "chunk_index": 214,
+          "span_ms": [
+            68480,
+            68800
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_16"
+          ]
+        },
+        {
+          "chunk_index": 216,
+          "span_ms": [
+            69120,
+            69440
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_17"
+          ]
+        },
+        {
+          "chunk_index": 217,
+          "span_ms": [
+            69440,
+            69760
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_17"
+          ]
+        },
+        {
+          "chunk_index": 218,
+          "span_ms": [
+            69760,
+            70080
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_17"
+          ]
+        },
+        {
+          "chunk_index": 219,
+          "span_ms": [
+            70080,
+            70400
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_17"
+          ]
+        },
+        {
+          "chunk_index": 220,
+          "span_ms": [
+            70400,
+            70720
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_17"
+          ]
+        },
+        {
+          "chunk_index": 221,
+          "span_ms": [
+            70720,
+            71040
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_17"
+          ]
+        },
+        {
+          "chunk_index": 222,
+          "span_ms": [
+            71040,
+            71360
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_17"
+          ]
+        },
+        {
+          "chunk_index": 223,
+          "span_ms": [
+            71360,
+            71680
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_17"
+          ]
+        },
+        {
+          "chunk_index": 224,
+          "span_ms": [
+            71680,
+            72000
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_17"
+          ]
+        },
+        {
+          "chunk_index": 225,
+          "span_ms": [
+            72000,
+            72320
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_17"
+          ]
+        },
+        {
+          "chunk_index": 226,
+          "span_ms": [
+            72320,
+            72640
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_17"
+          ]
+        },
+        {
+          "chunk_index": 227,
+          "span_ms": [
+            72640,
+            72960
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_17"
+          ]
+        },
+        {
+          "chunk_index": 228,
+          "span_ms": [
+            72960,
+            73280
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_17"
+          ]
+        },
+        {
+          "chunk_index": 229,
+          "span_ms": [
+            73280,
+            73600
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_17"
+          ]
+        },
+        {
+          "chunk_index": 230,
+          "span_ms": [
+            73600,
+            73920
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_17"
+          ]
+        },
+        {
+          "chunk_index": 231,
+          "span_ms": [
+            73920,
+            74240
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_17"
+          ]
+        },
+        {
+          "chunk_index": 232,
+          "span_ms": [
+            74240,
+            74560
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_17"
+          ]
+        },
+        {
+          "chunk_index": 233,
+          "span_ms": [
+            74560,
+            74880
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_17"
+          ]
+        },
+        {
+          "chunk_index": 234,
+          "span_ms": [
+            74880,
+            75200
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_17"
+          ]
+        },
+        {
+          "chunk_index": 235,
+          "span_ms": [
+            75200,
+            75520
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_17"
+          ]
+        },
+        {
+          "chunk_index": 236,
+          "span_ms": [
+            75520,
+            75840
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_17"
+          ]
+        },
+        {
+          "chunk_index": 268,
+          "span_ms": [
+            85760,
+            86080
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_19"
+          ]
+        },
+        {
+          "chunk_index": 269,
+          "span_ms": [
+            86080,
+            86400
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_19"
+          ]
+        },
+        {
+          "chunk_index": 270,
+          "span_ms": [
+            86400,
+            86720
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_19"
+          ]
+        },
+        {
+          "chunk_index": 271,
+          "span_ms": [
+            86720,
+            87040
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_19"
+          ]
+        },
+        {
+          "chunk_index": 272,
+          "span_ms": [
+            87040,
+            87360
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_19"
+          ]
+        },
+        {
+          "chunk_index": 273,
+          "span_ms": [
+            87360,
+            87680
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_19"
+          ]
+        },
+        {
+          "chunk_index": 274,
+          "span_ms": [
+            87680,
+            88000
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_19"
+          ]
+        },
+        {
+          "chunk_index": 275,
+          "span_ms": [
+            88000,
+            88320
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_19"
+          ]
+        },
+        {
+          "chunk_index": 276,
+          "span_ms": [
+            88320,
+            88640
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_19"
+          ]
+        },
+        {
+          "chunk_index": 277,
+          "span_ms": [
+            88640,
+            88960
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_19"
+          ]
+        },
+        {
+          "chunk_index": 278,
+          "span_ms": [
+            88960,
+            89280
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_19"
+          ]
+        },
+        {
+          "chunk_index": 279,
+          "span_ms": [
+            89280,
+            89600
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_19"
+          ]
+        },
+        {
+          "chunk_index": 280,
+          "span_ms": [
+            89600,
+            89920
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_19"
+          ]
+        },
+        {
+          "chunk_index": 281,
+          "span_ms": [
+            89920,
+            90240
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_19"
+          ]
+        },
+        {
+          "chunk_index": 282,
+          "span_ms": [
+            90240,
+            90560
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_19"
+          ]
+        },
+        {
+          "chunk_index": 283,
+          "span_ms": [
+            90560,
+            90880
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_19"
+          ]
+        },
+        {
+          "chunk_index": 286,
+          "span_ms": [
+            91520,
+            91840
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_20"
+          ]
+        },
+        {
+          "chunk_index": 287,
+          "span_ms": [
+            91840,
+            92160
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_20"
+          ]
+        },
+        {
+          "chunk_index": 288,
+          "span_ms": [
+            92160,
+            92480
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_20"
+          ]
+        },
+        {
+          "chunk_index": 289,
+          "span_ms": [
+            92480,
+            92800
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_20"
+          ]
+        },
+        {
+          "chunk_index": 290,
+          "span_ms": [
+            92800,
+            93120
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_20"
+          ]
+        },
+        {
+          "chunk_index": 291,
+          "span_ms": [
+            93120,
+            93440
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_20"
+          ]
+        },
+        {
+          "chunk_index": 292,
+          "span_ms": [
+            93440,
+            93760
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_20"
+          ]
+        },
+        {
+          "chunk_index": 293,
+          "span_ms": [
+            93760,
+            94080
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_20"
+          ]
+        },
+        {
+          "chunk_index": 294,
+          "span_ms": [
+            94080,
+            94400
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_20"
+          ]
+        },
+        {
+          "chunk_index": 295,
+          "span_ms": [
+            94400,
+            94720
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_20"
+          ]
+        },
+        {
+          "chunk_index": 296,
+          "span_ms": [
+            94720,
+            95040
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_20"
+          ]
+        },
+        {
+          "chunk_index": 297,
+          "span_ms": [
+            95040,
+            95360
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_20"
+          ]
+        },
+        {
+          "chunk_index": 298,
+          "span_ms": [
+            95360,
+            95680
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_20"
+          ]
+        },
+        {
+          "chunk_index": 301,
+          "span_ms": [
+            96320,
+            96640
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_21"
+          ]
+        },
+        {
+          "chunk_index": 302,
+          "span_ms": [
+            96640,
+            96960
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_21"
+          ]
+        }
+      ],
+      "unclaimed_audio_reviews": [],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "88b4c987-750b-4144-a20b-4db066fbaa2f/viewer/index.html"
+    },
+    {
+      "number": 8,
+      "sample_id": "12c0c903-8118-4083-9b45-10d4e5ccbe5b",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          10560,
+          10880
+        ],
+        [
+          12480,
+          12800
+        ],
+        [
+          25920,
+          26240
+        ],
+        [
+          26240,
+          26560
+        ],
+        [
+          73280,
+          73600
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "user",
+          "text": "嗯，",
+          "span_ms": [
+            26210.0,
+            26775.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "哎呀，对，可能只要",
+          "span_ms": [
+            60009.0,
+            61584.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "啊。",
+          "span_ms": [
+            82001.0,
+            82241.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "12c0c903-8118-4083-9b45-10d4e5ccbe5b/viewer/index.html"
+    },
+    {
+      "number": 9,
+      "sample_id": "2e7b84c0-140f-4be6-86e6-ac782a50d302",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          12800,
+          13120
+        ],
+        [
+          13760,
+          14080
+        ],
+        [
+          18240,
+          18560
+        ],
+        [
+          18560,
+          18880
+        ],
+        [
+          19520,
+          19840
+        ],
+        [
+          22080,
+          22400
+        ],
+        [
+          22400,
+          22720
+        ],
+        [
+          23360,
+          23680
+        ],
+        [
+          24960,
+          25280
+        ],
+        [
+          29440,
+          29760
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "assistant",
+          "text": "是",
+          "span_ms": [
+            13120.0,
+            13645.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "是",
+          "span_ms": [
+            18880.0,
+            19405.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "是",
+          "span_ms": [
+            22720.0,
+            23225.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "是是是呃，",
+          "span_ms": [
+            25330.0,
+            31250.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯。",
+          "span_ms": [
+            41750.0,
+            41875.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "2e7b84c0-140f-4be6-86e6-ac782a50d302/viewer/index.html"
+    },
+    {
+      "number": 10,
+      "sample_id": "7949bf07-eba3-4b2a-b1a4-6e59e7cbd93e",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          22080,
+          22400
+        ],
+        [
+          22400,
+          22720
+        ],
+        [
+          67200,
+          67520
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "user",
+          "text": "是",
+          "span_ms": [
+            8310.0,
+            8845.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "嗯，",
+          "span_ms": [
+            22720.0,
+            23255.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "对，",
+          "span_ms": [
+            27200.0,
+            27855.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [
+        {
+          "span_ms": [
+            67200,
+            67520
+          ],
+          "task_id": "audio_presence/67200-67520",
+          "label": "non_speech",
+          "resolved_by_human": false
+        }
+      ],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "7949bf07-eba3-4b2a-b1a4-6e59e7cbd93e/viewer/index.html"
+    },
+    {
+      "number": 11,
+      "sample_id": "bece2fcf-5a8e-4f37-bbc9-38f53530610e",
+      "status": "quarantined_audio",
+      "failed_checks": [
+        "unclaimed_assistant_audio_resolved"
+      ],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          2240,
+          2560
+        ],
+        [
+          3520,
+          3840
+        ],
+        [
+          3840,
+          4160
+        ],
+        [
+          16960,
+          17280
+        ],
+        [
+          29440,
+          29760
+        ],
+        [
+          38080,
+          38400
+        ],
+        [
+          38400,
+          38720
+        ],
+        [
+          49600,
+          49920
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "assistant",
+          "text": "对，",
+          "span_ms": [
+            2590.0,
+            2830.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "是不是？",
+          "span_ms": [
+            3549.0,
+            4279.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "yes.",
+          "span_ms": [
+            4160.0,
+            4400.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯嗯，",
+          "span_ms": [
+            4359.0,
+            5294.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "对，",
+          "span_ms": [
+            29760.0,
+            30165.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "姨哎，对，有点像，",
+          "span_ms": [
+            40261.0,
+            41556.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [
+        {
+          "span_ms": [
+            3520,
+            4160
+          ],
+          "task_id": "audio_presence/3520-4160",
+          "label": "uncertain",
+          "resolved_by_human": false
+        }
+      ],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "bece2fcf-5a8e-4f37-bbc9-38f53530610e/viewer/index.html"
+    },
+    {
+      "number": 12,
+      "sample_id": "2bc7e336-d01e-4dc2-95bb-5987ff0ef592",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          4800,
+          5120
+        ],
+        [
+          10560,
+          10880
+        ],
+        [
+          14080,
+          14400
+        ],
+        [
+          14720,
+          15040
+        ],
+        [
+          17600,
+          17920
+        ],
+        [
+          18560,
+          18880
+        ],
+        [
+          18880,
+          19200
+        ],
+        [
+          27200,
+          27520
+        ],
+        [
+          33920,
+          34240
+        ],
+        [
+          56640,
+          56960
+        ],
+        [
+          56960,
+          57280
+        ],
+        [
+          59200,
+          59520
+        ],
+        [
+          72320,
+          72640
+        ],
+        [
+          75200,
+          75520
+        ],
+        [
+          79040,
+          79360
+        ],
+        [
+          90560,
+          90880
+        ],
+        [
+          97600,
+          97920
+        ],
+        [
+          100480,
+          100800
+        ],
+        [
+          100800,
+          101120
+        ],
+        [
+          101760,
+          102080
+        ],
+        [
+          120000,
+          120320
+        ],
+        [
+          120320,
+          120640
+        ],
+        [
+          132160,
+          132480
+        ],
+        [
+          132480,
+          132800
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "user",
+          "text": "对对对对对，越来越多了。",
+          "span_ms": [
+            3069.0,
+            4934.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯",
+          "span_ms": [
+            10051.0,
+            10885.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯，",
+          "span_ms": [
+            14230.0,
+            14470.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "是的嗯",
+          "span_ms": [
+            17741.0,
+            18866.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯，对",
+          "span_ms": [
+            26210.0,
+            27796.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "是的是的。",
+          "span_ms": [
+            33321.0,
+            34416.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "对吧？",
+          "span_ms": [
+            34240.0,
+            34680.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯，",
+          "span_ms": [
+            40021.0,
+            40806.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "啊对对对对对对",
+          "span_ms": [
+            46161.0,
+            48846.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "对。",
+          "span_ms": [
+            57330.0,
+            57490.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "对对对对，",
+          "span_ms": [
+            62390.0,
+            63170.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯，",
+          "span_ms": [
+            64750.0,
+            65415.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "ok",
+          "span_ms": [
+            101250.0,
+            101570.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "嗯，没有",
+          "span_ms": [
+            120650.0,
+            121545.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "也无所谓嗯。",
+          "span_ms": [
+            132810.0,
+            133585.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": null,
+          "span_ms": [
+            133460.0,
+            133680.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [
+        {
+          "span_ms": [
+            56640,
+            57280
+          ],
+          "task_id": "audio_presence/56640-57280",
+          "label": "non_speech",
+          "resolved_by_human": false
+        }
+      ],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "2bc7e336-d01e-4dc2-95bb-5987ff0ef592/viewer/index.html"
+    },
+    {
+      "number": 13,
+      "sample_id": "6c21bc5d-c10a-4ad5-8126-488ad0a82233",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          8000,
+          8320
+        ],
+        [
+          8320,
+          8640
+        ],
+        [
+          11200,
+          11520
+        ],
+        [
+          16640,
+          16960
+        ],
+        [
+          16960,
+          17280
+        ],
+        [
+          20480,
+          20800
+        ],
+        [
+          20800,
+          21120
+        ],
+        [
+          24640,
+          24960
+        ],
+        [
+          24960,
+          25280
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "user",
+          "text": "嗯，没对",
+          "span_ms": [
+            2890.0,
+            3520.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "嗯",
+          "span_ms": [
+            11520.0,
+            12075.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "嗯，",
+          "span_ms": [
+            17280.0,
+            17815.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "6c21bc5d-c10a-4ad5-8126-488ad0a82233/viewer/index.html"
+    },
+    {
+      "number": 14,
+      "sample_id": "157332b2-63bb-4ae2-b71e-aefe10c13793",
+      "status": "quarantined_audio",
+      "failed_checks": [
+        "unclaimed_assistant_audio_resolved"
+      ],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          1600,
+          1920
+        ],
+        [
+          10240,
+          10560
+        ],
+        [
+          47040,
+          47360
+        ],
+        [
+          47360,
+          47680
+        ],
+        [
+          50240,
+          50560
+        ],
+        [
+          63360,
+          63680
+        ],
+        [
+          89920,
+          90240
+        ],
+        [
+          90240,
+          90560
+        ],
+        [
+          95680,
+          96000
+        ],
+        [
+          96640,
+          96960
+        ],
+        [
+          99840,
+          100160
+        ],
+        [
+          100800,
+          101120
+        ],
+        [
+          102400,
+          102720
+        ],
+        [
+          102720,
+          103040
+        ],
+        [
+          108160,
+          108480
+        ],
+        [
+          114240,
+          114560
+        ],
+        [
+          114560,
+          114880
+        ],
+        [
+          122240,
+          122560
+        ],
+        [
+          122560,
+          122880
+        ],
+        [
+          132160,
+          132480
+        ],
+        [
+          146240,
+          146560
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "assistant",
+          "text": "啊嗯",
+          "span_ms": [
+            1920.0,
+            4455.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "啊。",
+          "span_ms": [
+            17150.0,
+            17390.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "对的，这是最好",
+          "span_ms": [
+            17390.0,
+            18315.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "对喝喝酒什么的。",
+          "span_ms": [
+            30990.0,
+            32415.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯嗯，对，",
+          "span_ms": [
+            36400.0,
+            37125.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "对啊，",
+          "span_ms": [
+            50070.0,
+            50855.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "嗯，对对对，太讲究了。",
+          "span_ms": [
+            63680.0,
+            65420.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "对，",
+          "span_ms": [
+            65420.0,
+            65835.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "嗯",
+          "span_ms": [
+            96000.0,
+            96495.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "嗯，",
+          "span_ms": [
+            100160.0,
+            100725.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "对啊，",
+          "span_ms": [
+            104731.0,
+            105171.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "现在就喜欢。",
+          "span_ms": [
+            105171.0,
+            106031.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯，",
+          "span_ms": [
+            136190.0,
+            136655.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [
+        {
+          "span_ms": [
+            10240,
+            10560
+          ],
+          "task_id": "audio_presence/10240-10560",
+          "label": "non_speech",
+          "resolved_by_human": false
+        },
+        {
+          "span_ms": [
+            50240,
+            50560
+          ],
+          "task_id": "audio_presence/50240-50560",
+          "label": "non_speech",
+          "resolved_by_human": false
+        },
+        {
+          "span_ms": [
+            90240,
+            90560
+          ],
+          "task_id": "audio_presence/90240-90560",
+          "label": "non_speech",
+          "resolved_by_human": false
+        },
+        {
+          "span_ms": [
+            102400,
+            103040
+          ],
+          "task_id": "audio_presence/102400-103040",
+          "label": "uncertain",
+          "resolved_by_human": false
+        },
+        {
+          "span_ms": [
+            114240,
+            114560
+          ],
+          "task_id": "audio_presence/114240-114560",
+          "label": "uncertain",
+          "resolved_by_human": false
+        }
+      ],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "157332b2-63bb-4ae2-b71e-aefe10c13793/viewer/index.html"
+    },
+    {
+      "number": 15,
+      "sample_id": "d261cb9f-2072-4b83-80ce-fe77507f3875",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          25600,
+          25920
+        ],
+        [
+          70400,
+          70720
+        ],
+        [
+          94720,
+          95040
+        ]
+      ],
+      "feedback_events": [],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "d261cb9f-2072-4b83-80ce-fe77507f3875/viewer/index.html"
+    },
+    {
+      "number": 16,
+      "sample_id": "5b6e3d4f-a3e8-4550-b3ed-5fbda883b8e3",
+      "status": "skipped_missing_transcript",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [],
+      "feedback_events": [],
+      "audio_text_link_issues": [
+        {
+          "chunk_index": 33,
+          "span_ms": [
+            10880,
+            11200
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_0"
+          ]
+        },
+        {
+          "chunk_index": 34,
+          "span_ms": [
+            11200,
+            11520
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s1_segment_0"
+          ]
+        }
+      ],
+      "unclaimed_audio_reviews": [],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "5b6e3d4f-a3e8-4550-b3ed-5fbda883b8e3/viewer/index.html"
+    },
+    {
+      "number": 17,
+      "sample_id": "02433fcd-0ad3-41bd-b984-a9709ca553e1",
+      "status": "quarantined_audio",
+      "failed_checks": [
+        "unclaimed_assistant_audio_resolved"
+      ],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          2240,
+          2560
+        ],
+        [
+          2560,
+          2880
+        ],
+        [
+          15040,
+          15360
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "user",
+          "text": "嗯，",
+          "span_ms": [
+            2210.0,
+            2956.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "对",
+          "span_ms": [
+            14911.0,
+            15615.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "对",
+          "span_ms": [
+            22700.0,
+            22940.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [
+        {
+          "span_ms": [
+            2240,
+            2560
+          ],
+          "task_id": "audio_presence/2240-2560",
+          "label": "uncertain",
+          "resolved_by_human": false
+        },
+        {
+          "span_ms": [
+            15040,
+            15360
+          ],
+          "task_id": "audio_presence/15040-15360",
+          "label": "uncertain",
+          "resolved_by_human": false
+        }
+      ],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "02433fcd-0ad3-41bd-b984-a9709ca553e1/viewer/index.html"
+    },
+    {
+      "number": 18,
+      "sample_id": "9dbaede7-63e2-4771-8c1d-a1c5f040dc7d",
+      "status": "skipped_missing_transcript",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [],
+      "feedback_events": [
+        {
+          "role": "assistant",
+          "text": "嗯嗯，",
+          "span_ms": [
+            16330.0,
+            16670.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "哎",
+          "span_ms": [
+            22930.0,
+            23170.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "对。",
+          "span_ms": [
+            25430.0,
+            25670.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [
+        {
+          "chunk_index": 0,
+          "span_ms": [
+            0,
+            320
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_0"
+          ]
+        },
+        {
+          "chunk_index": 1,
+          "span_ms": [
+            320,
+            640
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 2,
+          "span_ms": [
+            640,
+            960
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 3,
+          "span_ms": [
+            960,
+            1280
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 4,
+          "span_ms": [
+            1280,
+            1600
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 5,
+          "span_ms": [
+            1600,
+            1920
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 6,
+          "span_ms": [
+            1920,
+            2240
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 7,
+          "span_ms": [
+            2240,
+            2560
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 8,
+          "span_ms": [
+            2560,
+            2880
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 9,
+          "span_ms": [
+            2880,
+            3200
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 10,
+          "span_ms": [
+            3200,
+            3520
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 11,
+          "span_ms": [
+            3520,
+            3840
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 12,
+          "span_ms": [
+            3840,
+            4160
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 13,
+          "span_ms": [
+            4160,
+            4480
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 14,
+          "span_ms": [
+            4480,
+            4800
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 15,
+          "span_ms": [
+            4800,
+            5120
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 16,
+          "span_ms": [
+            5120,
+            5440
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 17,
+          "span_ms": [
+            5440,
+            5760
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 18,
+          "span_ms": [
+            5760,
+            6080
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 19,
+          "span_ms": [
+            6080,
+            6400
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 20,
+          "span_ms": [
+            6400,
+            6720
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 21,
+          "span_ms": [
+            6720,
+            7040
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 22,
+          "span_ms": [
+            7040,
+            7360
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 23,
+          "span_ms": [
+            7360,
+            7680
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 24,
+          "span_ms": [
+            7680,
+            8000
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 25,
+          "span_ms": [
+            8000,
+            8320
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 26,
+          "span_ms": [
+            8320,
+            8640
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 27,
+          "span_ms": [
+            8640,
+            8960
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 28,
+          "span_ms": [
+            8960,
+            9280
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 29,
+          "span_ms": [
+            9280,
+            9600
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 30,
+          "span_ms": [
+            9600,
+            9920
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 31,
+          "span_ms": [
+            9920,
+            10240
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 32,
+          "span_ms": [
+            10240,
+            10560
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 33,
+          "span_ms": [
+            10560,
+            10880
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 34,
+          "span_ms": [
+            10880,
+            11200
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 35,
+          "span_ms": [
+            11200,
+            11520
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 36,
+          "span_ms": [
+            11520,
+            11840
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 37,
+          "span_ms": [
+            11840,
+            12160
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 38,
+          "span_ms": [
+            12160,
+            12480
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 39,
+          "span_ms": [
+            12480,
+            12800
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 40,
+          "span_ms": [
+            12800,
+            13120
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 41,
+          "span_ms": [
+            13120,
+            13440
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 42,
+          "span_ms": [
+            13440,
+            13760
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_1"
+          ]
+        },
+        {
+          "chunk_index": 102,
+          "span_ms": [
+            32640,
+            32960
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_5"
+          ]
+        },
+        {
+          "chunk_index": 103,
+          "span_ms": [
+            32960,
+            33280
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_5"
+          ]
+        },
+        {
+          "chunk_index": 104,
+          "span_ms": [
+            33280,
+            33600
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_5"
+          ]
+        },
+        {
+          "chunk_index": 105,
+          "span_ms": [
+            33600,
+            33920
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_5"
+          ]
+        },
+        {
+          "chunk_index": 106,
+          "span_ms": [
+            33920,
+            34240
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_5"
+          ]
+        },
+        {
+          "chunk_index": 107,
+          "span_ms": [
+            34240,
+            34560
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_5"
+          ]
+        },
+        {
+          "chunk_index": 108,
+          "span_ms": [
+            34560,
+            34880
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_5"
+          ]
+        },
+        {
+          "chunk_index": 109,
+          "span_ms": [
+            34880,
+            35200
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_5"
+          ]
+        },
+        {
+          "chunk_index": 110,
+          "span_ms": [
+            35200,
+            35520
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_5"
+          ]
+        },
+        {
+          "chunk_index": 111,
+          "span_ms": [
+            35520,
+            35840
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_5"
+          ]
+        },
+        {
+          "chunk_index": 112,
+          "span_ms": [
+            35840,
+            36160
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_5"
+          ]
+        },
+        {
+          "chunk_index": 113,
+          "span_ms": [
+            36160,
+            36480
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_5"
+          ]
+        },
+        {
+          "chunk_index": 114,
+          "span_ms": [
+            36480,
+            36800
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_5"
+          ]
+        },
+        {
+          "chunk_index": 115,
+          "span_ms": [
+            36800,
+            37120
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_5"
+          ]
+        },
+        {
+          "chunk_index": 116,
+          "span_ms": [
+            37120,
+            37440
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_5"
+          ]
+        },
+        {
+          "chunk_index": 117,
+          "span_ms": [
+            37440,
+            37760
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_5"
+          ]
+        },
+        {
+          "chunk_index": 118,
+          "span_ms": [
+            37760,
+            38080
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_5"
+          ]
+        },
+        {
+          "chunk_index": 119,
+          "span_ms": [
+            38080,
+            38400
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_5"
+          ]
+        },
+        {
+          "chunk_index": 120,
+          "span_ms": [
+            38400,
+            38720
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_5"
+          ]
+        },
+        {
+          "chunk_index": 121,
+          "span_ms": [
+            38720,
+            39040
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_5"
+          ]
+        },
+        {
+          "chunk_index": 122,
+          "span_ms": [
+            39040,
+            39360
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_5"
+          ]
+        },
+        {
+          "chunk_index": 123,
+          "span_ms": [
+            39360,
+            39680
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_5"
+          ]
+        },
+        {
+          "chunk_index": 124,
+          "span_ms": [
+            39680,
+            40000
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_5"
+          ]
+        },
+        {
+          "chunk_index": 125,
+          "span_ms": [
+            40000,
+            40320
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_5"
+          ]
+        },
+        {
+          "chunk_index": 126,
+          "span_ms": [
+            40320,
+            40640
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_5"
+          ]
+        },
+        {
+          "chunk_index": 127,
+          "span_ms": [
+            40640,
+            40960
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_5"
+          ]
+        },
+        {
+          "chunk_index": 128,
+          "span_ms": [
+            40960,
+            41280
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_5"
+          ]
+        },
+        {
+          "chunk_index": 129,
+          "span_ms": [
+            41280,
+            41600
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_5"
+          ]
+        },
+        {
+          "chunk_index": 130,
+          "span_ms": [
+            41600,
+            41920
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_5"
+          ]
+        },
+        {
+          "chunk_index": 131,
+          "span_ms": [
+            41920,
+            42240
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_5"
+          ]
+        },
+        {
+          "chunk_index": 132,
+          "span_ms": [
+            42240,
+            42560
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_5"
+          ]
+        },
+        {
+          "chunk_index": 133,
+          "span_ms": [
+            42560,
+            42880
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_5"
+          ]
+        },
+        {
+          "chunk_index": 134,
+          "span_ms": [
+            42880,
+            43200
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_5"
+          ]
+        }
+      ],
+      "unclaimed_audio_reviews": [],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "9dbaede7-63e2-4771-8c1d-a1c5f040dc7d/viewer/index.html"
+    },
+    {
+      "number": 19,
+      "sample_id": "7ca359b4-2199-4d34-acc2-804755c70a0d",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          24320,
+          24640
+        ],
+        [
+          36160,
+          36480
+        ],
+        [
+          36480,
+          36800
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "assistant",
+          "text": "嗯哦哦，",
+          "span_ms": [
+            36830.0,
+            40230.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "可乘",
+          "span_ms": [
+            41330.0,
+            41965.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "7ca359b4-2199-4d34-acc2-804755c70a0d/viewer/index.html"
+    },
+    {
+      "number": 20,
+      "sample_id": "4098b53b-330d-4a49-9701-1fd022619956",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          13440,
+          13760
+        ],
+        [
+          13760,
+          14080
+        ],
+        [
+          27520,
+          27840
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "user",
+          "text": "对，",
+          "span_ms": [
+            15221.0,
+            15726.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯，",
+          "span_ms": [
+            27201.0,
+            27756.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [
+        {
+          "span_ms": [
+            13440,
+            14080
+          ],
+          "task_id": "audio_presence/13440-14080",
+          "label": "non_speech",
+          "resolved_by_human": false
+        }
+      ],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "4098b53b-330d-4a49-9701-1fd022619956/viewer/index.html"
+    },
+    {
+      "number": 21,
+      "sample_id": "a77d9f07-7706-4660-a7bd-edbdf60dd93c",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          5440,
+          5760
+        ],
+        [
+          5760,
+          6080
+        ],
+        [
+          22400,
+          22720
+        ],
+        [
+          22720,
+          23040
+        ],
+        [
+          26560,
+          26880
+        ]
+      ],
+      "feedback_events": [],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [
+        {
+          "span_ms": [
+            22720,
+            23040
+          ],
+          "task_id": "audio_presence/22720-23040",
+          "label": "non_speech",
+          "resolved_by_human": false
+        }
+      ],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "a77d9f07-7706-4660-a7bd-edbdf60dd93c/viewer/index.html"
+    },
+    {
+      "number": 22,
+      "sample_id": "de2c739e-68d1-4f6b-b3d5-f7c3944176ae",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          3840,
+          4160
+        ],
+        [
+          7680,
+          8000
+        ],
+        [
+          8640,
+          8960
+        ],
+        [
+          15360,
+          15680
+        ],
+        [
+          21440,
+          21760
+        ],
+        [
+          27200,
+          27520
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "assistant",
+          "text": "对，",
+          "span_ms": [
+            4160.0,
+            4635.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "嗯，",
+          "span_ms": [
+            8000.0,
+            8240.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "对",
+          "span_ms": [
+            8359.0,
+            8894.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "啊啊啊",
+          "span_ms": [
+            15289.0,
+            16284.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "对。",
+          "span_ms": [
+            26960.0,
+            27200.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "哦。",
+          "span_ms": [
+            27520.0,
+            27815.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "de2c739e-68d1-4f6b-b3d5-f7c3944176ae/viewer/index.html"
+    },
+    {
+      "number": 23,
+      "sample_id": "edb98570-75ba-4822-9144-740c228d8eb8",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          36800,
+          37120
+        ],
+        [
+          39360,
+          39680
+        ],
+        [
+          41600,
+          41920
+        ],
+        [
+          46720,
+          47040
+        ],
+        [
+          47040,
+          47360
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "user",
+          "text": "嗯，",
+          "span_ms": [
+            24370.0,
+            24610.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "对对，没错，",
+          "span_ms": [
+            39680.0,
+            41435.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "edb98570-75ba-4822-9144-740c228d8eb8/viewer/index.html"
+    },
+    {
+      "number": 24,
+      "sample_id": "9b3e096c-d98d-4c9f-badf-2187aed8b2ed",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          15040,
+          15360
+        ],
+        [
+          20160,
+          20480
+        ],
+        [
+          20480,
+          20800
+        ],
+        [
+          26240,
+          26560
+        ],
+        [
+          26560,
+          26880
+        ],
+        [
+          34880,
+          35200
+        ],
+        [
+          46720,
+          47040
+        ],
+        [
+          53760,
+          54080
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "user",
+          "text": "嗯，",
+          "span_ms": [
+            34640.0,
+            35285.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "啊",
+          "span_ms": [
+            37819.0,
+            38594.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯，",
+          "span_ms": [
+            57561.0,
+            58186.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "对。",
+          "span_ms": [
+            61580.0,
+            61820.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "9b3e096c-d98d-4c9f-badf-2187aed8b2ed/viewer/index.html"
+    },
+    {
+      "number": 25,
+      "sample_id": "8a179a5b-b22c-47a4-8e64-cd88fce87c4e",
+      "status": "quarantined_audio",
+      "failed_checks": [
+        "unclaimed_assistant_audio_resolved"
+      ],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          960,
+          1280
+        ],
+        [
+          14720,
+          15040
+        ],
+        [
+          15040,
+          15360
+        ],
+        [
+          67200,
+          67520
+        ],
+        [
+          79040,
+          79360
+        ],
+        [
+          79680,
+          80000
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "assistant",
+          "text": "嗯嗯，",
+          "span_ms": [
+            1280.0,
+            2255.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "事次表现。",
+          "span_ms": [
+            31270.0,
+            32170.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "对我",
+          "span_ms": [
+            32270.0,
+            32925.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "是是是。",
+          "span_ms": [
+            44750.0,
+            45510.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "对",
+          "span_ms": [
+            46250.0,
+            47085.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "对",
+          "span_ms": [
+            52380.0,
+            53095.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [
+        {
+          "span_ms": [
+            14720,
+            15360
+          ],
+          "task_id": "audio_presence/14720-15360",
+          "label": "uncertain",
+          "resolved_by_human": false
+        }
+      ],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "8a179a5b-b22c-47a4-8e64-cd88fce87c4e/viewer/index.html"
+    },
+    {
+      "number": 26,
+      "sample_id": "ab3cf9d3-727d-40eb-9c4d-123f069981d3",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [],
+      "feedback_events": [],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "ab3cf9d3-727d-40eb-9c4d-123f069981d3/viewer/index.html"
+    },
+    {
+      "number": 27,
+      "sample_id": "cc0d0aec-c6b9-49f4-a8cc-fe000b85ea6c",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          2880,
+          3200
+        ],
+        [
+          8320,
+          8640
+        ],
+        [
+          8640,
+          8960
+        ],
+        [
+          24320,
+          24640
+        ],
+        [
+          30080,
+          30400
+        ],
+        [
+          30400,
+          30720
+        ],
+        [
+          39680,
+          40000
+        ],
+        [
+          40320,
+          40640
+        ],
+        [
+          40640,
+          40960
+        ],
+        [
+          41600,
+          41920
+        ],
+        [
+          42240,
+          42560
+        ],
+        [
+          45760,
+          46080
+        ],
+        [
+          50880,
+          51200
+        ],
+        [
+          51200,
+          51520
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "assistant",
+          "text": "对我也是这么觉得。",
+          "span_ms": [
+            9010.0,
+            10470.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "没错，",
+          "span_ms": [
+            40960.0,
+            41420.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "没错。",
+          "span_ms": [
+            45579.0,
+            46079.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "cc0d0aec-c6b9-49f4-a8cc-fe000b85ea6c/viewer/index.html"
+    },
+    {
+      "number": 28,
+      "sample_id": "3aaba9e9-a1f5-4666-a221-9b5a11f54867",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          30400,
+          30720
+        ]
+      ],
+      "feedback_events": [],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "3aaba9e9-a1f5-4666-a221-9b5a11f54867/viewer/index.html"
+    },
+    {
+      "number": 29,
+      "sample_id": "aaaf3bb5-e6b1-4e62-bfe9-459d224fbe54",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          2560,
+          2880
+        ],
+        [
+          24320,
+          24640
+        ],
+        [
+          30720,
+          31040
+        ],
+        [
+          31040,
+          31360
+        ],
+        [
+          38720,
+          39040
+        ],
+        [
+          46400,
+          46720
+        ],
+        [
+          48000,
+          48320
+        ],
+        [
+          48320,
+          48640
+        ],
+        [
+          57280,
+          57600
+        ],
+        [
+          57600,
+          57920
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "user",
+          "text": "嗯，",
+          "span_ms": [
+            14010.0,
+            14825.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "对呀，",
+          "span_ms": [
+            23770.0,
+            24310.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "对啊？",
+          "span_ms": [
+            31610.0,
+            32130.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "嗯，",
+          "span_ms": [
+            39040.0,
+            39585.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "对啊，",
+          "span_ms": [
+            46720.0,
+            47300.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [
+        {
+          "span_ms": [
+            2560,
+            2880
+          ],
+          "task_id": "audio_presence/2560-2880",
+          "label": "non_speech",
+          "resolved_by_human": false
+        },
+        {
+          "span_ms": [
+            48000,
+            48320
+          ],
+          "task_id": "audio_presence/48000-48320",
+          "label": "non_speech",
+          "resolved_by_human": false
+        }
+      ],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "aaaf3bb5-e6b1-4e62-bfe9-459d224fbe54/viewer/index.html"
+    },
+    {
+      "number": 30,
+      "sample_id": "f72a29c1-476d-491c-ba00-f128cd481094",
+      "status": "skipped_missing_transcript",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [],
+      "feedback_events": [
+        {
+          "role": "user",
+          "text": null,
+          "span_ms": [
+            31580.0,
+            31600.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "ok",
+          "span_ms": [
+            56210.0,
+            56750.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "是的",
+          "span_ms": [
+            63290.0,
+            63610.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "嗯，",
+          "span_ms": [
+            78720.0,
+            79195.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "很崩溃。",
+          "span_ms": [
+            114590.0,
+            115350.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "ok",
+          "span_ms": [
+            142060.0,
+            142500.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "没错，",
+          "span_ms": [
+            167030.0,
+            167815.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "哦，",
+          "span_ms": [
+            186880.0,
+            187120.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "对呀",
+          "span_ms": [
+            193470.0,
+            193870.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "对啊",
+          "span_ms": [
+            203510.0,
+            204140.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯",
+          "span_ms": [
+            206240.0,
+            206795.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "对啊，",
+          "span_ms": [
+            229440.0,
+            230225.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯也是",
+          "span_ms": [
+            256130.0,
+            257025.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯哼",
+          "span_ms": [
+            283420.0,
+            283840.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [
+        {
+          "chunk_index": 98,
+          "span_ms": [
+            31360,
+            31680
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_4"
+          ]
+        }
+      ],
+      "unclaimed_audio_reviews": [],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "f72a29c1-476d-491c-ba00-f128cd481094/viewer/index.html"
+    },
+    {
+      "number": 31,
+      "sample_id": "6674f5cc-56dc-4d60-babd-1f9c2e525bdf",
+      "status": "skipped_missing_transcript",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [],
+      "feedback_events": [
+        {
+          "role": "assistant",
+          "text": "嗯嗯，",
+          "span_ms": [
+            50270.0,
+            50965.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [
+        {
+          "reason": "assistant_speech_without_transcript",
+          "span_ms": [
+            0,
+            320
+          ],
+          "task_id": "audio_presence/0-320",
+          "evidence": "audio_presence_speech_outside_transcribed_output"
+        }
+      ],
+      "unclaimed_audio_reviews": [],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "6674f5cc-56dc-4d60-babd-1f9c2e525bdf/viewer/index.html"
+    },
+    {
+      "number": 32,
+      "sample_id": "e5f58ef3-1b95-408a-8534-e938ae14dc0b",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          12480,
+          12800
+        ],
+        [
+          13440,
+          13760
+        ],
+        [
+          23680,
+          24000
+        ],
+        [
+          27840,
+          28160
+        ],
+        [
+          28160,
+          28480
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "assistant",
+          "text": "嗯",
+          "span_ms": [
+            12800.0,
+            13325.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "嗯，",
+          "span_ms": [
+            24000.0,
+            24485.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯哼",
+          "span_ms": [
+            34251.0,
+            34981.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯，",
+          "span_ms": [
+            42481.0,
+            42721.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "那好",
+          "span_ms": [
+            44461.0,
+            45266.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯。",
+          "span_ms": [
+            49481.0,
+            49746.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "e5f58ef3-1b95-408a-8534-e938ae14dc0b/viewer/index.html"
+    },
+    {
+      "number": 33,
+      "sample_id": "910ddac7-1c57-4c7b-a7bf-61f65641ac61",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [],
+      "feedback_events": [
+        {
+          "role": "user",
+          "text": "嗯",
+          "span_ms": [
+            43529.0,
+            44014.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯，",
+          "span_ms": [
+            47249.0,
+            47784.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯",
+          "span_ms": [
+            55470.0,
+            56035.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯。",
+          "span_ms": [
+            61800.0,
+            62105.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "910ddac7-1c57-4c7b-a7bf-61f65641ac61/viewer/index.html"
+    },
+    {
+      "number": 34,
+      "sample_id": "8a9330b8-5d81-474e-b581-bddb3e23301c",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          6720,
+          7040
+        ],
+        [
+          7040,
+          7360
+        ],
+        [
+          17280,
+          17600
+        ]
+      ],
+      "feedback_events": [],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [
+        {
+          "span_ms": [
+            6720,
+            7360
+          ],
+          "task_id": "audio_presence/6720-7360",
+          "label": "non_speech",
+          "resolved_by_human": false
+        }
+      ],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "8a9330b8-5d81-474e-b581-bddb3e23301c/viewer/index.html"
+    },
+    {
+      "number": 35,
+      "sample_id": "32392ed1-2812-4810-97c3-8a77c47350ee",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          36800,
+          37120
+        ],
+        [
+          67840,
+          68160
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "assistant",
+          "text": "嗯嗯，",
+          "span_ms": [
+            37120.0,
+            37825.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "嗯",
+          "span_ms": [
+            63660.0,
+            63975.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "32392ed1-2812-4810-97c3-8a77c47350ee/viewer/index.html"
+    },
+    {
+      "number": 36,
+      "sample_id": "57224e9a-5d8a-4828-bd0d-bb21cf036bc4",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          12480,
+          12800
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "user",
+          "text": "嗯",
+          "span_ms": [
+            14420.0,
+            14965.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯。",
+          "span_ms": [
+            32320.0,
+            32635.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "57224e9a-5d8a-4828-bd0d-bb21cf036bc4/viewer/index.html"
+    },
+    {
+      "number": 37,
+      "sample_id": "85fb00df-91f5-4f2a-9606-9e2f3454c57f",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          20160,
+          20480
+        ],
+        [
+          20480,
+          20800
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "user",
+          "text": "嗯",
+          "span_ms": [
+            2010.0,
+            2625.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯，",
+          "span_ms": [
+            8080.0,
+            8695.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "是。",
+          "span_ms": [
+            20800.0,
+            21040.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "85fb00df-91f5-4f2a-9606-9e2f3454c57f/viewer/index.html"
+    },
+    {
+      "number": 38,
+      "sample_id": "4408cbc4-7c93-4565-92c6-52fc9411f863",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          17280,
+          17600
+        ],
+        [
+          34880,
+          35200
+        ],
+        [
+          35200,
+          35520
+        ],
+        [
+          44480,
+          44800
+        ],
+        [
+          57280,
+          57600
+        ],
+        [
+          64960,
+          65280
+        ],
+        [
+          65280,
+          65600
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "assistant",
+          "text": "对",
+          "span_ms": [
+            35520.0,
+            36025.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "嗯，对。",
+          "span_ms": [
+            65600.0,
+            66365.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [
+        {
+          "span_ms": [
+            64960,
+            65600
+          ],
+          "task_id": "audio_presence/64960-65600",
+          "label": "non_speech",
+          "resolved_by_human": false
+        }
+      ],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "4408cbc4-7c93-4565-92c6-52fc9411f863/viewer/index.html"
+    },
+    {
+      "number": 39,
+      "sample_id": "509e96c0-a826-4314-ad67-7c0b913eacf4",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          18560,
+          18880
+        ],
+        [
+          18880,
+          19200
+        ]
+      ],
+      "feedback_events": [],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "509e96c0-a826-4314-ad67-7c0b913eacf4/viewer/index.html"
+    },
+    {
+      "number": 40,
+      "sample_id": "1611f055-2686-4d68-bb92-e52e8c4488cd",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          8320,
+          8640
+        ],
+        [
+          17920,
+          18240
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "user",
+          "text": "哦，",
+          "span_ms": [
+            17870.0,
+            18380.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯",
+          "span_ms": [
+            20499.0,
+            21004.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯嗯",
+          "span_ms": [
+            25320.0,
+            25935.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "1611f055-2686-4d68-bb92-e52e8c4488cd/viewer/index.html"
+    },
+    {
+      "number": 41,
+      "sample_id": "baa8d3b9-1ae8-448a-ac38-a1fcb0c98633",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          2560,
+          2880
+        ],
+        [
+          2880,
+          3200
+        ],
+        [
+          6080,
+          6400
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "assistant",
+          "text": "对",
+          "span_ms": [
+            3200.0,
+            3675.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "baa8d3b9-1ae8-448a-ac38-a1fcb0c98633/viewer/index.html"
+    },
+    {
+      "number": 42,
+      "sample_id": "4b0cc592-6e2d-4a3b-9090-bde68cf6435e",
+      "status": "validation_failed",
+      "failed_checks": [
+        "synthetic_record_structure",
+        "unclaimed_assistant_audio_resolved",
+        "all_control_decisions_resolved"
+      ],
+      "unresolved_blocks": [
+        {
+          "view": "same_time",
+          "chunk_index": 323,
+          "span_ms": [
+            103360,
+            103680
+          ],
+          "floor_owner": "assistant",
+          "floor_reason": "same_speaker_continuation",
+          "user_turn_state": "holding"
+        },
+        {
+          "view": "same_time",
+          "chunk_index": 324,
+          "span_ms": [
+            103680,
+            104000
+          ],
+          "floor_owner": "assistant",
+          "floor_reason": "same_speaker_continuation",
+          "user_turn_state": "holding"
+        },
+        {
+          "view": "same_time",
+          "chunk_index": 325,
+          "span_ms": [
+            104000,
+            104320
+          ],
+          "floor_owner": "assistant",
+          "floor_reason": "same_speaker_continuation",
+          "user_turn_state": "holding"
+        }
+      ],
+      "assistant_energy_outside_annotation": [
+        [
+          31680,
+          32000
+        ],
+        [
+          34880,
+          35200
+        ],
+        [
+          38720,
+          39040
+        ],
+        [
+          56320,
+          56640
+        ],
+        [
+          96640,
+          96960
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "assistant",
+          "text": "飞",
+          "span_ms": [
+            18880.0,
+            19705.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "嗯嗯嗯",
+          "span_ms": [
+            32000.0,
+            32585.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "嗯哼",
+          "span_ms": [
+            35330.0,
+            35965.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "对",
+          "span_ms": [
+            46060.0,
+            46625.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "嗯嗯，都",
+          "span_ms": [
+            92160.0,
+            93545.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯，但是",
+          "span_ms": [
+            114040.0,
+            115015.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯嗯，嗯",
+          "span_ms": [
+            145480.0,
+            146405.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "waitout.",
+          "span_ms": [
+            150660.0,
+            151385.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [
+        {
+          "span_ms": [
+            56320,
+            56640
+          ],
+          "task_id": "audio_presence/56320-56640",
+          "label": "uncertain",
+          "resolved_by_human": false
+        }
+      ],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "4b0cc592-6e2d-4a3b-9090-bde68cf6435e/viewer/index.html",
+      "diagnosis": {
+        "sample_id": "4b0cc592-6e2d-4a3b-9090-bde68cf6435e",
+        "number": 42,
+        "span_ms": [
+          103360,
+          104320
+        ],
+        "kind": "silent_words_block_pause_compaction",
+        "user_and_assistant_pcm_zero": true,
+        "protected_words": [
+          {
+            "text": "为",
+            "span_ms": [
+              103420,
+              103660
+            ]
+          },
+          {
+            "text": "高",
+            "span_ms": [
+              103820,
+              104060
+            ]
+          }
+        ],
+        "explanation": "103.36–104.32 秒的三个块两轨均全零，属于助手自己的停顿；但源转写中“为”“高”的完整词时间都落在这里。直接裁剪会将整词时间压成零，触发文字保留保护，三个块未定、整条未导出。",
+        "next_fix": "这是词时间投影问题，应为静音中的源文字建立显式保留与定位规则，并验证文字完整性；不能删除文字、伪造发声或把三个块填成 wait。无需重新定义 token。",
+        "frozen_output_changed": false
+      }
+    },
+    {
+      "number": 43,
+      "sample_id": "f81970d7-684b-4eee-89db-47dafc31fb7d",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          40640,
+          40960
+        ],
+        [
+          40960,
+          41280
+        ],
+        [
+          41920,
+          42240
+        ],
+        [
+          44160,
+          44480
+        ],
+        [
+          44480,
+          44800
+        ],
+        [
+          56640,
+          56960
+        ],
+        [
+          56960,
+          57280
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "user",
+          "text": "嗯嗯，",
+          "span_ms": [
+            7690.0,
+            8070.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯",
+          "span_ms": [
+            11590.0,
+            12085.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯，",
+          "span_ms": [
+            18070.0,
+            18310.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "特别好，什么都好。",
+          "span_ms": [
+            18790.0,
+            20130.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯，",
+          "span_ms": [
+            21230.0,
+            21470.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "对",
+          "span_ms": [
+            21970.0,
+            22525.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯嗯，",
+          "span_ms": [
+            26380.0,
+            26880.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "对，",
+          "span_ms": [
+            30480.0,
+            30720.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "嗯，",
+          "span_ms": [
+            32320.0,
+            32615.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "对",
+          "span_ms": [
+            41280.0,
+            41520.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "哎对，很多的波节，",
+          "span_ms": [
+            44800.0,
+            46405.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯嗯嗯",
+          "span_ms": [
+            60610.0,
+            61775.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "对嗯。",
+          "span_ms": [
+            67010.0,
+            69055.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [
+        {
+          "span_ms": [
+            56640,
+            57280
+          ],
+          "task_id": "audio_presence/56640-57280",
+          "label": "non_speech",
+          "resolved_by_human": false
+        }
+      ],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "f81970d7-684b-4eee-89db-47dafc31fb7d/viewer/index.html"
+    },
+    {
+      "number": 44,
+      "sample_id": "a4597f4d-1fc1-4dcf-a70f-d5ad4fc0b2eb",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [],
+      "feedback_events": [
+        {
+          "role": "user",
+          "text": "是啊，",
+          "span_ms": [
+            15770.0,
+            16470.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "hi",
+          "span_ms": [
+            22250.0,
+            22655.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "对。",
+          "span_ms": [
+            28270.0,
+            28515.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "a4597f4d-1fc1-4dcf-a70f-d5ad4fc0b2eb/viewer/index.html"
+    },
+    {
+      "number": 45,
+      "sample_id": "129b7d1b-4367-4f7b-b45a-efe32fc58789",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          18240,
+          18560
+        ],
+        [
+          18560,
+          18880
+        ]
+      ],
+      "feedback_events": [],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "129b7d1b-4367-4f7b-b45a-efe32fc58789/viewer/index.html"
+    },
+    {
+      "number": 46,
+      "sample_id": "51b31cd7-eca6-4aff-b7f6-e2a29aac52e8",
+      "status": "skipped_missing_transcript",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [],
+      "feedback_events": [
+        {
+          "role": "user",
+          "text": "嗯，",
+          "span_ms": [
+            2710.0,
+            3355.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯",
+          "span_ms": [
+            42940.0,
+            43180.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [
+        {
+          "chunk_index": 45,
+          "span_ms": [
+            14400,
+            14720
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_4"
+          ]
+        },
+        {
+          "chunk_index": 46,
+          "span_ms": [
+            14720,
+            15040
+          ],
+          "reason": "assistant_speech_without_transcript",
+          "event_ids": [
+            "s0_segment_4"
+          ]
+        }
+      ],
+      "unclaimed_audio_reviews": [],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "51b31cd7-eca6-4aff-b7f6-e2a29aac52e8/viewer/index.html"
+    },
+    {
+      "number": 47,
+      "sample_id": "8444a9e8-6808-4a54-8dbd-da8a2d0e317c",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          33920,
+          34240
+        ],
+        [
+          38080,
+          38400
+        ],
+        [
+          49920,
+          50240
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "user",
+          "text": "是",
+          "span_ms": [
+            2069.0,
+            2584.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "是",
+          "span_ms": [
+            13190.0,
+            13875.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "呀，",
+          "span_ms": [
+            17550.0,
+            17790.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "没对",
+          "span_ms": [
+            38510.0,
+            38870.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "iwantyeah,行。",
+          "span_ms": [
+            50270.0,
+            51455.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "8444a9e8-6808-4a54-8dbd-da8a2d0e317c/viewer/index.html"
+    },
+    {
+      "number": 48,
+      "sample_id": "3313641a-52eb-4d16-9cac-128a9be08275",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [],
+      "feedback_events": [
+        {
+          "role": "user",
+          "text": "嗯",
+          "span_ms": [
+            53251.0,
+            53786.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯。",
+          "span_ms": [
+            66931.0,
+            67196.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "3313641a-52eb-4d16-9cac-128a9be08275/viewer/index.html"
+    },
+    {
+      "number": 49,
+      "sample_id": "8c6fda32-a4e1-4b53-8de9-d2cdcc6f9245",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          50560,
+          50880
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "user",
+          "text": "嗯，",
+          "span_ms": [
+            29589.0,
+            30074.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯。",
+          "span_ms": [
+            67071.0,
+            67336.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "8c6fda32-a4e1-4b53-8de9-d2cdcc6f9245/viewer/index.html"
+    },
+    {
+      "number": 50,
+      "sample_id": "84325d3d-4fb6-4713-a71b-2252c66f5242",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          14400,
+          14720
+        ],
+        [
+          20480,
+          20800
+        ],
+        [
+          31040,
+          31360
+        ],
+        [
+          32000,
+          32320
+        ],
+        [
+          45760,
+          46080
+        ],
+        [
+          46080,
+          46400
+        ],
+        [
+          48000,
+          48320
+        ],
+        [
+          50560,
+          50880
+        ],
+        [
+          51200,
+          51520
+        ],
+        [
+          55360,
+          55680
+        ],
+        [
+          55680,
+          56000
+        ],
+        [
+          64640,
+          64960
+        ],
+        [
+          64960,
+          65280
+        ],
+        [
+          67520,
+          67840
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "user",
+          "text": "哇，",
+          "span_ms": [
+            130.0,
+            370.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "对",
+          "span_ms": [
+            10990.0,
+            11525.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "哦，",
+          "span_ms": [
+            13590.0,
+            13830.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "对，",
+          "span_ms": [
+            14720.0,
+            14960.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "那",
+          "span_ms": [
+            15680.0,
+            15920.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "嗯，",
+          "span_ms": [
+            32320.0,
+            32845.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯，",
+          "span_ms": [
+            47839.0,
+            48504.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [
+        {
+          "span_ms": [
+            20480,
+            20800
+          ],
+          "task_id": "audio_presence/20480-20800",
+          "label": "non_speech",
+          "resolved_by_human": false
+        },
+        {
+          "span_ms": [
+            45760,
+            46080
+          ],
+          "task_id": "audio_presence/45760-46080",
+          "label": "non_speech",
+          "resolved_by_human": false
+        }
+      ],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "84325d3d-4fb6-4713-a71b-2252c66f5242/viewer/index.html"
+    },
+    {
+      "number": 51,
+      "sample_id": "26a76f57-d7db-46f5-b6bb-e376506373fc",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          9920,
+          10240
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "assistant",
+          "text": "对",
+          "span_ms": [
+            10270.0,
+            10510.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "26a76f57-d7db-46f5-b6bb-e376506373fc/viewer/index.html"
+    },
+    {
+      "number": 52,
+      "sample_id": "edb33cdd-58e4-44ac-ab19-159ce5f1c87e",
+      "status": "needs_review",
+      "failed_checks": [
+        "synthetic_record_structure",
+        "unclaimed_assistant_audio_resolved",
+        "all_control_decisions_resolved"
+      ],
+      "unresolved_blocks": [
+        {
+          "view": "same_time",
+          "chunk_index": 359,
+          "span_ms": [
+            114880,
+            115200
+          ],
+          "floor_owner": "user",
+          "floor_reason": "interrupt",
+          "user_turn_state": "finished"
+        }
+      ],
+      "assistant_energy_outside_annotation": [
+        [
+          10880,
+          11200
+        ],
+        [
+          11200,
+          11520
+        ],
+        [
+          32640,
+          32960
+        ],
+        [
+          32960,
+          33280
+        ],
+        [
+          42240,
+          42560
+        ],
+        [
+          71680,
+          72000
+        ],
+        [
+          72640,
+          72960
+        ],
+        [
+          73600,
+          73920
+        ],
+        [
+          78080,
+          78400
+        ],
+        [
+          86720,
+          87040
+        ],
+        [
+          99840,
+          100160
+        ],
+        [
+          100160,
+          100480
+        ],
+        [
+          117440,
+          117760
+        ],
+        [
+          148160,
+          148480
+        ],
+        [
+          148480,
+          148800
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "user",
+          "text": "哇哦",
+          "span_ms": [
+            10969.0,
+            12094.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "对，又",
+          "span_ms": [
+            25680.0,
+            26320.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "行吧行吧。",
+          "span_ms": [
+            40759.0,
+            41539.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯，",
+          "span_ms": [
+            41879.0,
+            42624.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "对，",
+          "span_ms": [
+            72000.0,
+            72240.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "是",
+          "span_ms": [
+            73020.0,
+            73525.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "哦，",
+          "span_ms": [
+            86550.0,
+            86790.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "蛮厉害的啊",
+          "span_ms": [
+            88880.0,
+            90055.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "啊，",
+          "span_ms": [
+            112730.0,
+            112970.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [
+        {
+          "span_ms": [
+            10880,
+            11520
+          ],
+          "task_id": "audio_presence/10880-11520",
+          "label": "non_speech",
+          "resolved_by_human": false
+        },
+        {
+          "span_ms": [
+            42240,
+            42560
+          ],
+          "task_id": "audio_presence/42240-42560",
+          "label": "uncertain",
+          "resolved_by_human": false
+        },
+        {
+          "span_ms": [
+            99840,
+            100480
+          ],
+          "task_id": "audio_presence/99840-100480",
+          "label": "non_speech",
+          "resolved_by_human": false
+        }
+      ],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "edb33cdd-58e4-44ac-ab19-159ce5f1c87e/viewer/index.html",
+      "diagnosis": {
+        "sample_id": "edb33cdd-58e4-44ac-ab19-159ce5f1c87e",
+        "number": 52,
+        "span_ms": [
+          114880,
+          115200
+        ],
+        "kind": "conflicting_continuation_override",
+        "causal_pause_label": "holding",
+        "offline_continuation_label": "finished",
+        "silence_label": "assistant_holding",
+        "observed_floor_owner": "user",
+        "user_and_assistant_pcm_zero": true,
+        "following_user_signal_span_ms": [
+          115200,
+          115520
+        ],
+        "explanation": "User 打断后仍在同一句表达中。停顿模型给出 holding，但离线续说模型将其覆盖为 finished；静音模型又判为 assistant_holding，与 User 话权冲突。该块未定，整条未导出。",
+        "next_fix": "按已有话权和同句续说证据约束离线模型覆盖，优先保留有效的 User 持话判断；不需要新增 token 定义。",
+        "frozen_output_changed": false
+      }
+    },
+    {
+      "number": 53,
+      "sample_id": "77d152fb-911e-482c-ac82-97e9dbd6ee31",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          4160,
+          4480
+        ],
+        [
+          21760,
+          22080
+        ],
+        [
+          31360,
+          31680
+        ],
+        [
+          36160,
+          36480
+        ],
+        [
+          36480,
+          36800
+        ],
+        [
+          52480,
+          52800
+        ],
+        [
+          64000,
+          64320
+        ],
+        [
+          67520,
+          67840
+        ],
+        [
+          67840,
+          68160
+        ],
+        [
+          68480,
+          68800
+        ],
+        [
+          77440,
+          77760
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "user",
+          "text": "嗯，哼",
+          "span_ms": [
+            12320.0,
+            12985.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "非常不要脸。",
+          "span_ms": [
+            21240.0,
+            22860.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "对，",
+          "span_ms": [
+            31680.0,
+            32175.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯哼对",
+          "span_ms": [
+            47350.0,
+            49350.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "原译错误",
+          "span_ms": [
+            53350.0,
+            54425.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "哦，",
+          "span_ms": [
+            59910.0,
+            60415.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "对对，没错，",
+          "span_ms": [
+            61670.0,
+            63070.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "这样",
+          "span_ms": [
+            64320.0,
+            64640.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "对我知道啊。",
+          "span_ms": [
+            68230.0,
+            69665.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "对。",
+          "span_ms": [
+            77760.0,
+            77995.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [
+        {
+          "span_ms": [
+            4160,
+            4480
+          ],
+          "task_id": "audio_presence/4160-4480",
+          "label": "non_speech",
+          "resolved_by_human": false
+        },
+        {
+          "span_ms": [
+            36480,
+            36800
+          ],
+          "task_id": "audio_presence/36480-36800",
+          "label": "non_speech",
+          "resolved_by_human": false
+        },
+        {
+          "span_ms": [
+            67840,
+            68160
+          ],
+          "task_id": "audio_presence/67840-68160",
+          "label": "non_speech",
+          "resolved_by_human": false
+        }
+      ],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "77d152fb-911e-482c-ac82-97e9dbd6ee31/viewer/index.html"
+    },
+    {
+      "number": 54,
+      "sample_id": "21bcfd06-d46e-4bcf-bcd3-0242309d7aa0",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          38720,
+          39040
+        ],
+        [
+          39040,
+          39360
+        ],
+        [
+          42240,
+          42560
+        ],
+        [
+          47680,
+          48000
+        ],
+        [
+          63680,
+          64000
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "user",
+          "text": "嗯嗯，",
+          "span_ms": [
+            8010.0,
+            9110.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "想回去学校。",
+          "span_ms": [
+            12520.0,
+            13595.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯，",
+          "span_ms": [
+            19460.0,
+            19975.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "嗯嗯，",
+          "span_ms": [
+            39370.0,
+            42065.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "嗯哦",
+          "span_ms": [
+            64000.0,
+            65160.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [
+        {
+          "span_ms": [
+            47680,
+            48000
+          ],
+          "task_id": "audio_presence/47680-48000",
+          "label": "non_speech",
+          "resolved_by_human": false
+        }
+      ],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "21bcfd06-d46e-4bcf-bcd3-0242309d7aa0/viewer/index.html"
+    },
+    {
+      "number": 55,
+      "sample_id": "578dd80d-8c15-450c-b9eb-2315fef9aa15",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          0,
+          320
+        ],
+        [
+          86080,
+          86400
+        ],
+        [
+          86400,
+          86720
+        ]
+      ],
+      "feedback_events": [],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [
+        {
+          "span_ms": [
+            86080,
+            86400
+          ],
+          "task_id": "audio_presence/86080-86400",
+          "label": "non_speech",
+          "resolved_by_human": false
+        }
+      ],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "578dd80d-8c15-450c-b9eb-2315fef9aa15/viewer/index.html"
+    },
+    {
+      "number": 56,
+      "sample_id": "a04613dd-8ac6-4f79-a3c4-44312b5b250b",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          23360,
+          23680
+        ],
+        [
+          23680,
+          24000
+        ],
+        [
+          28480,
+          28800
+        ],
+        [
+          34240,
+          34560
+        ],
+        [
+          42880,
+          43200
+        ],
+        [
+          43200,
+          43520
+        ],
+        [
+          46720,
+          47040
+        ],
+        [
+          49920,
+          50240
+        ],
+        [
+          59200,
+          59520
+        ],
+        [
+          76480,
+          76800
+        ],
+        [
+          76800,
+          77120
+        ],
+        [
+          92160,
+          92480
+        ],
+        [
+          92480,
+          92800
+        ],
+        [
+          93120,
+          93440
+        ],
+        [
+          100160,
+          100480
+        ],
+        [
+          100480,
+          100800
+        ],
+        [
+          101120,
+          101440
+        ],
+        [
+          103680,
+          104000
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "user",
+          "text": "嗯，",
+          "span_ms": [
+            1770.0,
+            2355.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "这个也对啊，也可以当收藏什么的。",
+          "span_ms": [
+            5270.0,
+            7570.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯嗯，",
+          "span_ms": [
+            7730.0,
+            10245.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "对，",
+          "span_ms": [
+            20480.0,
+            20720.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "哦，",
+          "span_ms": [
+            28640.0,
+            29020.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "对啊，",
+          "span_ms": [
+            35639.0,
+            36199.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯",
+          "span_ms": [
+            37259.0,
+            37764.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "对啊，",
+          "span_ms": [
+            50480.0,
+            51085.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯",
+          "span_ms": [
+            61799.0,
+            62394.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯嗯嗯嗯嗯嗯",
+          "span_ms": [
+            69360.0,
+            72705.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯那也不错。",
+          "span_ms": [
+            75080.0,
+            76480.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯嗯",
+          "span_ms": [
+            80820.0,
+            82145.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯",
+          "span_ms": [
+            89180.0,
+            89420.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "好走入历史。",
+          "span_ms": [
+            92800.0,
+            94340.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "可以",
+          "span_ms": [
+            100870.0,
+            101405.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "嗯。",
+          "span_ms": [
+            104000.0,
+            104435.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [
+        {
+          "span_ms": [
+            28480,
+            28800
+          ],
+          "task_id": "audio_presence/28480-28800",
+          "label": "non_speech",
+          "resolved_by_human": false
+        },
+        {
+          "span_ms": [
+            100480,
+            100800
+          ],
+          "task_id": "audio_presence/100480-100800",
+          "label": "non_speech",
+          "resolved_by_human": false
+        }
+      ],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "a04613dd-8ac6-4f79-a3c4-44312b5b250b/viewer/index.html"
+    },
+    {
+      "number": 57,
+      "sample_id": "459efc44-0cd4-43cd-b873-3d01eeef1a35",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [],
+      "feedback_events": [],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "459efc44-0cd4-43cd-b873-3d01eeef1a35/viewer/index.html"
+    },
+    {
+      "number": 58,
+      "sample_id": "14ee8ea1-0c34-45a5-8bec-076b4954e8fc",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [],
+      "feedback_events": [],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "14ee8ea1-0c34-45a5-8bec-076b4954e8fc/viewer/index.html"
+    },
+    {
+      "number": 59,
+      "sample_id": "7ca5051b-0aca-4ef8-b4d7-3608934ac30e",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          1600,
+          1920
+        ],
+        [
+          12480,
+          12800
+        ],
+        [
+          12800,
+          13120
+        ],
+        [
+          17920,
+          18240
+        ],
+        [
+          50240,
+          50560
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "assistant",
+          "text": "嗯",
+          "span_ms": [
+            1920.0,
+            2435.0
+          ]
+        },
+        {
+          "role": "assistant",
+          "text": "嗯，",
+          "span_ms": [
+            13120.0,
+            13655.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯",
+          "span_ms": [
+            24100.0,
+            24655.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯，",
+          "span_ms": [
+            26860.0,
+            27395.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯",
+          "span_ms": [
+            30160.0,
+            30695.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯，",
+          "span_ms": [
+            34760.0,
+            35265.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "哦哦哦",
+          "span_ms": [
+            38560.0,
+            39635.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "嗯，",
+          "span_ms": [
+            45880.0,
+            46120.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": null,
+          "span_ms": [
+            48010.0,
+            48770.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "那那。",
+          "span_ms": [
+            52380.0,
+            52920.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "7ca5051b-0aca-4ef8-b4d7-3608934ac30e/viewer/index.html"
+    },
+    {
+      "number": 60,
+      "sample_id": "d9993981-e09d-461f-859e-d0de328b39cf",
+      "status": "complete",
+      "failed_checks": [],
+      "unresolved_blocks": [],
+      "assistant_energy_outside_annotation": [
+        [
+          320,
+          640
+        ],
+        [
+          11200,
+          11520
+        ],
+        [
+          11520,
+          11840
+        ],
+        [
+          22400,
+          22720
+        ]
+      ],
+      "feedback_events": [
+        {
+          "role": "assistant",
+          "text": "嗯，",
+          "span_ms": [
+            12070.0,
+            12310.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "对啊",
+          "span_ms": [
+            63050.0,
+            63470.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "对，",
+          "span_ms": [
+            68129.0,
+            68369.0
+          ]
+        },
+        {
+          "role": "user",
+          "text": "好承受",
+          "span_ms": [
+            70629.0,
+            71604.0
+          ]
+        }
+      ],
+      "audio_text_link_issues": [],
+      "unclaimed_audio_reviews": [
+        {
+          "span_ms": [
+            22400,
+            22720
+          ],
+          "task_id": "audio_presence/22400-22720",
+          "label": "non_speech",
+          "resolved_by_human": false
+        }
+      ],
+      "uncovered_speech_intervals": [],
+      "split_event_coverage_bridges": [],
+      "error": null,
+      "failure_stage": null,
+      "viewer_url": "d9993981-e09d-461f-859e-d0de328b39cf/viewer/index.html"
+    }
+  ]
+}
