@@ -1,0 +1,561 @@
+{
+  "samples": [
+    {
+      "number": 1,
+      "sample_id": "2b22a621-cc86-4b5a-8085-28be2209dbf9",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 2,
+      "sample_id": "3737a899-8c41-4f00-8832-54d1b4894ac1",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 3,
+      "sample_id": "e024538b-3bf0-4505-993d-ef3e40c97abb",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 4,
+      "sample_id": "3bb49f09-2916-481d-9c9d-ba74a13f5bb5",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 5,
+      "sample_id": "00fb9ea9-91bf-4672-8b54-0a03b7986702",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 6,
+      "sample_id": "043baf20-291c-4fa0-af51-82b1e075be7f",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 7,
+      "sample_id": "2ba492e9-0dbd-4cbb-91c8-73656683e5e3",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 8,
+      "sample_id": "2b917f28-85b8-47ca-8cf4-3f675506ffb5",
+      "same_audio_clock": false,
+      "changes": [],
+      "feedback_wait_cuts": [
+        {
+          "reviewed_span_ms": [
+            75520.0,
+            75840.0
+          ],
+          "aligned_time_ms": 75520.0,
+          "removed_ms": 320.0,
+          "review_sha256": "c082a7c2df4b5e1e35d869311c3eb668e3731b11d3bfe39bc2d3efb2bbe24c06",
+          "previous_aligned_span_ms": [
+            75520.0,
+            75840.0
+          ]
+        }
+      ],
+      "before_failed_checks": [
+        "synthetic_record_structure",
+        "unclaimed_assistant_audio_resolved",
+        "all_control_decisions_resolved"
+      ],
+      "after_failed_checks": []
+    },
+    {
+      "number": 9,
+      "sample_id": "5a7bf3b2-f5c1-49a3-8a17-8e253ec488e5",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 10,
+      "sample_id": "71ecf4e8-9be5-428b-8517-9fe0499184fb",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 11,
+      "sample_id": "22942094-f752-4cac-98a6-bf90f82a9a72",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [
+        "unclaimed_assistant_audio_resolved"
+      ],
+      "after_failed_checks": []
+    },
+    {
+      "number": 13,
+      "sample_id": "f5605a1a-6456-4346-87b1-c910f573c653",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 14,
+      "sample_id": "559b9c42-1188-4e0a-bd15-79dea9b22920",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 15,
+      "sample_id": "5c4ffda4-a983-4715-82df-1dab045c6288",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 16,
+      "sample_id": "e6edad71-af0c-45a6-865b-7fb2da0949a0",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 17,
+      "sample_id": "5243a76e-ab47-4d8c-878f-7730574c004c",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 19,
+      "sample_id": "886f9a73-74cd-4ea5-aea6-757b9c4b03da",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 21,
+      "sample_id": "016e6a1e-0b03-435f-ae88-de4f83a616c7",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 22,
+      "sample_id": "24aac2fd-f02a-4d51-a8d9-fab0674c02f1",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 23,
+      "sample_id": "a0315bca-6bb7-45bc-ae94-5fab8b0c51ef",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 24,
+      "sample_id": "9ed01186-39aa-4475-8c01-f29aa40e0a09",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 25,
+      "sample_id": "402dd0d0-5e44-40ee-9ccc-d70b99472e2e",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 26,
+      "sample_id": "73651d4b-16d6-491c-952b-aba03c8ead68",
+      "same_audio_clock": true,
+      "changes": [
+        {
+          "span_ms": [
+            62720,
+            63040
+          ],
+          "before": "<|listen|>",
+          "after": "<|bc|>",
+          "assistant_peak_pcm16": 8704
+        }
+      ],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [
+        "unclaimed_assistant_audio_resolved"
+      ],
+      "after_failed_checks": []
+    },
+    {
+      "number": 27,
+      "sample_id": "48f4713a-f0a3-4ce5-84d0-469fe18e9ae8",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 28,
+      "sample_id": "1c13d2f5-8308-4817-85fe-44e104953782",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 30,
+      "sample_id": "cc996f45-41fc-4976-8536-36236ac26a2a",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 31,
+      "sample_id": "f8ad1928-e46f-49ff-ad7a-c2fa047532cc",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 32,
+      "sample_id": "25865474-8bdc-4bb0-8be9-7c661c6a1530",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 33,
+      "sample_id": "ec0e1ae9-8e31-4b4f-9ffb-318050e58763",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 35,
+      "sample_id": "14812983-29e8-48db-b688-48713361d079",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 37,
+      "sample_id": "7a92a33f-5b77-4611-866c-1a1d2c5d161b",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 39,
+      "sample_id": "d2b8971f-335a-44d3-9ccf-5eca4cb33466",
+      "same_audio_clock": false,
+      "changes": [],
+      "feedback_wait_cuts": [
+        {
+          "reviewed_span_ms": [
+            26880.0,
+            27200.0
+          ],
+          "aligned_time_ms": 26880.0,
+          "removed_ms": 320.0,
+          "review_sha256": "c082a7c2df4b5e1e35d869311c3eb668e3731b11d3bfe39bc2d3efb2bbe24c06",
+          "previous_aligned_span_ms": [
+            26880.0,
+            27200.0
+          ]
+        }
+      ],
+      "before_failed_checks": [
+        "synthetic_record_structure",
+        "all_control_decisions_resolved"
+      ],
+      "after_failed_checks": []
+    },
+    {
+      "number": 40,
+      "sample_id": "73c610fe-f3bb-492f-b232-b713bf046b3d",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 41,
+      "sample_id": "b04726aa-3718-4261-9fe9-1692249124b8",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 42,
+      "sample_id": "0817c515-0463-4162-bfee-8f1b3c46c6b1",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [
+        "unclaimed_assistant_audio_resolved"
+      ],
+      "after_failed_checks": []
+    },
+    {
+      "number": 43,
+      "sample_id": "ba1312fa-80d7-4cef-a47e-a317d5a359a3",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 44,
+      "sample_id": "8f208a10-8595-4c94-bf45-c98d4bef6244",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [
+        "unclaimed_assistant_audio_resolved",
+        "provided_speech_is_covered_by_turns"
+      ],
+      "after_failed_checks": [
+        "provided_speech_is_covered_by_turns"
+      ]
+    },
+    {
+      "number": 45,
+      "sample_id": "bbe072c5-90a2-4e89-b2ce-cadf502d0f5d",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 46,
+      "sample_id": "4afa9f69-5e76-4bc9-899d-f0d2c8ca7f27",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 47,
+      "sample_id": "30c02b2a-27da-4c88-8af0-f0ae650c0427",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 48,
+      "sample_id": "b0e71f65-87e9-4640-b02c-1d7338cd398f",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 49,
+      "sample_id": "9c940301-eb43-4157-bcf9-5b14b4f90c5b",
+      "same_audio_clock": false,
+      "changes": [],
+      "feedback_wait_cuts": [
+        {
+          "reviewed_span_ms": [
+            19840.0,
+            20160.0
+          ],
+          "aligned_time_ms": 19840.0,
+          "removed_ms": 320.0,
+          "review_sha256": "c082a7c2df4b5e1e35d869311c3eb668e3731b11d3bfe39bc2d3efb2bbe24c06",
+          "previous_aligned_span_ms": [
+            19840.0,
+            20160.0
+          ]
+        }
+      ],
+      "before_failed_checks": [
+        "synthetic_record_structure",
+        "all_control_decisions_resolved"
+      ],
+      "after_failed_checks": []
+    },
+    {
+      "number": 52,
+      "sample_id": "23edeb64-a424-4074-95ee-02f41626859b",
+      "same_audio_clock": false,
+      "changes": [],
+      "feedback_wait_cuts": [
+        {
+          "reviewed_span_ms": [
+            64000.0,
+            64640.0
+          ],
+          "aligned_time_ms": 64000.0,
+          "removed_ms": 640.0,
+          "review_sha256": "c082a7c2df4b5e1e35d869311c3eb668e3731b11d3bfe39bc2d3efb2bbe24c06",
+          "previous_aligned_span_ms": [
+            64000.0,
+            64640.0
+          ]
+        }
+      ],
+      "before_failed_checks": [
+        "unclaimed_assistant_audio_resolved"
+      ],
+      "after_failed_checks": []
+    },
+    {
+      "number": 53,
+      "sample_id": "208762b8-90c0-442e-b083-5c74565cdb21",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 54,
+      "sample_id": "fc9ffc51-d1a0-4de8-9c3c-52e8ef1bfec6",
+      "same_audio_clock": false,
+      "changes": [],
+      "feedback_wait_cuts": [
+        {
+          "reviewed_span_ms": [
+            18240.0,
+            18560.0
+          ],
+          "aligned_time_ms": 18240.0,
+          "removed_ms": 320.0,
+          "review_sha256": "c082a7c2df4b5e1e35d869311c3eb668e3731b11d3bfe39bc2d3efb2bbe24c06",
+          "previous_aligned_span_ms": [
+            18240.0,
+            18560.0
+          ]
+        }
+      ],
+      "before_failed_checks": [
+        "synthetic_record_structure",
+        "all_control_decisions_resolved"
+      ],
+      "after_failed_checks": []
+    },
+    {
+      "number": 55,
+      "sample_id": "f94b25a9-d51a-490c-80ed-dae51ae1d5b9",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 56,
+      "sample_id": "f544ac7a-4a6f-4680-9750-e435334ce458",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 58,
+      "sample_id": "1c30dc43-6bcc-48b7-b948-e2d4bbcea003",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 59,
+      "sample_id": "c5890844-2743-4304-a05a-d9c3c998902a",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    },
+    {
+      "number": 60,
+      "sample_id": "74ebd309-8348-4d6a-ae9c-f6d310c79058",
+      "same_audio_clock": true,
+      "changes": [],
+      "feedback_wait_cuts": [],
+      "before_failed_checks": [],
+      "after_failed_checks": []
+    }
+  ],
+  "baseline": "/mnt/tidal-alsh-share3/dataset/wenwen/real_data/outputs/feedback-floor-fix-60-20261126"
+}
